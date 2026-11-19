@@ -346,18 +346,18 @@ export default function App() {
     <div className="min-h-screen bg-white text-[#1E1E1E]">
 
       {/* ========================================================= */}
-      {/* 1. STICKY NAVIGATION BAR                                  */}
+      {/* 1. STICKY NAVIGATION BAR (Generous Padding & Elegance)     */}
       {/* ========================================================= */}
-      <header className="sticky top-0 z-50 bg-[#832244] shadow-md transition-all duration-300">
-        <div className="container-custom flex items-center justify-between py-3.5 px-4 md:px-8">
+      <header className="sticky top-0 z-50 bg-[#832244] shadow-lg transition-all duration-300">
+        <div className="container-custom flex items-center justify-between py-5 md:py-6 px-6 md:px-12">
           
           {/* Brand Logo */}
           <a 
             href="#home" 
             onClick={(e) => { e.preventDefault(); scrollTo('home'); }}
-            className="flex items-center gap-3 group text-decoration-none"
+            className="flex items-center gap-3.5 group text-decoration-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm p-1 transition-transform group-hover:scale-105">
+            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md p-1.5 transition-transform group-hover:scale-105">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path d="M50 18 L68 76 L57 76 L53 62 L41 62 L37 76 L26 76 Z M47 34 L43 53 L51 53 Z" fill="#832244"/>
                 <path d="M42 45 C48 40 56 46 64 42 C67 40 70 36 71 34" stroke="#D49A38" strokeWidth="4" strokeLinecap="round" fill="none"/>
@@ -365,13 +365,13 @@ export default function App() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-white font-bold text-xl leading-none tracking-wider">AKASH</span>
-              <span className="text-white text-[10px] tracking-[0.25em] font-medium opacity-90">PHOTOGRAPHY</span>
+              <span className="font-serif text-white font-bold text-2xl leading-none tracking-wider">AKASH</span>
+              <span className="text-white text-[10px] tracking-[0.28em] font-medium opacity-90 mt-0.5">PHOTOGRAPHY</span>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav Links with spacious gap */}
+          <nav className="hidden md:flex items-center gap-9 lg:gap-11">
             {[
               { id: 'home', label: 'Home' },
               { id: 'about', label: 'About' },
@@ -384,8 +384,8 @@ export default function App() {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className={`text-sm tracking-wide font-medium relative py-1 transition-colors ${
-                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                  className={`text-[15px] tracking-wide font-medium relative py-1.5 transition-colors ${
+                    isActive ? 'text-white font-semibold' : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -397,35 +397,35 @@ export default function App() {
             })}
           </nav>
 
-          {/* Desktop Book Now CTA */}
+          {/* Desktop Book Now CTA with generous button padding */}
           <div className="hidden md:block">
             <button
               onClick={() => scrollTo('contact')}
               className="btn-nav-book"
             >
-              Book Now <ArrowRight size={15} />
+              Book Now <ArrowRight size={16} />
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="md:hidden text-white p-2.5 rounded-xl hover:bg-white/10 transition-colors"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#651833] border-t border-white/10 px-6 py-4 flex flex-col gap-3 animate-fade-in">
+          <div className="md:hidden bg-[#651833] border-t border-white/10 px-6 py-5 flex flex-col gap-3.5 animate-fade-in">
             {['home', 'about', 'services', 'gallery', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item)}
-                className={`text-left capitalize py-2 font-medium text-base ${
-                  activeSection === item ? 'text-white font-bold border-l-2 border-white pl-2' : 'text-white/80'
+                className={`text-left capitalize py-2.5 font-medium text-base ${
+                  activeSection === item ? 'text-white font-bold border-l-2 border-white pl-3' : 'text-white/80'
                 }`}
               >
                 {item}
@@ -433,7 +433,7 @@ export default function App() {
             ))}
             <button
               onClick={() => scrollTo('contact')}
-              className="btn-nav-book w-full justify-center mt-2"
+              className="btn-nav-book w-full justify-center mt-3"
             >
               Book Now →
             </button>
@@ -600,7 +600,7 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
+            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Capture every moment with our professional photography services
             </p>
             <div className="section-accent-line" />
@@ -614,7 +614,7 @@ export default function App() {
                 onClick={() => setSelectedService(service)}
                 className="luxury-service-card group cursor-pointer"
               >
-                <div className="relative h-60 overflow-hidden bg-gray-100">
+                <div className="relative h-64 overflow-hidden bg-gray-100">
                   <img 
                     src={service.image} 
                     onError={onImgFallback}
@@ -622,29 +622,29 @@ export default function App() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-4 py-1.5 rounded-full bg-white/95 text-[#832244] text-xs font-semibold shadow-md backdrop-blur-sm">
+                    <span className="px-5 py-2 rounded-full bg-white/95 text-[#832244] text-xs font-semibold shadow-md backdrop-blur-sm">
                       Click to View Details
                     </span>
                   </div>
                 </div>
 
-                <div className="relative flex justify-center -mt-6 z-10">
-                  <div className="w-12 h-12 rounded-full bg-[#832244] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
+                <div className="relative flex justify-center -mt-7 z-10">
+                  <div className="w-14 h-14 rounded-full bg-[#832244] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
                     {service.icon}
                   </div>
                 </div>
 
-                <div className="p-8 pt-4 pb-8 text-center flex-1 flex flex-col justify-between">
+                <div className="p-8 pt-5 pb-8 text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-[#1E1E1E] text-center group-hover:text-[#832244] transition-colors">
+                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] text-center group-hover:text-[#832244] transition-colors leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#6B7280] text-center mt-2 leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#6B7280] text-center mt-3.5 leading-relaxed">
                       {service.subtitle}
                     </p>
                   </div>
 
-                  <div className="mt-6 flex justify-center">
+                  <div className="mt-8 flex justify-center">
                     <div className="btn-circle-arrow-service">
                       <ArrowRight size={15} />
                     </div>
@@ -677,7 +677,7 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
+            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Explore our beautiful moments captured with love
             </p>
             <div className="section-accent-line" />
@@ -857,14 +857,14 @@ export default function App() {
               Why <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
+            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Because your moments deserve the best
             </p>
             <div className="section-accent-line" />
           </div>
 
           {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-8">
             {features.map((item) => (
               <div 
                 key={item.id}
@@ -872,24 +872,24 @@ export default function App() {
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Large Circular Blush Badge */}
-                  <div className="w-16 h-16 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] border border-[#FADCE2] flex items-center justify-center mx-auto mb-5 transition-transform group-hover:scale-105 shadow-xs text-[#832244]">
+                  <div className="w-18 h-18 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] border border-[#FADCE2] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-105 shadow-xs text-[#832244]">
                     {item.icon}
                   </div>
 
                   {/* Centered Bold Card Title */}
-                  <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-2.5 text-center leading-snug">
+                  <h3 className="font-serif font-bold text-xl text-[#1E1E1E] mb-3.5 text-center leading-snug">
                     {item.title}
                   </h3>
 
                   {/* Centered Descriptive Subtitle */}
-                  <p className="text-xs text-[#6B7280] text-center leading-relaxed max-w-[175px] mx-auto">
+                  <p className="text-sm text-[#6B7280] text-center leading-relaxed max-w-[190px] mx-auto">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
-                <div className="mt-5 pt-3 w-full flex flex-col items-center">
-                  <div className="w-10 h-[1px] bg-[#FCE8EC] mb-3"></div>
+                <div className="mt-7 pt-4 w-full flex flex-col items-center">
+                  <div className="w-12 h-[1px] bg-[#FCE8EC] mb-3.5"></div>
                   <div className="btn-circle-arrow-why">
                     <ArrowRight size={14} />
                   </div>
@@ -917,41 +917,41 @@ export default function App() {
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
+            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               What our clients say about us
             </p>
             <div className="section-accent-line" />
           </div>
 
           {/* 3 Testimonials in Responsive Grid Matching Figma */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-9">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {testimonials.map((t, idx) => (
               <div 
                 key={idx}
                 className="luxury-testimonial-card hover-lift"
               >
                 <div>
-                  <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
+                  <div className="font-serif text-[#832244] text-6xl leading-none mb-4 select-none">
                     “
                   </div>
 
-                  <p className="text-[#4B5563] text-sm sm:text-base italic leading-relaxed mb-6">
+                  <p className="text-[#4B5563] text-base sm:text-lg italic leading-relaxed mb-8">
                     {t.quote}
                   </p>
                 </div>
 
-                <div className="border-t border-[#FCE8EC] pt-4 flex items-center justify-between">
+                <div className="border-t border-[#FCE8EC] pt-5 flex items-center justify-between">
                   <div>
-                    <h4 className="font-serif font-bold text-[#832244] text-base">
+                    <h4 className="font-serif font-bold text-[#832244] text-lg">
                       {t.name}
                     </h4>
-                    <div className="flex text-[#E5A83B] text-xs mt-1">
+                    <div className="flex text-[#E5A83B] text-xs mt-1.5 gap-0.5">
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#E5A83B]" />
+                        <Star key={i} size={15} className="fill-[#E5A83B]" />
                       ))}
                     </div>
                   </div>
-                  <div className="w-12 h-12 rounded-full overflow-hidden border border-[#832244]/20 shadow-sm">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#832244]/20 shadow-sm">
                     <img 
                       src={t.avatar} 
                       onError={onImgFallback}
@@ -965,7 +965,7 @@ export default function App() {
           </div>
 
           {/* Carousel Arrows & Dots with generous spacing */}
-          <div className="mt-14 lg:mt-16 flex items-center justify-center gap-6">
+          <div className="mt-18 lg:mt-22 flex items-center justify-center gap-7">
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
               className="btn-carousel-arrow"
@@ -1270,7 +1270,7 @@ export default function App() {
                     )}
 
                     {/* Centered Pill Submit Button Comfortably INSIDE Card */}
-                    <div className="pt-5 pb-1 flex justify-center">
+                    <div className="pt-7 pb-2 flex justify-center">
                       <button
                         type="submit"
                         disabled={formSubmitting}
@@ -1300,17 +1300,17 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 9. FOOTER SECTION                                         */}
+      {/* 9. FOOTER SECTION (Generous Luxury Padding & Spacing)      */}
       {/* ========================================================= */}
-      <footer className="bg-[#832244] text-white pt-16 pb-10 border-t border-[#621430]">
-        <div className="container-custom px-4 md:px-8">
+      <footer className="bg-[#832244] text-white pt-24 lg:pt-28 pb-16 border-t border-[#621430]">
+        <div className="container-custom px-6 md:px-12">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/15">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-16 border-b border-white/20">
             
             {/* Column 1: Monogram & Brand Bio */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-1">
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md">
                   <svg viewBox="0 0 100 100" className="w-full h-full">
                     <path d="M50 18 L68 76 L57 76 L53 62 L41 62 L37 76 L26 76 Z M47 34 L43 53 L51 53 Z" fill="#832244"/>
                     <path d="M42 45 C48 40 56 46 64 42 C67 40 70 36 71 34" stroke="#D49A38" strokeWidth="4" strokeLinecap="round" fill="none"/>
@@ -1318,28 +1318,28 @@ export default function App() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-white font-bold text-lg leading-none tracking-wider">AKASH</span>
-                  <span className="text-white text-[9px] tracking-[0.25em] font-medium opacity-90">PHOTOGRAPHY</span>
+                  <span className="font-serif text-white font-bold text-xl leading-none tracking-wider">AKASH</span>
+                  <span className="text-white text-[10px] tracking-[0.28em] font-medium opacity-90 mt-0.5">PHOTOGRAPHY</span>
                 </div>
               </div>
 
-              <p className="text-white/80 text-sm leading-relaxed">
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                 Capturing your special moments with love and creativity.
               </p>
             </div>
 
             {/* Column 2: Quick Links */}
             <div>
-              <h4 className="font-serif font-bold text-lg text-white mb-4 relative inline-block">
+              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
                 Quick Links
-                <span className="absolute -bottom-1 left-0 w-8 h-[2px] bg-white rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
-              <ul className="space-y-2.5 text-sm text-white/80">
+              <ul className="space-y-3.5 text-sm sm:text-[15px] text-white/80">
                 {['home', 'about', 'gallery', 'services', 'contact'].map((link) => (
                   <li key={link}>
                     <button
                       onClick={() => scrollTo(link)}
-                      className="capitalize hover:text-white hover:translate-x-1 transition-all inline-block"
+                      className="capitalize hover:text-white hover:translate-x-1.5 transition-all inline-block"
                     >
                       {link}
                     </button>
@@ -1350,19 +1350,19 @@ export default function App() {
 
             {/* Column 3: Get In Touch */}
             <div>
-              <h4 className="font-serif font-bold text-lg text-white mb-4 relative inline-block">
+              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
                 Get In Touch
-                <span className="absolute -bottom-1 left-0 w-8 h-[2px] bg-white rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
-              <ul className="space-y-3 text-sm text-white/80">
-                <li className="flex items-center gap-2.5">
-                  <Phone size={16} className="text-white/90 shrink-0" />
+              <ul className="space-y-4 text-sm sm:text-[15px] text-white/80">
+                <li className="flex items-center gap-3">
+                  <Phone size={17} className="text-white/90 shrink-0" />
                   <a href="tel:+911234567890" className="hover:text-white transition-colors">
                     +91 1234567890
                   </a>
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Mail size={16} className="text-white/90 shrink-0" />
+                <li className="flex items-center gap-3">
+                  <Mail size={17} className="text-white/90 shrink-0" />
                   <a href="mailto:info@akashphotography.com" className="hover:text-white transition-colors">
                     info@akashphotography.com
                   </a>
@@ -1372,13 +1372,13 @@ export default function App() {
 
             {/* Column 4: Follow Us */}
             <div>
-              <h4 className="font-serif font-bold text-lg text-white mb-4 relative inline-block">
+              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
                 Follow Us
-                <span className="absolute -bottom-1 left-0 w-8 h-[2px] bg-white rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
               
               {/* Social Icon Pills */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3.5 mt-2">
                 <a 
                   href="https://facebook.com" 
                   target="_blank" 
@@ -1412,7 +1412,7 @@ export default function App() {
           </div>
 
           {/* Copyright Bar */}
-          <div className="pt-8 text-center text-xs text-white/70">
+          <div className="pt-10 text-center text-sm text-white/75">
             <p>© 2025 Akash Photography. All rights reserved.</p>
           </div>
 

@@ -100,17 +100,17 @@ section {
    LAYOUT & CONTAINER
    ========================================================================== */
 .container-custom {
-  max-width: 1240px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 @media (min-width: 768px) {
   .container-custom {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 
@@ -188,15 +188,15 @@ section {
    Provides generous luxury breathing room so sections never feel cramped
    ========================================================================== */
 .section-luxury-spacing {
-  padding-top: 110px;
-  padding-bottom: 110px;
+  padding-top: 130px;
+  padding-bottom: 130px;
   position: relative;
 }
 
 @media (min-width: 1024px) {
   .section-luxury-spacing {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    padding-top: 165px;
+    padding-bottom: 165px;
   }
 }
 
@@ -207,12 +207,12 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 @media (min-width: 1024px) {
   .section-header-block {
-    margin-bottom: 75px;
+    margin-bottom: 100px;
   }
 }
 
@@ -220,21 +220,21 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   color: #832244;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .section-header-flank-line {
-  width: 48px;
+  width: 56px;
   height: 1.5px;
   background-color: rgba(131, 34, 68, 0.35);
   display: inline-block;
 }
 
 .section-header-camera-box {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 6px;
   border: 1px solid #832244;
   display: flex;
@@ -244,10 +244,10 @@ section {
 }
 
 .section-accent-line {
-  width: 56px;
-  height: 2.5px;
+  width: 64px;
+  height: 3px;
   background-color: #832244;
-  margin-top: 14px;
+  margin-top: 22px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 9999px;
@@ -264,15 +264,15 @@ section {
   border-radius: 36px;
   border: 1.5px solid #F6DFE5;
   box-shadow: 0 25px 60px -15px rgba(131, 34, 68, 0.09), 0 10px 30px -10px rgba(0, 0, 0, 0.04);
-  padding: 56px 40px 44px 40px;
+  padding: 60px 44px 50px 44px;
   width: 100%;
-  max-width: 530px;
-  margin-top: 12px;
+  max-width: 540px;
+  margin-top: 16px;
 }
 
 @media (max-width: 640px) {
   .luxury-form-card {
-    padding: 52px 24px 36px 24px;
+    padding: 54px 26px 40px 26px;
     border-radius: 28px;
   }
 }
@@ -282,14 +282,14 @@ section {
   border-radius: 28px;
   border: 1.5px solid #FCE8EC;
   box-shadow: 0 10px 30px rgba(131, 34, 68, 0.05);
-  padding: 38px 24px 32px 24px;
+  padding: 44px 28px 36px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 290px;
+  min-height: 310px;
 }
 
 .luxury-why-card:hover {
@@ -300,16 +300,16 @@ section {
 
 .luxury-testimonial-card {
   background-color: #FFFFFF;
-  border-radius: 30px;
+  border-radius: 32px;
   border: 1.5px solid #FCE8EC;
   box-shadow: 0 12px 35px rgba(131, 34, 68, 0.06);
-  padding: 42px 34px 34px 34px;
+  padding: 48px 38px 38px 38px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 240px;
+  min-height: 260px;
 }
 
 .luxury-testimonial-card:hover {
@@ -409,25 +409,27 @@ section {
 .btn-nav-book {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 24px;
+  gap: 8px;
+  padding: 12px 28px;
   border-radius: 9999px;
   background-color: #FFFFFF;
   color: #832244;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   border: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 .btn-nav-book:hover {
   background-color: #FDF2F4;
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
 }
 .btn-nav-book:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 /* 2. Hero Primary "Explore Services" Button */
