@@ -126,7 +126,7 @@ export default function App() {
   // Track active navigation link on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'services', 'gallery', 'contact'];
+      const sections = ['home', 'about', 'services', 'gallery', 'why-us', 'testimonials', 'contact'];
       const scrollPos = window.scrollY + 140;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -134,7 +134,11 @@ export default function App() {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
+            if (['why-us', 'testimonials'].includes(section)) {
+              setActiveSection('services');
+            } else {
+              setActiveSection(section);
+            }
             break;
           }
         }
@@ -259,37 +263,37 @@ export default function App() {
     }
   ];
 
-  // 5 Why Choose Us features
+  // 5 Why Choose Us features matching Figma copy
   const features = [
     {
       id: 1,
       title: "Professional Experience",
       desc: "Years of expertise in capturing perfect moments.",
-      icon: <Camera size={22} className="text-[#832244]" />
+      icon: <Camera size={24} className="text-[#832244]" />
     },
     {
       id: 2,
       title: "Creative Photography",
       desc: "Unique and creative shots, every time.",
-      icon: <Gem size={22} className="text-[#832244]" />
+      icon: <Gem size={24} className="text-[#832244]" />
     },
     {
       id: 3,
       title: "On-Time Delivery",
       desc: "Your memories, delivered on time.",
-      icon: <Truck size={22} className="text-[#832244]" />
+      icon: <Truck size={24} className="text-[#832244]" />
     },
     {
       id: 4,
       title: "Friendly Support",
       desc: "A dedicated team always here for you.",
-      icon: <Headphones size={22} className="text-[#832244]" />
+      icon: <Headphones size={24} className="text-[#832244]" />
     },
     {
       id: 5,
       title: "Memories That Last",
       desc: "Timeless photos for a lifetime.",
-      icon: <Heart size={22} className="text-[#832244]" />
+      icon: <Heart size={24} className="text-[#832244]" />
     }
   ];
 
@@ -397,7 +401,7 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="home" 
-        className="relative min-h-[620px] lg:min-h-[680px] flex items-center bg-cover bg-center overflow-hidden"
+        className="relative min-h-[640px] lg:min-h-[700px] flex items-center bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${IMAGES.hero})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
@@ -452,7 +456,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 3. ABOUT US SECTION                                       */}
       {/* ========================================================= */}
-      <section id="about" className="py-20 lg:py-28 relative bg-[#FFF7F8] overflow-hidden">
+      <section id="about" className="py-24 lg:py-32 relative bg-[#FFF7F8] overflow-hidden">
         
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
@@ -532,7 +536,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 4. OUR SERVICES SECTION                                    */}
       {/* ========================================================= */}
-      <section id="services" className="py-20 lg:py-28 bg-white relative">
+      <section id="services" className="py-24 lg:py-32 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -548,18 +552,19 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               Capture every moment with our professional photography services
             </p>
+            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
           </div>
 
-          {/* 3x3 Card Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* 3x3 Card Grid with generous padding & gaps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-9">
             {services.map((service) => (
               <div 
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="group bg-white rounded-3xl overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] hover:shadow-[0_18px_35px_-5px_rgba(131,34,68,0.16)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+                className="group bg-white rounded-[26px] overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] hover:shadow-[0_20px_40px_-5px_rgba(131,34,68,0.16)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-2"
               >
                 <div className="relative h-60 overflow-hidden bg-gray-100">
                   <img 
@@ -580,19 +585,19 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="p-6 pt-3 text-center flex-1 flex flex-col justify-between">
+                <div className="p-7 pt-3 text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-[#1E1E1E] group-hover:text-[#832244] transition-colors">
+                    <h3 className="font-serif text-xl font-bold text-[#1E1E1E] text-center group-hover:text-[#832244] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#6B7280] mt-1.5">
+                    <p className="text-sm text-[#6B7280] text-center mt-2">
                       {service.subtitle}
                     </p>
                   </div>
 
-                  <div className="mt-5 flex justify-center">
-                    <div className="w-8 h-8 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:scale-110">
-                      <ArrowRight size={14} />
+                  <div className="mt-6 flex justify-center">
+                    <div className="w-9 h-9 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:scale-110">
+                      <ArrowRight size={15} />
                     </div>
                   </div>
                 </div>
@@ -606,10 +611,10 @@ export default function App() {
       {/* ========================================================= */}
       {/* 5. OUR GALLERY SECTION                                     */}
       {/* ========================================================= */}
-      <section id="gallery" className="py-20 lg:py-28 bg-[#FFF7F8] relative">
+      <section id="gallery" className="py-24 lg:py-32 bg-[#FFF7F8] relative">
         <div className="container-custom px-4 md:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
@@ -622,18 +627,19 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               Explore our beautiful moments captured with love
             </p>
+            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
           </div>
 
           {/* 4-Column Asymmetric Masonry Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Column 1: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[0])}
-              className="group relative h-[450px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
             >
               <img 
                 src={IMAGES.gallery[0].url} 
@@ -647,7 +653,7 @@ export default function App() {
             </div>
 
             {/* Column 2: Two Stacked Images */}
-            <div className="flex flex-col gap-5 h-[450px]">
+            <div className="flex flex-col gap-6 h-[460px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[1])}
                 className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
@@ -682,7 +688,7 @@ export default function App() {
             {/* Column 3: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[3])}
-              className="group relative h-[450px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
             >
               <img 
                 src={IMAGES.gallery[3].url} 
@@ -696,7 +702,7 @@ export default function App() {
             </div>
 
             {/* Column 4: Two Stacked Images */}
-            <div className="flex flex-col gap-5 h-[450px]">
+            <div className="flex flex-col gap-6 h-[460px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[4])}
                 className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
@@ -734,12 +740,13 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 6. WHY CHOOSE US SECTION                                  */}
+      {/* 6. WHY CHOOSE US SECTION (With generous margins & center) */}
       {/* ========================================================= */}
-      <section className="py-20 lg:py-24 bg-white relative">
+      <section id="why-us" className="py-28 lg:py-32 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          {/* Centered Header with Accent Line */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
@@ -748,39 +755,44 @@ export default function App() {
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] text-center">
               Why <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               Because your moments deserve the best
             </p>
+            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
           </div>
 
-          {/* 5 Cards Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7">
             {features.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-2xl p-6 border border-[#FCE8EC] shadow-[0_8px_20px_rgba(131,34,68,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-1.5"
+                className="group bg-white rounded-[26px] p-6 py-8 border border-[#FCE8EC] shadow-[0_10px_30px_rgba(131,34,68,0.05)] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-2"
               >
-                <div>
-                  <div className="w-14 h-14 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] flex items-center justify-center mx-auto mb-5 transition-transform group-hover:scale-110 shadow-sm">
+                <div className="w-full flex flex-col items-center">
+                  {/* Large Circular Blush Badge */}
+                  <div className="w-16 h-16 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110 shadow-sm text-[#832244]">
                     {item.icon}
                   </div>
 
-                  <h3 className="font-serif font-bold text-base text-[#1E1E1E] mb-2 leading-snug">
+                  {/* Centered Bold Card Title */}
+                  <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-3 text-center leading-snug">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs text-[#6B7280] leading-relaxed">
+                  {/* Centered Descriptive Subtitle */}
+                  <p className="text-xs text-[#6B7280] text-center leading-relaxed max-w-[170px] mx-auto">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-5">
-                  <div className="w-7 h-7 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                    <ArrowRight size={13} />
+                {/* Bottom Circular Maroon Button with Arrow */}
+                <div className="mt-7 pt-2 w-full flex justify-center border-t border-[#FDF2F4]">
+                  <div className="w-8 h-8 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                    <ArrowRight size={14} />
                   </div>
                 </div>
               </div>
@@ -791,31 +803,33 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 7. TESTIMONIALS SECTION                                   */}
+      {/* 7. TESTIMONIALS SECTION (With generous spacing & center)  */}
       {/* ========================================================= */}
-      <section className="pt-28 pb-20 bg-[#FFF7F8] relative overflow-hidden">
+      <section id="testimonials" className="py-28 lg:py-32 bg-[#FFF7F8] relative overflow-hidden">
         
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-custom px-4 md:px-8 relative z-10">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
+          {/* Centered Header with Accent Line */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] text-center">
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               What our clients say about us
             </p>
+            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
           </div>
 
-          {/* Testimonials Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Testimonials Cards with generous padding & margins */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-9">
             {testimonials.map((t, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-3xl p-8 shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] border border-[#FCE8EC] flex flex-col justify-between relative hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-[28px] p-8 sm:p-9 shadow-[0_12px_35px_rgba(131,34,68,0.06)] border border-[#FCE8EC] flex flex-col justify-between relative hover:shadow-xl transition-all duration-300"
               >
                 <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
                   “
@@ -836,7 +850,7 @@ export default function App() {
                       ))}
                     </div>
                   </div>
-                  <div className="w-10 h-10 rounded-full overflow-hidden border border-[#832244]/20">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-[#832244]/20 shadow-sm">
                     <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
                   </div>
                 </div>
@@ -844,8 +858,8 @@ export default function App() {
             ))}
           </div>
 
-          {/* Carousel Arrows & Dots */}
-          <div className="mt-14 mb-4 flex items-center justify-center gap-6">
+          {/* Carousel Arrows & Dots with generous spacing */}
+          <div className="mt-16 flex items-center justify-center gap-6">
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
               className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95"
@@ -855,9 +869,9 @@ export default function App() {
             </button>
 
             <div className="flex items-center gap-2">
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 0 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 1 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 2 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 0 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 1 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 2 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
             </div>
 
             <button 
@@ -877,14 +891,14 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="pt-20 pb-28 relative overflow-hidden bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
+        className="py-28 lg:py-32 relative overflow-hidden bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
       >
         <div className="container-custom relative z-10 px-4 md:px-8">
           
-          {/* Robust 3-Column Grid: Column 1 = Camera Lens, Column 2 = Info, Column 3 = Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+          {/* Robust 3-Column Grid: Col 1 = Lens, Col 2 = Info, Col 3 = Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
-            {/* Col 1: Camera Lens Asset (Takes 3 columns on large screens, cleanly separated) */}
+            {/* Col 1: Camera Lens Asset */}
             <div className="hidden xl:flex xl:col-span-3 items-center justify-start select-none pointer-events-none">
               <img 
                 src={IMAGES.cameraLens} 
@@ -893,7 +907,7 @@ export default function App() {
               />
             </div>
 
-            {/* Col 2: Contact Information (4 cols on xl, 5 cols on lg) */}
+            {/* Col 2: Contact Information */}
             <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-center">
               
               {/* Kicker */}
@@ -914,7 +928,7 @@ export default function App() {
               </p>
 
               {/* 3 Contact Pills */}
-              <div className="space-y-3 w-full max-w-[360px]">
+              <div className="space-y-3.5 w-full max-w-[360px]">
                 
                 {/* Call Us */}
                 <a 
@@ -961,7 +975,7 @@ export default function App() {
 
             </div>
 
-            {/* Col 3: White Inquiry Form Card (5 cols on xl, 6 cols on lg) */}
+            {/* Col 3: White Inquiry Form Card */}
             <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
               <div className="relative bg-white rounded-[28px] p-7 sm:p-9 pt-10 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[480px]">
                 
