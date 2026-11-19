@@ -31,6 +31,9 @@ import {
   Youtube
 } from 'lucide-react';
 
+// Reliable fallback image in case user network or ISP throttles third-party CDN
+const FALLBACK_PHOTO = "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85";
+
 // Exact high-resolution photography assets matching Figma prototype themes
 const IMAGES = {
   // Indian wedding couple with golden bokeh fairy lights
@@ -103,6 +106,12 @@ const IMAGES = {
       aspect: "landscape"
     }
   ]
+};
+
+// Safe image error fallback handler
+const onImgFallback = (e) => {
+  e.currentTarget.onerror = null;
+  e.currentTarget.src = FALLBACK_PHOTO;
 };
 
 export default function App() {
@@ -518,6 +527,7 @@ export default function App() {
               <div className="relative z-10 w-64 sm:w-80 h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutMain} 
+                  onError={onImgFallback}
                   alt="Akash Photographer aiming DSLR outdoors" 
                   className="w-full h-full object-cover"
                 />
@@ -526,6 +536,7 @@ export default function App() {
               <div className="absolute z-20 -bottom-4 -left-2 sm:left-4 w-44 sm:w-56 h-44 sm:h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-6 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutInset} 
+                  onError={onImgFallback}
                   alt="Close up of DSLR lens on table" 
                   className="w-full h-full object-cover"
                 />
@@ -572,17 +583,17 @@ export default function App() {
       {/* ========================================================= */}
       {/* 4. OUR SERVICES SECTION                                    */}
       {/* ========================================================= */}
-      <section id="services" className="py-24 lg:py-32 bg-white relative">
-        <div className="container-custom px-4 md:px-8">
+      <section id="services" className="section-luxury-spacing bg-white">
+        <div className="container-custom">
           
           {/* Centered Header with Accent Line */}
-          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
-            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
-              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+          <div className="section-header-block">
+            <div className="section-header-icon-wrap">
+              <span className="section-header-flank-line"></span>
+              <div className="section-header-camera-box">
                 <Camera size={14} />
               </div>
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <span className="section-header-flank-line"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
@@ -592,7 +603,7 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Capture every moment with our professional photography services
             </p>
-            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
+            <div className="section-accent-line" />
           </div>
 
           {/* 3x3 Card Grid with generous padding & gaps */}
@@ -601,17 +612,18 @@ export default function App() {
               <div 
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="luxury-service-card group"
+                className="luxury-service-card group cursor-pointer"
               >
                 <div className="relative h-60 overflow-hidden bg-gray-100">
                   <img 
                     src={service.image} 
+                    onError={onImgFallback}
                     alt={service.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-4 py-1.5 rounded-full bg-white/90 text-[#832244] text-xs font-semibold backdrop-blur-sm">
-                      View Details
+                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="px-4 py-1.5 rounded-full bg-white/95 text-[#832244] text-xs font-semibold shadow-md backdrop-blur-sm">
+                      Click to View Details
                     </span>
                   </div>
                 </div>
@@ -648,17 +660,17 @@ export default function App() {
       {/* ========================================================= */}
       {/* 5. OUR GALLERY SECTION                                     */}
       {/* ========================================================= */}
-      <section id="gallery" className="py-24 lg:py-32 bg-[#FFF7F8] relative">
-        <div className="container-custom px-4 md:px-8">
+      <section id="gallery" className="section-luxury-spacing bg-[#FFF7F8]">
+        <div className="container-custom">
           
           {/* Centered Header with Accent Line */}
-          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
-            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
-              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+          <div className="section-header-block">
+            <div className="section-header-icon-wrap">
+              <span className="section-header-flank-line"></span>
+              <div className="section-header-camera-box">
                 <Camera size={14} />
               </div>
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <span className="section-header-flank-line"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
@@ -668,7 +680,7 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Explore our beautiful moments captured with love
             </p>
-            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
+            <div className="section-accent-line" />
           </div>
 
           {/* 4-Column Asymmetric Masonry Grid */}
@@ -677,16 +689,24 @@ export default function App() {
             {/* Column 1: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[0])}
-              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
             >
               <img 
                 src={IMAGES.gallery[0].url} 
+                onError={onImgFallback}
                 alt={IMAGES.gallery[0].title} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
-                <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[0].category}</span>
-                <h4 className="font-serif text-lg font-bold">{IMAGES.gallery[0].title}</h4>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-between text-white">
+                <div className="flex justify-end">
+                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold text-white tracking-wide border border-white/30">
+                    Click to Open Full View ↗
+                  </span>
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold block mb-1">{IMAGES.gallery[0].category}</span>
+                  <h4 className="font-serif text-lg font-bold leading-snug">{IMAGES.gallery[0].title}</h4>
+                </div>
               </div>
             </div>
 
@@ -694,31 +714,47 @@ export default function App() {
             <div className="flex flex-col gap-6 h-[460px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[1])}
-                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
               >
                 <img 
                   src={IMAGES.gallery[1].url} 
+                  onError={onImgFallback}
                   alt={IMAGES.gallery[1].title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
-                  <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[1].category}</span>
-                  <h4 className="font-serif text-sm font-bold">{IMAGES.gallery[1].title}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between text-white">
+                  <div className="flex justify-end">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold text-white tracking-wide border border-white/30">
+                      Open ↗
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[1].category}</span>
+                    <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[1].title}</h4>
+                  </div>
                 </div>
               </div>
 
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[2])}
-                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
               >
                 <img 
                   src={IMAGES.gallery[2].url} 
+                  onError={onImgFallback}
                   alt={IMAGES.gallery[2].title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
-                  <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[2].category}</span>
-                  <h4 className="font-serif text-sm font-bold">{IMAGES.gallery[2].title}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between text-white">
+                  <div className="flex justify-end">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold text-white tracking-wide border border-white/30">
+                      Open ↗
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[2].category}</span>
+                    <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[2].title}</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -726,16 +762,24 @@ export default function App() {
             {/* Column 3: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[3])}
-              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[460px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
             >
               <img 
                 src={IMAGES.gallery[3].url} 
+                onError={onImgFallback}
                 alt={IMAGES.gallery[3].title} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
-                <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[3].category}</span>
-                <h4 className="font-serif text-lg font-bold">{IMAGES.gallery[3].title}</h4>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-between text-white">
+                <div className="flex justify-end">
+                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold text-white tracking-wide border border-white/30">
+                    Click to Open Full View ↗
+                  </span>
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold block mb-1">{IMAGES.gallery[3].category}</span>
+                  <h4 className="font-serif text-lg font-bold leading-snug">{IMAGES.gallery[3].title}</h4>
+                </div>
               </div>
             </div>
 
@@ -743,31 +787,47 @@ export default function App() {
             <div className="flex flex-col gap-6 h-[460px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[4])}
-                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
               >
                 <img 
                   src={IMAGES.gallery[4].url} 
+                  onError={onImgFallback}
                   alt={IMAGES.gallery[4].title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
-                  <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[4].category}</span>
-                  <h4 className="font-serif text-sm font-bold">{IMAGES.gallery[4].title}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between text-white">
+                  <div className="flex justify-end">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold text-white tracking-wide border border-white/30">
+                      Open ↗
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[4].category}</span>
+                    <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[4].title}</h4>
+                  </div>
                 </div>
               </div>
 
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[5])}
-                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+                className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white hover-lift"
               >
                 <img 
                   src={IMAGES.gallery[5].url} 
+                  onError={onImgFallback}
                   alt={IMAGES.gallery[5].title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end text-white">
-                  <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold">{IMAGES.gallery[5].category}</span>
-                  <h4 className="font-serif text-sm font-bold">{IMAGES.gallery[5].title}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between text-white">
+                  <div className="flex justify-end">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-semibold text-white tracking-wide border border-white/30">
+                      Open ↗
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[5].category}</span>
+                    <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[5].title}</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -780,17 +840,17 @@ export default function App() {
       {/* ========================================================= */}
       {/* 6. WHY CHOOSE US SECTION (Generous Luxury Padding & Cards) */}
       {/* ========================================================= */}
-      <section id="why-us" className="py-28 lg:py-36 bg-white relative">
-        <div className="container-custom px-4 md:px-8">
+      <section id="why-us" className="section-luxury-spacing bg-white">
+        <div className="container-custom">
           
           {/* Centered Header with Accent Line */}
-          <div className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
-            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
-              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+          <div className="section-header-block">
+            <div className="section-header-icon-wrap">
+              <span className="section-header-flank-line"></span>
+              <div className="section-header-camera-box">
                 <Camera size={14} />
               </div>
-              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <span className="section-header-flank-line"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
@@ -800,7 +860,7 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Because your moments deserve the best
             </p>
-            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
+            <div className="section-accent-line" />
           </div>
 
           {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
@@ -844,15 +904,15 @@ export default function App() {
       {/* ========================================================= */}
       {/* 7. TESTIMONIALS SECTION (3 Elegant Cards + Controls)       */}
       {/* ========================================================= */}
-      <section id="testimonials" className="py-28 lg:py-36 bg-[#FFF7F8] relative overflow-hidden">
+      <section id="testimonials" className="section-luxury-spacing bg-[#FFF7F8] overflow-hidden">
         
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
 
-        <div className="container-custom px-4 md:px-8 relative z-10">
+        <div className="container-custom relative z-10">
           
           {/* Centered Header with Accent Line */}
-          <div className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
+          <div className="section-header-block">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
@@ -860,7 +920,7 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               What our clients say about us
             </p>
-            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
+            <div className="section-accent-line" />
           </div>
 
           {/* 3 Testimonials in Responsive Grid Matching Figma */}
@@ -892,7 +952,12 @@ export default function App() {
                     </div>
                   </div>
                   <div className="w-12 h-12 rounded-full overflow-hidden border border-[#832244]/20 shadow-sm">
-                    <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                    <img 
+                      src={t.avatar} 
+                      onError={onImgFallback}
+                      alt={t.name} 
+                      className="w-full h-full object-cover" 
+                    />
                   </div>
                 </div>
               </div>
@@ -937,7 +1002,7 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="py-28 lg:py-32 relative overflow-hidden bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
+        className="section-luxury-spacing bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
       >
         <div className="container-custom relative z-10 px-4 md:px-8">
           
@@ -948,6 +1013,7 @@ export default function App() {
             <div className="hidden xl:flex xl:col-span-3 items-start justify-center select-none pointer-events-none pt-4">
               <img 
                 src={IMAGES.cameraLens} 
+                onError={onImgFallback}
                 alt="DSLR camera lens with red rose petals" 
                 className="w-full max-w-[260px] h-auto max-h-[440px] object-contain drop-shadow-sm"
               />
@@ -1022,7 +1088,7 @@ export default function App() {
             </div>
 
             {/* Col 3: White Inquiry Form Card with Generous Luxury Internal Padding */}
-            <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
+            <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end pt-4 sm:pt-6">
               <div className="luxury-form-card">
                 
                 {/* Centered Floating Pill Badge */}
@@ -1359,27 +1425,31 @@ export default function App() {
       {selectedImage && (
         <div 
           onClick={() => setSelectedImage(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fade-in"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+            className="relative max-w-4xl w-full bg-[#18181B] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col max-h-[92vh]"
           >
             <button
               onClick={() => setSelectedImage(null)}
               className="btn-modal-close"
+              aria-label="Close Preview"
             >
               <X size={20} />
             </button>
-            <img 
-              src={selectedImage.url} 
-              alt={selectedImage.title} 
-              className="w-full max-h-[75vh] object-contain mx-auto"
-            />
-            <div className="p-4 bg-[#1E1E1E] text-white flex justify-between items-center">
+            <div className="flex-1 flex items-center justify-center p-3 sm:p-4 bg-black/50 min-h-[320px]">
+              <img 
+                src={selectedImage.url} 
+                onError={onImgFallback}
+                alt={selectedImage.title} 
+                className="w-full max-h-[70vh] object-contain mx-auto rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="p-4 sm:p-5 bg-[#18181B] border-t border-white/10 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <span className="text-xs text-[#E5A83B] uppercase tracking-wider font-semibold">{selectedImage.category}</span>
-                <h3 className="font-serif text-lg font-bold">{selectedImage.title}</h3>
+                <span className="text-xs text-[#E5A83B] uppercase tracking-wider font-semibold block mb-0.5">{selectedImage.category}</span>
+                <h3 className="font-serif text-lg sm:text-xl font-bold">{selectedImage.title}</h3>
               </div>
               <button
                 onClick={() => { setSelectedImage(null); scrollTo('contact'); }}
@@ -1398,7 +1468,7 @@ export default function App() {
       {selectedService && (
         <div 
           onClick={() => setSelectedService(null)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fade-in"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
@@ -1406,34 +1476,36 @@ export default function App() {
           >
             <button
               onClick={() => setSelectedService(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-[#832244] flex items-center justify-center shadow-md transition-colors"
+              className="btn-modal-close"
+              aria-label="Close Details"
             >
               <X size={18} />
             </button>
-            <div className="h-48 overflow-hidden bg-gray-100">
+            <div className="h-52 overflow-hidden bg-gray-100">
               <img 
                 src={selectedService.image} 
+                onError={onImgFallback}
                 alt={selectedService.title} 
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-6">
+            <div className="p-6 sm:p-8">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-full bg-[#832244] flex items-center justify-center text-white">
+                <div className="w-11 h-11 rounded-full bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-md">
                   {selectedService.icon}
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl font-bold text-[#1E1E1E]">{selectedService.title}</h3>
-                  <p className="text-xs text-[#832244] font-medium">{selectedService.subtitle}</p>
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1E1E1E]">{selectedService.title}</h3>
+                  <p className="text-xs text-[#832244] font-semibold tracking-wide uppercase">{selectedService.subtitle}</p>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-[#595959] mt-4 leading-relaxed">
                 {selectedService.desc}
               </p>
-              <div className="mt-6 flex justify-end gap-3">
+              <div className="mt-7 pt-4 border-t border-[#FCE8EC] flex justify-end gap-3 items-center">
                 <button
                   onClick={() => setSelectedService(null)}
-                  className="px-5 py-2 rounded-full border border-gray-300 text-xs font-semibold text-gray-700 hover:bg-gray-50"
+                  className="px-5 py-2 rounded-full border border-gray-300 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   Close
                 </button>

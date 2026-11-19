@@ -184,6 +184,77 @@ section {
 }
 
 /* ==========================================================================
+   ELEGANT LUXURY SPACING & SECTION ARCHITECTURE
+   Provides generous luxury breathing room so sections never feel cramped
+   ========================================================================== */
+.section-luxury-spacing {
+  padding-top: 110px;
+  padding-bottom: 110px;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .section-luxury-spacing {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+}
+
+.section-header-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 1024px) {
+  .section-header-block {
+    margin-bottom: 75px;
+  }
+}
+
+.section-header-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #832244;
+  margin-bottom: 14px;
+}
+
+.section-header-flank-line {
+  width: 48px;
+  height: 1.5px;
+  background-color: rgba(131, 34, 68, 0.35);
+  display: inline-block;
+}
+
+.section-header-camera-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #832244;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.section-accent-line {
+  width: 56px;
+  height: 2.5px;
+  background-color: #832244;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 9999px;
+  display: block;
+}
+
+/* ==========================================================================
    ELEGANT LUXURY CARDS & PADDING SPECIFICATION
    Ensures spacious internal padding, refined borders & soft luxury shadows
    ========================================================================== */
@@ -193,9 +264,10 @@ section {
   border-radius: 36px;
   border: 1.5px solid #F6DFE5;
   box-shadow: 0 25px 60px -15px rgba(131, 34, 68, 0.09), 0 10px 30px -10px rgba(0, 0, 0, 0.04);
-  padding: 56px 44px 44px 44px;
+  padding: 56px 40px 44px 40px;
   width: 100%;
   max-width: 530px;
+  margin-top: 12px;
 }
 
 @media (max-width: 640px) {
@@ -210,17 +282,18 @@ section {
   border-radius: 28px;
   border: 1.5px solid #FCE8EC;
   box-shadow: 0 10px 30px rgba(131, 34, 68, 0.05);
-  padding: 36px 24px 30px 24px;
+  padding: 38px 24px 32px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 290px;
 }
 
 .luxury-why-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 20px 45px rgba(131, 34, 68, 0.12);
   border-color: #F8D2DB;
 }
@@ -230,12 +303,13 @@ section {
   border-radius: 30px;
   border: 1.5px solid #FCE8EC;
   box-shadow: 0 12px 35px rgba(131, 34, 68, 0.06);
-  padding: 38px 32px 32px 32px;
+  padding: 42px 34px 34px 34px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 240px;
 }
 
 .luxury-testimonial-card:hover {
