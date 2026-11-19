@@ -793,7 +793,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 7. TESTIMONIALS SECTION                                   */}
       {/* ========================================================= */}
-      <section className="pt-24 pb-24 bg-[#FFF7F8] relative overflow-hidden">
+      <section className="pt-28 pb-20 bg-[#FFF7F8] relative overflow-hidden">
         
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
@@ -879,24 +879,22 @@ export default function App() {
         id="contact" 
         className="pt-20 pb-28 relative overflow-hidden bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
       >
-        {/* Seamlessly blended Camera Lens with red rose petals on left */}
-        <div className="hidden lg:block absolute left-0 bottom-0 top-4 w-[280px] xl:w-[350px] pointer-events-none select-none z-0 overflow-hidden">
-          <img 
-            src={IMAGES.cameraLens} 
-            alt="DSLR camera lens with red rose petals" 
-            className="w-full h-full object-cover object-left-bottom"
-            style={{
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%)',
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%)'
-            }}
-          />
-        </div>
-
         <div className="container-custom relative z-10 px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Robust 3-Column Grid: Column 1 = Camera Lens, Column 2 = Info, Column 3 = Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
             
-            {/* Left Column: Contact Information */}
-            <div className="lg:col-span-6 xl:col-span-5 lg:pl-12 xl:pl-28">
+            {/* Col 1: Camera Lens Asset (Takes 3 columns on large screens, cleanly separated) */}
+            <div className="hidden xl:flex xl:col-span-3 items-center justify-start select-none pointer-events-none">
+              <img 
+                src={IMAGES.cameraLens} 
+                alt="DSLR camera lens with red rose petals" 
+                className="w-full max-w-[280px] h-auto object-contain drop-shadow-sm"
+              />
+            </div>
+
+            {/* Col 2: Contact Information (4 cols on xl, 5 cols on lg) */}
+            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-center">
               
               {/* Kicker */}
               <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
@@ -905,18 +903,18 @@ export default function App() {
               </div>
 
               {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1E1E1E] leading-[1.15] mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1E1E] leading-[1.18] mb-3">
                 Book Your<br />
                 <span className="text-[#832244]">Photography Session</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-8 max-w-sm">
+              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-6 max-w-sm">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
               {/* 3 Contact Pills */}
-              <div className="space-y-3.5 max-w-[340px]">
+              <div className="space-y-3 w-full max-w-[360px]">
                 
                 {/* Call Us */}
                 <a 
@@ -963,9 +961,9 @@ export default function App() {
 
             </div>
 
-            {/* Right Column: White Inquiry Form Card */}
-            <div className="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end">
-              <div className="relative bg-white rounded-[32px] p-7 sm:p-10 pt-10 sm:pt-11 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[530px]">
+            {/* Col 3: White Inquiry Form Card (5 cols on xl, 6 cols on lg) */}
+            <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative bg-white rounded-[28px] p-7 sm:p-9 pt-10 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[480px]">
                 
                 {/* Centered Floating Pill Badge */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap z-20">
@@ -994,7 +992,7 @@ export default function App() {
                   <form onSubmit={handleFormSubmit} className="space-y-3.5">
                     
                     {/* Row 1: Name & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="relative">
                         <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1023,7 +1021,7 @@ export default function App() {
                     </div>
 
                     {/* Row 2: Phone & WhatsApp */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="relative">
                         <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1051,7 +1049,7 @@ export default function App() {
                     </div>
 
                     {/* Row 3: Event Date & Event Type */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="relative">
                         <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1120,7 +1118,7 @@ export default function App() {
                       />
                     </div>
 
-                    {/* Centered Pill Submit Button INSIDE card */}
+                    {/* Centered Pill Submit Button INSIDE Card */}
                     <div className="pt-3 pb-1 flex justify-center">
                       <button
                         type="submit"
