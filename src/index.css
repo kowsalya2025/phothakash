@@ -120,12 +120,12 @@ section {
    ========================================================================== */
 .figma-pill-input {
   width: 100%;
-  height: 48px;
+  height: 50px;
   border-radius: 9999px;
-  border: 1px solid #F0D5DC;
+  border: 1.5px solid #F2D8DF;
   background-color: #FFFFFF;
-  padding-left: 44px;
-  padding-right: 16px;
+  padding-left: 46px;
+  padding-right: 18px;
   font-size: 13.5px;
   color: #1E1E1E;
   outline: none;
@@ -134,7 +134,7 @@ section {
 }
 
 .figma-pill-input:hover {
-  border-color: #E2B6C2;
+  border-color: #DE9FB0;
 }
 
 .figma-pill-input:focus {
@@ -144,31 +144,31 @@ section {
 }
 
 .figma-pill-input::placeholder {
-  color: #737373;
+  color: #7A7A7A;
   font-size: 12.5px;
   font-weight: 400;
 }
 
 .figma-textarea {
   width: 100%;
-  border-radius: 22px;
-  border: 1px solid #F0D5DC;
+  border-radius: 24px;
+  border: 1.5px solid #F2D8DF;
   background-color: #FFFFFF;
-  padding-left: 44px;
-  padding-right: 16px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-left: 46px;
+  padding-right: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 13.5px;
   color: #1E1E1E;
   outline: none;
   resize: none;
-  min-height: 85px;
+  min-height: 90px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .figma-textarea:hover {
-  border-color: #E2B6C2;
+  border-color: #DE9FB0;
 }
 
 .figma-textarea:focus {
@@ -178,9 +178,106 @@ section {
 }
 
 .figma-textarea::placeholder {
-  color: #737373;
+  color: #7A7A7A;
   font-size: 12.5px;
   font-weight: 400;
+}
+
+/* ==========================================================================
+   ELEGANT LUXURY CARDS & PADDING SPECIFICATION
+   Ensures spacious internal padding, refined borders & soft luxury shadows
+   ========================================================================== */
+.luxury-form-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 36px;
+  border: 1.5px solid #F6DFE5;
+  box-shadow: 0 25px 60px -15px rgba(131, 34, 68, 0.09), 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+  padding: 56px 44px 44px 44px;
+  width: 100%;
+  max-width: 530px;
+}
+
+@media (max-width: 640px) {
+  .luxury-form-card {
+    padding: 52px 24px 36px 24px;
+    border-radius: 28px;
+  }
+}
+
+.luxury-why-card {
+  background-color: #FFFFFF;
+  border-radius: 32px;
+  border: 1.5px solid #FCE8EC;
+  box-shadow: 0 12px 36px rgba(131, 34, 68, 0.05);
+  padding: 44px 28px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(131, 34, 68, 0.12);
+  border-color: #F8D2DB;
+}
+
+.luxury-testimonial-card {
+  background-color: #FFFFFF;
+  border-radius: 34px;
+  border: 1.5px solid #FCE8EC;
+  box-shadow: 0 14px 40px rgba(131, 34, 68, 0.06);
+  padding: 44px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(131, 34, 68, 0.12);
+  border-color: #F8D2DB;
+}
+
+.luxury-service-card {
+  background-color: #FFFFFF;
+  border-radius: 32px;
+  border: 1.5px solid #FCE8EC;
+  box-shadow: 0 12px 35px rgba(131, 34, 68, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.luxury-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(131, 34, 68, 0.13);
+  border-color: #F8D2DB;
+}
+
+.luxury-contact-pill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border-radius: 24px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #F8E2E7;
+  box-shadow: 0 6px 20px rgba(131, 34, 68, 0.04);
+  transition: all 0.25s ease;
+}
+
+.luxury-contact-pill:hover {
+  box-shadow: 0 10px 25px rgba(131, 34, 68, 0.08);
+  border-color: #F0C4CF;
 }
 
 /* ==========================================================================

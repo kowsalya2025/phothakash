@@ -600,7 +600,7 @@ export default function App() {
               <div 
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="group bg-white rounded-[26px] overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] hover:shadow-[0_20px_40px_-5px_rgba(131,34,68,0.16)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-2"
+                className="luxury-service-card group"
               >
                 <div className="relative h-60 overflow-hidden bg-gray-100">
                   <img 
@@ -621,12 +621,12 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="p-7 pt-3 text-center flex-1 flex flex-col justify-between">
+                <div className="p-8 pt-4 pb-8 text-center flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-serif text-xl font-bold text-[#1E1E1E] text-center group-hover:text-[#832244] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#6B7280] text-center mt-2">
+                    <p className="text-sm text-[#6B7280] text-center mt-2 leading-relaxed">
                       {service.subtitle}
                     </p>
                   </div>
@@ -806,7 +806,7 @@ export default function App() {
             {features.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-[28px] p-6 py-9 border border-[#FCE8EC] shadow-[0_10px_30px_rgba(131,34,68,0.05)] hover:shadow-[0_20px_45px_rgba(131,34,68,0.12)] transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-2 min-h-[310px]"
+                className="luxury-why-card hover-lift group"
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Large Circular Blush Badge */}
@@ -866,7 +866,7 @@ export default function App() {
             {testimonials.map((t, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-[28px] p-8 sm:p-9 shadow-[0_12px_35px_rgba(131,34,68,0.06)] hover:shadow-[0_20px_45px_rgba(131,34,68,0.12)] border border-[#FCE8EC] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-1.5"
+                className="luxury-testimonial-card hover-lift"
               >
                 <div>
                   <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
@@ -972,44 +972,44 @@ export default function App() {
               </p>
 
               {/* 3 Contact Pills */}
-              <div className="space-y-3.5 w-full max-w-[360px]">
+              <div className="space-y-4 w-full max-w-[380px]">
                 
                 {/* Call Us */}
                 <a 
                   href="tel:+911234567890" 
-                  className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
+                  className="luxury-contact-pill"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Phone size={18} />
+                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Phone size={19} />
                   </div>
                   <div>
-                    <div className="text-[11px] text-[#737373]">Call Us</div>
-                    <div className="text-sm font-bold text-[#1E1E1E]">+91 1234567890</div>
+                    <div className="text-[11px] text-[#737373] tracking-wide uppercase font-semibold">Call Us</div>
+                    <div className="text-base font-bold text-[#1E1E1E]">+91 1234567890</div>
                   </div>
                 </a>
 
                 {/* Email Us */}
                 <a 
                   href="mailto:hello@akashphotography.com" 
-                  className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
+                  className="luxury-contact-pill"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Mail size={18} />
+                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Mail size={19} />
                   </div>
                   <div>
-                    <div className="text-[11px] text-[#737373]">Email Us</div>
-                    <div className="text-sm font-bold text-[#1E1E1E]">hello@akashphotography.com</div>
+                    <div className="text-[11px] text-[#737373] tracking-wide uppercase font-semibold">Email Us</div>
+                    <div className="text-base font-bold text-[#1E1E1E]">hello@akashphotography.com</div>
                   </div>
                 </a>
 
                 {/* Visit Us */}
-                <div className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100">
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <MapPin size={18} />
+                <div className="luxury-contact-pill">
+                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <MapPin size={19} />
                   </div>
                   <div>
-                    <div className="text-[11px] text-[#737373]">Visit Us</div>
-                    <div className="text-xs sm:text-sm font-bold text-[#1E1E1E] leading-snug">
+                    <div className="text-[11px] text-[#737373] tracking-wide uppercase font-semibold">Visit Us</div>
+                    <div className="text-sm font-bold text-[#1E1E1E] leading-snug">
                       123 Creative Street, Chennai, Tamil Nadu – 600001
                     </div>
                   </div>
@@ -1019,29 +1019,29 @@ export default function App() {
 
             </div>
 
-            {/* Col 3: White Inquiry Form Card */}
+            {/* Col 3: White Inquiry Form Card with Generous Luxury Internal Padding */}
             <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative bg-white rounded-[28px] p-7 sm:p-9 pt-11 pb-8 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[480px]">
+              <div className="luxury-form-card">
                 
                 {/* Centered Floating Pill Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap z-20">
+                <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 px-7 py-2.5 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-lg inline-flex items-center gap-2 whitespace-nowrap z-20 tracking-wide border border-white/20">
                   <Camera size={14} /> Photography Inquiry Form
                 </div>
 
                 {formSubmitted ? (
                   <div className="py-10 text-center animate-fade-in">
-                    <div className="w-14 h-14 rounded-full bg-[#832244]/10 text-[#832244] flex items-center justify-center mx-auto mb-3">
-                      <CheckCircle size={32} />
+                    <div className="w-16 h-16 rounded-full bg-[#832244]/10 text-[#832244] flex items-center justify-center mx-auto mb-4 shadow-xs">
+                      <CheckCircle size={36} />
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-[#1E1E1E] mb-2">
+                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] mb-2.5">
                       Inquiry Sent Successfully!
                     </h3>
                     {inquiryResult?.inquiry_id && (
-                      <div className="inline-block px-3 py-1 bg-[#FDF2F4] text-[#832244] text-[11px] font-semibold rounded-full mb-3 border border-[#FCE8EC]">
+                      <div className="inline-block px-4 py-1.5 bg-[#FDF2F4] text-[#832244] text-xs font-bold rounded-full mb-3 border border-[#FCE8EC]">
                         Reference ID: #AKP-{inquiryResult.inquiry_id}
                       </div>
                     )}
-                    <p className="text-xs text-[#6B7280] max-w-sm mx-auto mb-5">
+                    <p className="text-sm text-[#6B7280] max-w-sm mx-auto mb-6 leading-relaxed">
                       Thank you for contacting Akash Photography! Our team will review your event details and reach out within 24 hours.
                     </p>
                     <button
@@ -1059,16 +1059,16 @@ export default function App() {
                           message: ''
                         });
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#832244] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#9B2B52] transition-colors"
+                      className="px-8 py-3 rounded-full bg-[#832244] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#9B2B52] transition-colors shadow-sm"
                     >
                       Send Another Inquiry
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-3.5">
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
                     
                     {/* Row 1: Name & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
                         <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1097,7 +1097,7 @@ export default function App() {
                     </div>
 
                     {/* Row 2: Phone & WhatsApp */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
                         <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1125,7 +1125,7 @@ export default function App() {
                     </div>
 
                     {/* Row 3: Event Date & Event Type */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
                         <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
@@ -1182,7 +1182,7 @@ export default function App() {
 
                     {/* Row 5: Special Requirements Textarea */}
                     <div className="relative">
-                      <Edit3 size={15} className="absolute left-4 top-3.5 text-[#832244] pointer-events-none" />
+                      <Edit3 size={15} className="absolute left-4 top-4 text-[#832244] pointer-events-none" />
                       <textarea
                         rows={3}
                         required
@@ -1201,12 +1201,12 @@ export default function App() {
                       </div>
                     )}
 
-                    {/* Centered Pill Submit Button INSIDE Card */}
-                    <div className="pt-4 pb-1 flex justify-center">
+                    {/* Centered Pill Submit Button Comfortably INSIDE Card */}
+                    <div className="pt-5 pb-1 flex justify-center">
                       <button
                         type="submit"
                         disabled={formSubmitting}
-                        className={`px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all ${
+                        className={`w-full sm:w-auto px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all ${
                           formSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
                         }`}
                       >
