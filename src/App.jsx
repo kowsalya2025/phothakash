@@ -392,7 +392,7 @@ export default function App() {
           <div className="hidden md:block">
             <button
               onClick={() => scrollTo('contact')}
-              className="px-6 py-2.5 rounded-full bg-white text-[#832244] font-semibold text-sm shadow-md hover:bg-[#FDF2F4] transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5"
+              className="btn-nav-book"
             >
               Book Now <ArrowRight size={15} />
             </button>
@@ -424,7 +424,7 @@ export default function App() {
             ))}
             <button
               onClick={() => scrollTo('contact')}
-              className="mt-2 w-full py-2.5 rounded-full bg-white text-[#832244] font-semibold text-center text-sm shadow-md"
+              className="btn-nav-book w-full justify-center mt-2"
             >
               Book Now →
             </button>
@@ -471,13 +471,13 @@ export default function App() {
             <div className="flex flex-wrap items-center gap-4">
               <button
                 onClick={() => scrollTo('services')}
-                className="px-8 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                className="btn-hero-primary"
               >
                 Explore Services
               </button>
               <button
                 onClick={() => scrollTo('contact')}
-                className="px-8 py-3.5 rounded-full bg-[#D49A38]/40 hover:bg-[#D49A38]/60 text-white font-semibold text-sm border border-white/80 backdrop-blur-md transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                className="btn-hero-secondary"
               >
                 Book Now
               </button>
@@ -558,7 +558,7 @@ export default function App() {
 
               <button
                 onClick={() => scrollTo('gallery')}
-                className="px-8 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md hover:shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+                className="btn-discover-more"
               >
                 Discover More <ArrowRight size={16} />
               </button>
@@ -633,7 +633,7 @@ export default function App() {
                   </div>
 
                   <div className="mt-6 flex justify-center">
-                    <div className="w-9 h-9 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:scale-110">
+                    <div className="btn-circle-arrow-service">
                       <ArrowRight size={15} />
                     </div>
                   </div>
@@ -830,7 +830,7 @@ export default function App() {
                 {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
                 <div className="mt-5 pt-3 w-full flex flex-col items-center">
                   <div className="w-10 h-[1px] bg-[#FCE8EC] mb-3"></div>
-                  <div className="w-8 h-8 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center group-hover:scale-110 active:scale-95 transition-all shadow-xs cursor-pointer">
+                  <div className="btn-circle-arrow-why">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -903,7 +903,7 @@ export default function App() {
           <div className="mt-14 lg:mt-16 flex items-center justify-center gap-6">
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="btn-carousel-arrow"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
@@ -914,7 +914,7 @@ export default function App() {
                 <button
                   key={idx}
                   onClick={() => setTestimonialIdx(idx)}
-                  className={`h-2.5 rounded-full transition-all cursor-pointer ${testimonialIdx === idx ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/25 hover:bg-[#832244]/50'}`}
+                  className={`carousel-dot ${testimonialIdx === idx ? 'carousel-dot-active' : ''}`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -922,7 +922,7 @@ export default function App() {
 
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="btn-carousel-arrow"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
@@ -1061,7 +1061,7 @@ export default function App() {
                           message: ''
                         });
                       }}
-                      className="px-8 py-3 rounded-full bg-[#832244] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#9B2B52] transition-colors shadow-sm"
+                      className="btn-send-another"
                     >
                       Send Another Inquiry
                     </button>
@@ -1208,9 +1208,7 @@ export default function App() {
                       <button
                         type="submit"
                         disabled={formSubmitting}
-                        className={`w-full sm:w-auto px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all ${
-                          formSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
-                        }`}
+                        className="btn-submit-inquiry"
                       >
                         {formSubmitting ? (
                           <>
@@ -1319,7 +1317,7 @@ export default function App() {
                   href="https://facebook.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white text-[#832244] flex items-center justify-center hover:bg-[#FDF2F4] hover:scale-110 transition-all shadow-md"
+                  className="btn-social-icon"
                   aria-label="Facebook"
                 >
                   <Facebook size={18} />
@@ -1328,7 +1326,7 @@ export default function App() {
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white text-[#832244] flex items-center justify-center hover:bg-[#FDF2F4] hover:scale-110 transition-all shadow-md"
+                  className="btn-social-icon"
                   aria-label="Instagram"
                 >
                   <Instagram size={18} />
@@ -1337,7 +1335,7 @@ export default function App() {
                   href="https://youtube.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="w-10 h-10 rounded-full bg-white text-[#832244] flex items-center justify-center hover:bg-[#FDF2F4] hover:scale-110 transition-all shadow-md"
+                  className="btn-social-icon"
                   aria-label="YouTube"
                 >
                   <Youtube size={18} />
@@ -1369,7 +1367,7 @@ export default function App() {
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-colors"
+              className="btn-modal-close"
             >
               <X size={20} />
             </button>
@@ -1385,7 +1383,7 @@ export default function App() {
               </div>
               <button
                 onClick={() => { setSelectedImage(null); scrollTo('contact'); }}
-                className="px-5 py-2 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-xs font-semibold tracking-wider uppercase text-white"
+                className="btn-modal-book"
               >
                 Inquire For This Style
               </button>
@@ -1446,7 +1444,7 @@ export default function App() {
                     setFormData(prev => ({ ...prev, eventType: svcTitle }));
                     scrollTo('contact');
                   }}
-                  className="px-6 py-2 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-xs font-semibold text-white shadow-md"
+                  className="btn-modal-book"
                 >
                   Book This Service
                 </button>

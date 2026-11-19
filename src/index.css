@@ -325,3 +325,308 @@ section {
 .hover-lift:hover {
   transform: translateY(-8px);
 }
+
+/* ==========================================================================
+   BUTTON STYLES (PURE CSS)
+   Exact match for Akash Photography Figma Prototype Buttons
+   ========================================================================== */
+
+/* 1. Navbar "Book Now" Button */
+.btn-nav-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: #832244;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.btn-nav-book:hover {
+  background-color: #FDF2F4;
+  transform: scale(1.05);
+}
+.btn-nav-book:active {
+  transform: scale(0.95);
+}
+
+/* 2. Hero Primary "Explore Services" Button */
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-hero-primary:hover {
+  background-color: #9B2B52;
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+}
+.btn-hero-primary:active {
+  transform: scale(0.95);
+}
+
+/* 3. Hero Secondary "Book Now" Glass Button */
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background-color: rgba(212, 154, 56, 0.4);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-hero-secondary:hover {
+  background-color: rgba(212, 154, 56, 0.6);
+  transform: scale(1.05);
+}
+.btn-hero-secondary:active {
+  transform: scale(0.95);
+}
+
+/* 4. About Us "Discover More →" Button */
+.btn-discover-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-discover-more:hover {
+  background-color: #9B2B52;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(131, 34, 68, 0.25);
+}
+.btn-discover-more:active {
+  transform: scale(0.95);
+}
+
+/* 5. Services Card Arrow Button */
+.btn-circle-arrow-service {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.group:hover .btn-circle-arrow-service,
+.btn-circle-arrow-service:hover {
+  background-color: #9B2B52;
+  transform: scale(1.1);
+}
+
+/* 6. Why Choose Us Card Arrow Button */
+.btn-circle-arrow-why {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+.group:hover .btn-circle-arrow-why,
+.btn-circle-arrow-why:hover {
+  background-color: #9B2B52;
+  transform: scale(1.1);
+}
+.btn-circle-arrow-why:active {
+  transform: scale(0.95);
+}
+
+/* 7. Testimonial Carousel Arrow Buttons (< and >) */
+.btn-carousel-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-carousel-arrow:hover {
+  background-color: #9B2B52;
+  transform: scale(1.05);
+}
+.btn-carousel-arrow:active {
+  transform: scale(0.95);
+}
+
+/* 8. Testimonial Carousel Indicator Dots */
+.carousel-dot {
+  height: 10px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  background-color: rgba(131, 34, 68, 0.25);
+  width: 10px;
+}
+.carousel-dot:hover {
+  background-color: rgba(131, 34, 68, 0.5);
+}
+.carousel-dot-active {
+  width: 32px;
+  background-color: #832244;
+}
+
+/* 9. Inquiry Form Submit Button */
+.btn-submit-inquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 48px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-submit-inquiry:hover:not(:disabled) {
+  background-color: #9B2B52;
+  transform: scale(1.05);
+}
+.btn-submit-inquiry:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.btn-submit-inquiry:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 10. Inquiry Success "Send Another Inquiry" Button */
+.btn-send-another {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-send-another:hover {
+  background-color: #9B2B52;
+}
+
+/* 11. Footer Social Icon Buttons */
+.btn-social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: #832244;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.btn-social-icon:hover {
+  background-color: #FDF2F4;
+  transform: scale(1.1);
+}
+
+/* 12. Modal Close & Action Buttons */
+.btn-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.btn-modal-book {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background-color: #832244;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-modal-book:hover {
+  background-color: #9B2B52;
+}
