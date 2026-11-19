@@ -494,37 +494,40 @@ export default function App() {
 
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* ========================================================= */}
       {/* 3. ABOUT US SECTION                                       */}
       {/* ========================================================= */}
-      <section id="about" className="py-24 lg:py-32 relative bg-[#FFF7F8] overflow-hidden">
+      <section id="about" className="section-luxury-spacing bg-white relative overflow-hidden">
         
+        {/* Soft Decorative Ambient Blurs */}
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none select-none">
-          <Camera size={420} strokeWidth={1} />
+        {/* Realistic DSLR Lens Watermark matching Figma design exactly */}
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[460px] h-[460px] opacity-[0.14] pointer-events-none select-none">
+          <img src="/camera-lens.png" alt="" className="w-full h-full object-contain" />
         </div>
 
-        <div className="container-custom relative z-10 px-4 md:px-8">
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            {/* Left Column: Overlapping tilted cards */}
-            <div className="relative flex justify-center items-center py-6">
+            {/* Left Column: Overlapping tilted cards with artistic accents */}
+            <div className="relative flex justify-center items-center py-8">
               
-              <div className="absolute -top-4 left-6 z-20 flex gap-1 items-end select-none">
-                <span className="w-1 h-5 bg-[#832244] rounded-full transform -rotate-12"></span>
-                <span className="w-1 h-7 bg-[#832244] rounded-full"></span>
-                <span className="w-1 h-5 bg-[#832244] rounded-full transform rotate-12"></span>
+              {/* Organic Blush Backdrop Oval */}
+              <div className="absolute w-[320px] sm:w-[380px] h-[380px] sm:h-[440px] rounded-[50px] bg-[#FDF2F4] border border-[#FADCE2] transform -rotate-6 pointer-events-none" />
+
+              {/* 3 Radiating Maroon Burst Rays */}
+              <div className="absolute -top-2 left-8 sm:left-14 z-20 flex gap-1 items-end select-none pointer-events-none">
+                <span className="w-1.5 h-6 bg-[#832244] rounded-full transform -rotate-15"></span>
+                <span className="w-1.5 h-8 bg-[#832244] rounded-full"></span>
+                <span className="w-1.5 h-6 bg-[#832244] rounded-full transform rotate-15"></span>
               </div>
 
-              <div className="absolute w-80 h-80 rounded-full bg-[#FCE8EC] filter blur-xl" />
-
-              <div className="relative z-10 w-64 sm:w-80 h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-0 transition-transform duration-500">
+              {/* Main Tilted Photo Card */}
+              <div className="relative z-10 w-64 sm:w-80 h-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutMain} 
                   onError={onImgFallback}
@@ -533,6 +536,7 @@ export default function App() {
                 />
               </div>
 
+              {/* Inset Tilted Lens Card */}
               <div className="absolute z-20 -bottom-4 -left-2 sm:left-4 w-44 sm:w-56 h-44 sm:h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-6 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutInset} 
@@ -542,28 +546,33 @@ export default function App() {
                 />
               </div>
 
-              <div className="absolute -bottom-6 right-10 z-20 w-44 h-2 bg-[#832244] rounded-full transform rotate-3 opacity-80" />
+              {/* Elegant Curved Maroon Swoosh Underline */}
+              <div className="absolute -bottom-6 right-6 z-20 pointer-events-none select-none">
+                <svg width="190" height="24" viewBox="0 0 190 24" fill="none">
+                  <path d="M6 18 C60 4, 130 4, 184 18" stroke="#832244" strokeWidth="4" strokeLinecap="round" />
+                </svg>
+              </div>
             </div>
 
             {/* Right Column: Text & CTA */}
-            <div className="lg:pl-6">
+            <div className="lg:pl-8">
               
-              <div className="inline-flex items-center gap-2.5 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-3">
+              <div className="inline-flex items-center gap-2.5 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-4 w-full">
                 <div className="w-6 h-6 rounded-md border border-[#832244] flex items-center justify-center">
                   <Camera size={14} />
                 </div>
                 <span>About Us</span>
-                <span className="w-16 h-[1.5px] bg-[#832244]/40 ml-1"></span>
+                <span className="flex-1 max-w-xs h-[1.5px] bg-gradient-to-r from-[#832244]/40 to-transparent ml-2"></span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-5">
                 Capturing Your<br />
-                <span className="font-script text-[#832244] text-5xl sm:text-6xl font-normal block mt-1">
+                <span className="font-script text-[#832244] text-5xl sm:text-6xl font-normal block mt-1.5">
                   Special Moments
                 </span>
               </h2>
 
-              <p className="text-[#595959] text-base sm:text-lg leading-relaxed mb-8">
+              <p className="text-[#595959] text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
                 “We believe every moment tells a story. With passion, creativity and a keen eye for detail, we turn your cherished moments into timeless memories.”
               </p>
 
