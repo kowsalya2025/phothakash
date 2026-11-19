@@ -7,6 +7,7 @@ import {
   Phone,
   Mail,
   User,
+  Users,
   MessageSquare,
   Sparkles,
   Infinity as InfinityIcon,
@@ -24,29 +25,40 @@ import {
   Menu,
   Send,
   Star,
-  Clock,
+  Edit3,
   Instagram,
   Facebook,
   Youtube
 } from 'lucide-react';
 
-// Authentic, high-resolution photography assets matching Figma design
+// Exact high-resolution photography assets matching Figma prototype themes
 const IMAGES = {
+  // Indian wedding couple with golden bokeh fairy lights
   hero: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1920&q=85",
-  aboutMain: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=800&q=80",
-  aboutInset: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80",
-  contactBg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=85",
+  
+  // Photographer in black shirt aiming DSLR outdoors
+  aboutMain: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=900&q=85",
+  
+  // Close-up of camera on wooden surface
+  aboutInset: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=85",
+  
+  // Clean camera lens asset cropped from Figma design
+  cameraLens: "/camera-lens.png",
+
+  // 9 Photography Services matching Figma cards
   services: {
-    wedding: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80",
-    preWedding: "https://images.unsplash.com/photo-1519225438865-8db6d9532890?auto=format&fit=crop&w=800&q=80",
-    engagement: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
-    haldi: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
-    mehendi: "https://images.unsplash.com/photo-1560932684-5e552e2894e6?auto=format&fit=crop&w=800&q=80",
-    sangeet: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
-    portrait: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-    fashion: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
-    poolParty: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80",
+    wedding: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85",
+    preWedding: "https://images.unsplash.com/photo-1519225438865-8db6d9532890?auto=format&fit=crop&w=800&q=85",
+    engagement: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=85",
+    haldi: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85",
+    mehendi: "https://images.unsplash.com/photo-1560932684-5e552e2894e6?auto=format&fit=crop&w=800&q=85",
+    sangeet: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=85",
+    portrait: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85",
+    fashion: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=85",
+    poolParty: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=85",
   },
+
+  // 4-Column Asymmetric Gallery
   gallery: [
     {
       id: 1,
@@ -58,35 +70,35 @@ const IMAGES = {
     {
       id: 2,
       url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85",
-      title: "Sacred Vows & Warm Blessings",
+      title: "Sacred Vows & Ceremonial Blessings",
       category: "Ceremony Moments",
       aspect: "landscape"
     },
     {
       id: 3,
       url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=85",
-      title: "Poolside Joy & Celebration",
+      title: "Friends Poolside Celebration & Cheers",
       category: "Cocktail Party",
       aspect: "landscape"
     },
     {
       id: 4,
       url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=85",
-      title: "Haldi Splashes & Laughter",
+      title: "Joyous Haldi Splashes & Laughter",
       category: "Haldi Festivities",
       aspect: "portrait-tall"
     },
     {
       id: 5,
       url: "https://images.unsplash.com/photo-1560932684-5e552e2894e6?auto=format&fit=crop&w=900&q=85",
-      title: "Intricate Henna Details",
-      category: "Mehendi Art",
+      title: "Bride Seated in Ornate Red Bridal Attire",
+      category: "Bridal Portrait",
       aspect: "landscape"
     },
     {
       id: 6,
       url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
-      title: "Graceful Twilight Portrait",
+      title: "Graceful Twilight Reception Gown",
       category: "Reception Glamour",
       aspect: "landscape"
     }
@@ -106,7 +118,7 @@ export default function App() {
     phone: '',
     whatsapp: '',
     date: '',
-    eventType: 'Wedding',
+    eventType: '',
     location: '',
     message: ''
   });
@@ -115,7 +127,7 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'services', 'gallery', 'contact'];
-      const scrollPos = window.scrollY + 120;
+      const scrollPos = window.scrollY + 140;
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -149,7 +161,7 @@ export default function App() {
     setFormSubmitted(true);
   };
 
-  // Testimonials matching Figma copy
+  // Testimonials matching Figma verbatim
   const testimonials = [
     {
       name: "Priya Sharma",
@@ -171,7 +183,7 @@ export default function App() {
     }
   ];
 
-  // 9 Services matching Figma design verbatim
+  // 9 Services matching Figma design
   const services = [
     {
       id: 1,
@@ -179,15 +191,15 @@ export default function App() {
       subtitle: "Your special day, our focus",
       icon: <InfinityIcon size={20} className="text-white" />,
       image: IMAGES.services.wedding,
-      desc: "Comprehensive coverage of your special day with dual photographers capturing every candid smile, ritual, and emotional moment in cinema-grade resolution."
+      desc: "Comprehensive cinematic wedding coverage capturing traditional ceremonies, joyful tears, and timeless marital vows in high resolution."
     },
     {
       id: 2,
       title: "Pre-Wedding Photography",
-      subtitle: "Love in Every Frame",
+      subtitle: "Love In Every Frame",
       icon: <Camera size={20} className="text-white" />,
       image: IMAGES.services.preWedding,
-      desc: "Dreamy cinematic pre-wedding shoots at romantic destination locations, capturing genuine chemistry and love story before your big celebration."
+      desc: "Dreamy outdoor portraits with artistic direction and stunning natural landscapes celebrating your personal love story."
     },
     {
       id: 3,
@@ -195,7 +207,7 @@ export default function App() {
       subtitle: "A New Beginning",
       icon: <Gem size={20} className="text-white" />,
       image: IMAGES.services.engagement,
-      desc: "Celebrating the promise of forever with vibrant ring exchange coverage, family portraits, and warm candid expressions."
+      desc: "Capturing the official promise, ring exchange, and heartfelt family blessings in elegant style."
     },
     {
       id: 4,
@@ -203,7 +215,7 @@ export default function App() {
       subtitle: "Tradition in Every Splash",
       icon: <Sparkles size={20} className="text-white" />,
       image: IMAGES.services.haldi,
-      desc: "Golden turmeric showers, spontaneous laughter, and playful water splashes preserved with high-speed color-accurate photography."
+      desc: "Vibrant golden hues, spontaneous laughter, and playful turmeric splashes immortalized in dynamic action shots."
     },
     {
       id: 5,
@@ -211,7 +223,7 @@ export default function App() {
       subtitle: "Art on Your Hands",
       icon: <Heart size={20} className="text-white" />,
       image: IMAGES.services.mehendi,
-      desc: "Macro close-ups and artistic compositions highlighting exquisite henna patterns, bridal ornaments, and soulful singing circles."
+      desc: "Intricate macro photography celebrating artistic henna designs, bridal adornments, and musical festivities."
     },
     {
       id: 6,
@@ -219,7 +231,7 @@ export default function App() {
       subtitle: "Dance, Celebrate, Repeat",
       icon: <Music size={20} className="text-white" />,
       image: IMAGES.services.sangeet,
-      desc: "Electrifying stage performances, synchronized choreography, and royal reception glamour captured under vibrant event lighting."
+      desc: "High-energy stage performances, choreography beats, and royal reception glamour under sparkling chandeliers."
     },
     {
       id: 7,
@@ -227,7 +239,7 @@ export default function App() {
       subtitle: "Timeless Expressions",
       icon: <User size={20} className="text-white" />,
       image: IMAGES.services.portrait,
-      desc: "Fine-art portraiture designed to reflect elegance, personality, and emotion with flattering studio and natural ambient lighting."
+      desc: "Classic and contemporary portraits with studio lighting that highlight authentic emotions and timeless elegance."
     },
     {
       id: 8,
@@ -235,7 +247,7 @@ export default function App() {
       subtitle: "Style in Every Shot",
       icon: <Sparkles size={20} className="text-white" />,
       image: IMAGES.services.fashion,
-      desc: "High-fashion editorial spreads, lookbooks, and modeling portfolios curated with creative direction, sharp styling, and dynamic poses."
+      desc: "Editorial and commercial fashion shoots with creative lighting, professional styling, and dynamic poses."
     },
     {
       id: 9,
@@ -243,11 +255,11 @@ export default function App() {
       subtitle: "Vibes, Shots & Cheers",
       icon: <Wine size={20} className="text-white" />,
       image: IMAGES.services.poolParty,
-      desc: "Lively, candid, and high-energy party moments, tropical toasts, and festive beats captured with effortless flair."
+      desc: "Candid celebratory moments, pool party toasts, and lively party atmospheres captured in crisp vivid detail."
     }
   ];
 
-  // 5 Why Choose Us features matching Figma copy
+  // 5 Why Choose Us features
   const features = [
     {
       id: 1,
@@ -288,7 +300,7 @@ export default function App() {
       {/* 1. STICKY NAVIGATION BAR                                  */}
       {/* ========================================================= */}
       <header className="sticky top-0 z-50 bg-[#832244] shadow-md transition-all duration-300">
-        <div className="container-custom flex items-center justify-between py-3.5 px-4 md:px-8">
+        <div className="container-custom flex items-center justify-between py-3 px-4 md:px-8">
           
           {/* Brand Logo */}
           <a 
@@ -340,7 +352,7 @@ export default function App() {
           <div className="hidden md:block">
             <button
               onClick={() => scrollTo('contact')}
-              className="px-6 py-2.5 rounded-full bg-white text-[#832244] font-semibold text-sm shadow-md hover:bg-[#FDF2F4] transition-all hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-1.5"
+              className="px-6 py-2.5 rounded-full bg-white text-[#832244] font-semibold text-sm shadow-md hover:bg-[#FDF2F4] transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5"
             >
               Book Now <ArrowRight size={15} />
             </button>
@@ -358,7 +370,7 @@ export default function App() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#6a1936] border-t border-white/10 px-6 py-4 flex flex-col gap-3 animate-fade-in">
+          <div className="md:hidden bg-[#651833] border-t border-white/10 px-6 py-4 flex flex-col gap-3 animate-fade-in">
             {['home', 'about', 'services', 'gallery', 'contact'].map((item) => (
               <button
                 key={item}
@@ -385,24 +397,24 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="home" 
-        className="relative min-h-[640px] lg:min-h-[700px] flex items-center bg-cover bg-center overflow-hidden"
+        className="relative min-h-[620px] lg:min-h-[680px] flex items-center bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${IMAGES.hero})` }}
       >
-        {/* Cinematic dark & warm gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
-        <div className="absolute inset-0 bg-[#832244]/20 mix-blend-multiply" />
+        {/* Soft dark gradient on left for high contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
+        <div className="absolute inset-0 bg-[#832244]/15 mix-blend-multiply" />
 
         <div className="container-custom relative z-10 py-20 px-4 md:px-8 text-white">
           <div className="max-w-2xl">
             
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-3 text-white/90 text-xs md:text-sm font-medium tracking-[0.2em] uppercase mb-5">
-              <span className="w-6 md:w-10 h-[1px] bg-white/60"></span>
+              <span className="w-8 h-[1px] bg-white/60"></span>
               <span className="flex items-center gap-1.5">
                 <Heart size={14} className="fill-white/80 text-white/80" />
                 WEDDING PHOTOGRAPHY · PACIFIC NORTHWEST & EVERYWHERE
               </span>
-              <span className="w-6 md:w-10 h-[1px] bg-white/60"></span>
+              <span className="w-8 h-[1px] bg-white/60"></span>
             </div>
 
             {/* H1 Heading */}
@@ -436,7 +448,7 @@ export default function App() {
         </div>
 
         {/* Decorative bottom curve divider */}
-        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* ========================================================= */}
@@ -448,7 +460,7 @@ export default function App() {
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         
-        {/* Subtle camera lens watermark graphic */}
+        {/* Camera lens watermark graphic */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none select-none">
           <Camera size={420} strokeWidth={1} />
         </div>
@@ -458,14 +470,22 @@ export default function App() {
             
             {/* Left Column: Overlapping tilted cards */}
             <div className="relative flex justify-center items-center py-6">
-              {/* Backing decorative glow */}
-              <div className="absolute w-72 h-72 rounded-full bg-[#832244]/10 filter blur-2xl" />
+              
+              {/* Top-left decorative burst dashes */}
+              <div className="absolute -top-4 left-6 z-20 flex gap-1 items-end select-none">
+                <span className="w-1 h-5 bg-[#832244] rounded-full transform -rotate-12"></span>
+                <span className="w-1 h-7 bg-[#832244] rounded-full"></span>
+                <span className="w-1 h-5 bg-[#832244] rounded-full transform rotate-12"></span>
+              </div>
+
+              {/* Organic blush backdrop shape */}
+              <div className="absolute w-80 h-80 rounded-full bg-[#FCE8EC] filter blur-xl" />
 
               {/* Main Card */}
               <div className="relative z-10 w-64 sm:w-80 h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutMain} 
-                  alt="Akash Photographer aiming camera" 
+                  alt="Akash Photographer aiming DSLR outdoors" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -474,35 +494,31 @@ export default function App() {
               <div className="absolute z-20 -bottom-4 -left-2 sm:left-4 w-44 sm:w-56 h-44 sm:h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-6 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutInset} 
-                  alt="Professional DSLR lens detail" 
+                  alt="Close up of DSLR lens on table" 
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Decorative swoosh badge */}
-              <div className="absolute -bottom-6 right-8 z-30 bg-[#832244] text-white p-4 rounded-2xl shadow-xl flex items-center gap-3">
-                <Sparkles size={24} className="text-[#E5A83B]" />
-                <div>
-                  <div className="text-xl font-bold font-serif leading-none">8+ Years</div>
-                  <div className="text-[11px] opacity-90 uppercase tracking-wider">Of Pure Passion</div>
-                </div>
-              </div>
+              {/* Bottom decorative maroon swoosh */}
+              <div className="absolute -bottom-6 right-10 z-20 w-44 h-2 bg-[#832244] rounded-full transform rotate-3 opacity-80" />
             </div>
 
             {/* Right Column: Text & CTA */}
             <div className="lg:pl-6">
               
               {/* Section Eyebrow */}
-              <div className="inline-flex items-center gap-2 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-3">
-                <Camera size={18} />
+              <div className="inline-flex items-center gap-2.5 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-3">
+                <div className="w-6 h-6 rounded-md border border-[#832244] flex items-center justify-center">
+                  <Camera size={14} />
+                </div>
                 <span>About Us</span>
-                <span className="w-12 h-[2px] bg-[#832244]/40 ml-1"></span>
+                <span className="w-16 h-[1.5px] bg-[#832244]/40 ml-1"></span>
               </div>
 
               {/* Section Heading */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-4">
                 Capturing Your<br />
-                <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal block mt-1">
+                <span className="font-script text-[#832244] text-5xl sm:text-6xl font-normal block mt-1">
                   Special Moments
                 </span>
               </h2>
@@ -511,34 +527,6 @@ export default function App() {
               <p className="text-[#595959] text-base sm:text-lg leading-relaxed mb-8">
                 “We believe every moment tells a story. With passion, creativity and a keen eye for detail, we turn your cherished moments into timeless memories.”
               </p>
-
-              {/* Feature Highlights */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-[#832244]/10 flex items-center justify-center text-[#832244]">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-800">Candid & Cinematic</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-[#832244]/10 flex items-center justify-center text-[#832244]">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-800">Destination Coverage</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-[#832244]/10 flex items-center justify-center text-[#832244]">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-800">High-Resolution Edits</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-[#832244]/10 flex items-center justify-center text-[#832244]">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-800">Luxury Photo Albums</span>
-                </div>
-              </div>
 
               {/* Discover More CTA */}
               <button
@@ -563,21 +551,20 @@ export default function App() {
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
-              <div className="w-8 h-8 rounded-lg bg-[#FDF2F4] flex items-center justify-center text-[#832244]">
-                <Camera size={18} />
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+                <Camera size={14} />
               </div>
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
               Capture every moment with our professional photography services
             </p>
-            <div className="w-16 h-[2px] bg-[#832244] mx-auto mt-4 rounded-full" />
           </div>
 
           {/* 3x3 Card Grid */}
@@ -586,16 +573,15 @@ export default function App() {
               <div 
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="group bg-white rounded-[22px] overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.08)] hover:shadow-[0_15px_35px_-5px_rgba(131,34,68,0.18)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+                className="group bg-white rounded-3xl overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] hover:shadow-[0_18px_35px_-5px_rgba(131,34,68,0.16)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-1.5"
               >
                 {/* Photo Top Container */}
-                <div className="relative h-56 overflow-hidden bg-gray-100">
+                <div className="relative h-60 overflow-hidden bg-gray-100">
                   <img 
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                   />
-                  {/* Subtle hover overlay */}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="px-4 py-1.5 rounded-full bg-white/90 text-[#832244] text-xs font-semibold backdrop-blur-sm">
                       View Details
@@ -623,8 +609,8 @@ export default function App() {
 
                   {/* Circular Maroon Arrow Button */}
                   <div className="mt-5 flex justify-center">
-                    <div className="w-9 h-9 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:shadow group-hover:scale-105">
-                      <ArrowRight size={16} />
+                    <div className="w-8 h-8 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:scale-110">
+                      <ArrowRight size={14} />
                     </div>
                   </div>
                 </div>
@@ -644,30 +630,29 @@ export default function App() {
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
-              <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-[#832244] shadow-sm">
-                <Camera size={18} />
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+                <Camera size={14} />
               </div>
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
               Explore our beautiful moments captured with love
             </p>
-            <div className="w-16 h-[2px] bg-[#832244] mx-auto mt-4 rounded-full" />
           </div>
 
-          {/* 4-Column Asymmetric Masonry Grid matching Figma */}
+          {/* 4-Column Asymmetric Masonry Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             
             {/* Column 1: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[0])}
-              className="group relative h-[420px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[450px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
             >
               <img 
                 src={IMAGES.gallery[0].url} 
@@ -681,7 +666,7 @@ export default function App() {
             </div>
 
             {/* Column 2: Two Stacked Images */}
-            <div className="flex flex-col gap-5 h-[420px]">
+            <div className="flex flex-col gap-5 h-[450px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[1])}
                 className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
@@ -716,7 +701,7 @@ export default function App() {
             {/* Column 3: Tall Portrait */}
             <div 
               onClick={() => setSelectedImage(IMAGES.gallery[3])}
-              className="group relative h-[420px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
+              className="group relative h-[450px] rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
             >
               <img 
                 src={IMAGES.gallery[3].url} 
@@ -730,7 +715,7 @@ export default function App() {
             </div>
 
             {/* Column 4: Two Stacked Images */}
-            <div className="flex flex-col gap-5 h-[420px]">
+            <div className="flex flex-col gap-5 h-[450px]">
               <div 
                 onClick={() => setSelectedImage(IMAGES.gallery[4])}
                 className="group relative flex-1 rounded-2xl overflow-hidden shadow-md cursor-pointer border border-white"
@@ -764,16 +749,6 @@ export default function App() {
 
           </div>
 
-          {/* Bottom CTA to View More */}
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => scrollTo('contact')}
-              className="px-8 py-3 rounded-full border-2 border-[#832244] text-[#832244] hover:bg-[#832244] hover:text-white font-semibold text-sm transition-all shadow-sm hover:shadow-md"
-            >
-              Plan Your Photoshoot With Us →
-            </button>
-          </div>
-
         </div>
       </section>
 
@@ -786,21 +761,20 @@ export default function App() {
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
-              <div className="w-8 h-8 rounded-lg bg-[#FDF2F4] flex items-center justify-center text-[#832244]">
-                <Camera size={18} />
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
+              <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
+                <Camera size={14} />
               </div>
-              <span className="w-10 h-[1.5px] bg-[#832244]/30"></span>
+              <span className="w-12 h-[1px] bg-[#832244]/40"></span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Why <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
               Because your moments deserve the best
             </p>
-            <div className="w-16 h-[2px] bg-[#832244] mx-auto mt-4 rounded-full" />
           </div>
 
           {/* 5 Cards Row */}
@@ -808,7 +782,7 @@ export default function App() {
             {features.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-2xl p-6 border border-[#FCE8EC] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-2"
+                className="group bg-white rounded-2xl p-6 border border-[#FCE8EC] shadow-[0_8px_20px_rgba(131,34,68,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-1.5"
               >
                 <div>
                   {/* Circular Blush Badge */}
@@ -816,7 +790,7 @@ export default function App() {
                     {item.icon}
                   </div>
 
-                  <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-2 leading-snug">
+                  <h3 className="font-serif font-bold text-base text-[#1E1E1E] mb-2 leading-snug">
                     {item.title}
                   </h3>
 
@@ -826,9 +800,9 @@ export default function App() {
                 </div>
 
                 {/* Bottom Circular Maroon Button with Arrow */}
-                <div className="mt-6">
-                  <div className="w-8 h-8 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
-                    <ArrowRight size={14} />
+                <div className="mt-5">
+                  <div className="w-7 h-7 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                    <ArrowRight size={13} />
                   </div>
                 </div>
               </div>
@@ -841,7 +815,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 7. TESTIMONIALS SECTION                                   */}
       {/* ========================================================= */}
-      <section className="py-20 lg:py-24 bg-[#FFF7F8] relative overflow-hidden">
+      <section className="pt-24 pb-20 bg-[#FFF7F8] relative overflow-hidden">
         
         {/* Soft Background Blur Circles */}
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
@@ -855,13 +829,12 @@ export default function App() {
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base mt-2">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2">
               What our clients say about us
             </p>
-            <div className="w-16 h-[2px] bg-[#832244] mx-auto mt-4 rounded-full" />
           </div>
 
-          {/* Testimonials Carousel Cards */}
+          {/* Testimonials Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, idx) => (
               <div 
@@ -874,7 +847,7 @@ export default function App() {
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-[#4B5563] text-base italic leading-relaxed mb-6">
+                <p className="text-[#4B5563] text-sm sm:text-base italic leading-relaxed mb-6">
                   {t.quote}
                 </p>
 
@@ -910,16 +883,9 @@ export default function App() {
 
             {/* Pagination Dots */}
             <div className="flex items-center gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setTestimonialIdx(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    testimonialIdx === i ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'
-                  }`}
-                  aria-label={`Slide ${i + 1}`}
-                />
-              ))}
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 0 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 1 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 2 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
             </div>
 
             <button 
@@ -939,73 +905,80 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="py-24 relative bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: `url(${IMAGES.contactBg})` }}
+        className="py-24 relative overflow-hidden bg-gradient-to-r from-[#FCEBED] via-[#FFF5F7] to-[#FCEBED]"
       >
-        {/* Soft pink floral / warm overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FDF2F4]/95 via-[#FFF7F8]/90 to-[#FDF2F4]/95 backdrop-blur-[2px]" />
+        {/* Authentic DSLR Camera with Red Rose Petals on the left */}
+        <div className="hidden lg:block absolute left-0 bottom-0 top-12 w-64 pointer-events-none select-none z-0">
+          <img 
+            src={IMAGES.cameraLens} 
+            alt="DSLR camera lens with rose petals" 
+            className="w-full h-full object-cover object-right opacity-95"
+          />
+        </div>
 
         <div className="container-custom relative z-10 px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left 5 Columns: Contact Info */}
-            <div className="lg:col-span-5">
+            {/* Left Column: Contact Info (5 Cols) */}
+            <div className="lg:col-span-5 lg:pl-16">
               
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-[#832244] text-xs font-bold tracking-[0.2em] uppercase mb-3">
-                <span className="w-8 h-[2px] bg-[#832244]"></span>
+              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
+                <span className="w-7 h-[2px] bg-[#832244]"></span>
                 HAVE A PROJECT IN MIND?
               </div>
 
               {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-3">
                 Book Your<br />
                 <span className="text-[#832244]">Photography Session</span>
               </h2>
 
-              <p className="text-[#4B5563] text-base leading-relaxed mb-8">
-                “Tell us about your event and get a custom quote. We’d love to be a part of your special moments!”
+              <p className="text-[#595959] text-sm sm:text-base leading-relaxed mb-8 max-w-md">
+                Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
-              {/* 3 Contact Pills */}
-              <div className="space-y-4">
+              {/* 3 Contact Pills Matching Figma Verbatim */}
+              <div className="space-y-3.5 max-w-md">
                 
                 {/* Call Us */}
                 <a 
                   href="tel:+911234567890" 
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-[#FCE8EC] hover:shadow-md transition-all hover:-translate-x-1"
+                  className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white hover:shadow-md transition-all hover:translate-x-1"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0">
-                    <Phone size={20} />
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280] font-medium uppercase tracking-wider">Call Us</div>
-                    <div className="text-sm sm:text-base font-semibold text-[#1E1E1E]">+91 1234567890</div>
+                    <div className="text-xs text-[#6B7280]">Call Us</div>
+                    <div className="text-sm font-bold text-[#1E1E1E]">+91 1234567890</div>
                   </div>
                 </a>
 
                 {/* Email Us */}
                 <a 
                   href="mailto:hello@akashphotography.com" 
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-[#FCE8EC] hover:shadow-md transition-all hover:-translate-x-1"
+                  className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white hover:shadow-md transition-all hover:translate-x-1"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0">
-                    <Mail size={20} />
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Mail size={18} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280] font-medium uppercase tracking-wider">Email Us</div>
-                    <div className="text-sm sm:text-base font-semibold text-[#1E1E1E]">hello@akashphotography.com</div>
+                    <div className="text-xs text-[#6B7280]">Email Us</div>
+                    <div className="text-sm font-bold text-[#1E1E1E]">hello@akashphotography.com</div>
                   </div>
                 </a>
 
                 {/* Visit Us */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-[#FCE8EC]">
-                  <div className="w-12 h-12 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0">
-                    <MapPin size={20} />
+                <div className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white">
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <MapPin size={18} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280] font-medium uppercase tracking-wider">Visit Us</div>
-                    <div className="text-sm font-semibold text-[#1E1E1E]">123 Creative Street, Chennai, Tamil Nadu – 600001</div>
+                    <div className="text-xs text-[#6B7280]">Visit Us</div>
+                    <div className="text-sm font-bold text-[#1E1E1E] leading-snug">
+                      123 Creative Street, Chennai, Tamil Nadu – 600001
+                    </div>
                   </div>
                 </div>
 
@@ -1013,14 +986,14 @@ export default function App() {
 
             </div>
 
-            {/* Right 7 Columns: Floating Inquiry Form Card */}
+            {/* Right Column: Inquiry Form Card (7 Cols) */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-[#FCE8EC] relative">
+              <div className="bg-white rounded-[32px] p-6 sm:p-10 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] relative">
                 
-                {/* Top Badge */}
-                <div className="flex justify-center -mt-12 sm:-mt-14 mb-6">
-                  <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#832244] text-white text-xs sm:text-sm font-semibold shadow-lg">
-                    <Camera size={16} /> Photography Inquiry Form
+                {/* Clean Top Badge */}
+                <div className="flex justify-end mb-6">
+                  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-sm">
+                    <Camera size={14} /> Photography Inquiry Form
                   </div>
                 </div>
 
@@ -1033,7 +1006,7 @@ export default function App() {
                       Inquiry Sent Successfully!
                     </h3>
                     <p className="text-sm text-[#6B7280] max-w-md mx-auto mb-6">
-                      Thank you for contacting Akash Photography! Our team will review your event details and reach out to you within 24 hours.
+                      Thank you for contacting Akash Photography! Our team will review your event details and reach out within 24 hours.
                     </p>
                     <button
                       onClick={() => setFormSubmitted(false)}
@@ -1047,169 +1020,138 @@ export default function App() {
                     
                     {/* Row 1: Name & Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          Your Name *
-                        </label>
-                        <div className="relative">
-                          <User size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                          <input
-                            type="text"
-                            required
-                            name="name"
-                            value={formData.name}
-                            onChange={handleFormChange}
-                            placeholder="e.g. Akash Sharma"
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                          />
-                        </div>
+                      <div className="relative">
+                        <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <input
+                          type="text"
+                          required
+                          name="name"
+                          value={formData.name}
+                          onChange={handleFormChange}
+                          placeholder="Your Name *"
+                          className="figma-pill-input"
+                        />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          Your Email *
-                        </label>
-                        <div className="relative">
-                          <Mail size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                          <input
-                            type="email"
-                            required
-                            name="email"
-                            value={formData.email}
-                            onChange={handleFormChange}
-                            placeholder="e.g. akash@example.com"
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                          />
-                        </div>
+                      <div className="relative">
+                        <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <input
+                          type="email"
+                          required
+                          name="email"
+                          value={formData.email}
+                          onChange={handleFormChange}
+                          placeholder="Your Email *"
+                          className="figma-pill-input"
+                        />
                       </div>
                     </div>
 
                     {/* Row 2: Phone & WhatsApp */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          Phone Number *
-                        </label>
-                        <div className="relative">
-                          <Phone size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                          <input
-                            type="tel"
-                            required
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleFormChange}
-                            placeholder="+91 98765 43210"
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                          />
-                        </div>
+                      <div className="relative">
+                        <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <input
+                          type="tel"
+                          required
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleFormChange}
+                          placeholder="Phone Number *"
+                          className="figma-pill-input"
+                        />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          WhatsApp Number (Optional)
-                        </label>
-                        <div className="relative">
-                          <MessageSquare size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                          <input
-                            type="tel"
-                            name="whatsapp"
-                            value={formData.whatsapp}
-                            onChange={handleFormChange}
-                            placeholder="+91 98765 43210"
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                          />
-                        </div>
+                      <div className="relative">
+                        <MessageSquare size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <input
+                          type="tel"
+                          name="whatsapp"
+                          value={formData.whatsapp}
+                          onChange={handleFormChange}
+                          placeholder="WhatsApp Number (Optional)"
+                          className="figma-pill-input"
+                        />
                       </div>
                     </div>
 
                     {/* Row 3: Event Date & Event Type */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          Event Date *
-                        </label>
-                        <div className="relative">
-                          <Calendar size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                          <input
-                            type="date"
-                            required
-                            name="date"
-                            value={formData.date}
-                            onChange={handleFormChange}
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                          />
-                        </div>
+                      <div className="relative">
+                        <Calendar size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <input
+                          type="text"
+                          onFocus={(e) => (e.target.type = "date")}
+                          onBlur={(e) => { if (!e.target.value) e.target.type = "text"; }}
+                          required
+                          name="date"
+                          value={formData.date}
+                          onChange={handleFormChange}
+                          placeholder="Event Date *"
+                          className="figma-pill-input"
+                        />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                          Event Type *
-                        </label>
-                        <div className="relative">
-                          <select
-                            name="eventType"
-                            value={formData.eventType}
-                            onChange={handleFormChange}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm appearance-none focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] bg-white cursor-pointer"
-                          >
-                            <option value="Wedding">Wedding Photography</option>
-                            <option value="Pre-Wedding">Pre-Wedding Shoot</option>
-                            <option value="Engagement">Engagement & Roka</option>
-                            <option value="Haldi">Haldi Ceremony</option>
-                            <option value="Mehendi">Mehendi Ceremony</option>
-                            <option value="Sangeet">Sangeet & Reception</option>
-                            <option value="Portrait">Portrait Shoot</option>
-                            <option value="Fashion">Fashion & Model</option>
-                            <option value="PoolParty">Cocktail & Pool Party</option>
-                            <option value="Other">Other Event</option>
-                          </select>
-                          <ChevronDown size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        </div>
+                      <div className="relative">
+                        <Users size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <select
+                          name="eventType"
+                          value={formData.eventType}
+                          onChange={handleFormChange}
+                          required
+                          className="figma-pill-input appearance-none cursor-pointer"
+                        >
+                          <option value="" disabled>Event Type *</option>
+                          <option value="Wedding">Wedding Photography</option>
+                          <option value="Pre-Wedding">Pre-Wedding Shoot</option>
+                          <option value="Engagement">Engagement & Roka</option>
+                          <option value="Haldi">Haldi Ceremony</option>
+                          <option value="Mehendi">Mehendi Ceremony</option>
+                          <option value="Sangeet">Sangeet & Reception</option>
+                          <option value="Portrait">Portrait Shoot</option>
+                          <option value="Fashion">Fashion & Model</option>
+                          <option value="PoolParty">Cocktail & Pool Party</option>
+                          <option value="Other">Other Event</option>
+                        </select>
+                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                       </div>
                     </div>
 
                     {/* Row 4: Event Location */}
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                        Event Location *
-                      </label>
-                      <div className="relative">
-                        <MapPin size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-                        <input
-                          type="text"
-                          required
-                          name="location"
-                          value={formData.location}
-                          onChange={handleFormChange}
-                          placeholder="City, Venue, or Destination"
-                          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
-                        />
-                      </div>
+                    <div className="relative">
+                      <MapPin size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                      <input
+                        type="text"
+                        required
+                        name="location"
+                        value={formData.location}
+                        onChange={handleFormChange}
+                        placeholder="Event Location *"
+                        className="figma-pill-input"
+                      />
                     </div>
 
-                    {/* Row 5: Special Requirements Textarea */}
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
-                        Tell us more about your event... (e.g., theme, special requirements) *
-                      </label>
+                    {/* Row 5: Tell us more about your event */}
+                    <div className="relative">
+                      <Edit3 size={16} className="absolute left-4 top-4 text-[#832244] pointer-events-none" />
                       <textarea
                         rows={3}
                         required
                         name="message"
                         value={formData.message}
                         onChange={handleFormChange}
-                        placeholder="Share your thoughts, expectations, or dream shots with us..."
-                        className="w-full p-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#832244] focus:ring-1 focus:ring-[#832244] transition-colors"
+                        placeholder="Tell us more about your event... (e.g., theme, special requirements) *"
+                        className="figma-textarea"
                       />
                     </div>
 
-                    {/* Submit Button */}
-                    <div className="pt-2">
+                    {/* Centered Pill Submit Button */}
+                    <div className="pt-2 flex justify-center">
                       <button
                         type="submit"
-                        className="w-full py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
+                        className="px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
                       >
-                        <Send size={16} /> Submit Inquiry
+                        <Send size={15} /> Submit Inquiry
                       </button>
                     </div>
 
@@ -1248,7 +1190,7 @@ export default function App() {
               </div>
 
               <p className="text-white/80 text-sm leading-relaxed">
-                Capturing your special moments with love and creativity. Turning heartfelt memories into timeless works of art.
+                Capturing your special moments with love and creativity.
               </p>
             </div>
 
@@ -1291,10 +1233,6 @@ export default function App() {
                     info@akashphotography.com
                   </a>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <MapPin size={16} className="text-white/90 shrink-0 mt-0.5" />
-                  <span>Chennai, Tamil Nadu – 600001</span>
-                </li>
               </ul>
             </div>
 
@@ -1304,9 +1242,6 @@ export default function App() {
                 Follow Us
                 <span className="absolute -bottom-1 left-0 w-8 h-[2px] bg-white rounded-full"></span>
               </h4>
-              <p className="text-sm text-white/80 mb-4">
-                Stay updated with our latest wedding stories and behind-the-scenes shoots.
-              </p>
               
               {/* Social Icon Pills */}
               <div className="flex items-center gap-3">
@@ -1344,7 +1279,7 @@ export default function App() {
 
           {/* Copyright Bar */}
           <div className="pt-8 text-center text-xs text-white/70">
-            <p>© 2026 Akash Photography. All rights reserved.</p>
+            <p>© 2025 EverFrame Photography. All rights reserved.</p>
           </div>
 
         </div>

@@ -47,6 +47,11 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Scroll Offset for Fixed Navbar */
+section {
+  scroll-margin-top: 80px;
+}
+
 /* Container */
 .container-custom {
   max-width: 1240px;
@@ -54,6 +59,59 @@ body {
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+/* Custom Input Styling to Guarantee Perfect Alignment */
+.figma-pill-input {
+  width: 100%;
+  height: 48px;
+  border-radius: 9999px;
+  border: 1px solid #F0D5DC;
+  background-color: #FFFFFF;
+  padding-left: 48px;
+  padding-right: 20px;
+  font-size: 13.5px;
+  color: #1E1E1E;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.figma-pill-input:focus {
+  border-color: #832244;
+  box-shadow: 0 0 0 2px rgba(131, 34, 68, 0.12);
+}
+
+.figma-pill-input::placeholder {
+  color: #6B7280;
+  font-size: 13px;
+}
+
+.figma-textarea {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #F0D5DC;
+  background-color: #FFFFFF;
+  padding-left: 48px;
+  padding-right: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 13.5px;
+  color: #1E1E1E;
+  outline: none;
+  resize: vertical;
+  min-height: 95px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.figma-textarea:focus {
+  border-color: #832244;
+  box-shadow: 0 0 0 2px rgba(131, 34, 68, 0.12);
+}
+
+.figma-textarea::placeholder {
+  color: #6B7280;
+  font-size: 13px;
 }
 
 /* Custom Scrollbar */
@@ -73,7 +131,7 @@ body {
 
 /* Keyframe Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
