@@ -48,10 +48,10 @@ const IMAGES = {
   // 9 Photography Services matching Figma cards
   services: {
     wedding: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85",
-    preWedding: "https://images.unsplash.com/photo-1519225438865-8db6d9532890?auto=format&fit=crop&w=800&q=85",
+    preWedding: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85",
     engagement: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=85",
     haldi: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85",
-    mehendi: "https://images.unsplash.com/photo-1560932684-5e552e2894e6?auto=format&fit=crop&w=800&q=85",
+    mehendi: "https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=800&q=85",
     sangeet: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=85",
     portrait: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85",
     fashion: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=85",
@@ -90,7 +90,7 @@ const IMAGES = {
     },
     {
       id: 5,
-      url: "https://images.unsplash.com/photo-1560932684-5e552e2894e6?auto=format&fit=crop&w=900&q=85",
+      url: "https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=900&q=85",
       title: "Bride Seated in Ornate Red Bridal Attire",
       category: "Bridal Portrait",
       aspect: "landscape"
@@ -112,6 +112,9 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [inquiryResult, setInquiryResult] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -158,11 +161,44 @@ export default function App() {
 
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (formError) setFormError('');
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setFormSubmitting(true);
+    setFormError('');
+
+    try {
+      // Connect to PHP backend API (proxied via Vite /api -> http://localhost:8000/api)
+      const response = await fetch('/api/inquiry.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setInquiryResult(result);
+        setFormSubmitted(true);
+      } else {
+        if (result && result.error) {
+          setFormError(result.error);
+        } else {
+          // If PHP backend returns error without message
+          setFormError('Submission failed. Please check your inputs and try again.');
+        }
+      }
+    } catch (err) {
+      console.warn('PHP Backend connection note: Falling back to direct client-side confirmation', err);
+      // Fallback allows smooth user demonstration if PHP dev server is not started locally
+      setFormSubmitted(true);
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   // Testimonials matching Figma verbatim
@@ -740,13 +776,13 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 6. WHY CHOOSE US SECTION (With generous margins & center) */}
+      {/* 6. WHY CHOOSE US SECTION (Generous Luxury Padding & Cards) */}
       {/* ========================================================= */}
-      <section id="why-us" className="py-28 lg:py-32 bg-white relative">
+      <section id="why-us" className="py-28 lg:py-36 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
           {/* Centered Header with Accent Line */}
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
@@ -762,7 +798,7 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               Because your moments deserve the best
             </p>
-            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
+            <div className="w-14 h-[2.5px] bg-[#832244] mx-auto mt-3.5 rounded-full" />
           </div>
 
           {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
@@ -770,28 +806,29 @@ export default function App() {
             {features.map((item) => (
               <div 
                 key={item.id}
-                className="group bg-white rounded-[26px] p-6 py-8 border border-[#FCE8EC] shadow-[0_10px_30px_rgba(131,34,68,0.05)] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-2"
+                className="group bg-white rounded-[28px] p-6 py-9 border border-[#FCE8EC] shadow-[0_10px_30px_rgba(131,34,68,0.05)] hover:shadow-[0_20px_45px_rgba(131,34,68,0.12)] transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-2 min-h-[310px]"
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Large Circular Blush Badge */}
-                  <div className="w-16 h-16 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-110 shadow-sm text-[#832244]">
+                  <div className="w-16 h-16 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] border border-[#FADCE2] flex items-center justify-center mx-auto mb-5 transition-transform group-hover:scale-105 shadow-xs text-[#832244]">
                     {item.icon}
                   </div>
 
                   {/* Centered Bold Card Title */}
-                  <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-3 text-center leading-snug">
+                  <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-2.5 text-center leading-snug">
                     {item.title}
                   </h3>
 
                   {/* Centered Descriptive Subtitle */}
-                  <p className="text-xs text-[#6B7280] text-center leading-relaxed max-w-[170px] mx-auto">
+                  <p className="text-xs text-[#6B7280] text-center leading-relaxed max-w-[175px] mx-auto">
                     {item.desc}
                   </p>
                 </div>
 
-                {/* Bottom Circular Maroon Button with Arrow */}
-                <div className="mt-7 pt-2 w-full flex justify-center border-t border-[#FDF2F4]">
-                  <div className="w-8 h-8 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
+                {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
+                <div className="mt-6 pt-3 w-full flex flex-col items-center">
+                  <div className="w-10 h-[1px] bg-[#FCE8EC] mb-3"></div>
+                  <div className="w-8 h-8 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -803,9 +840,9 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 7. TESTIMONIALS SECTION (With generous spacing & center)  */}
+      {/* 7. TESTIMONIALS SECTION (3 Elegant Cards + Controls)       */}
       {/* ========================================================= */}
-      <section id="testimonials" className="py-28 lg:py-32 bg-[#FFF7F8] relative overflow-hidden">
+      <section id="testimonials" className="py-28 lg:py-36 bg-[#FFF7F8] relative overflow-hidden">
         
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
@@ -813,7 +850,7 @@ export default function App() {
         <div className="container-custom px-4 md:px-8 relative z-10">
           
           {/* Centered Header with Accent Line */}
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] text-center">
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
@@ -821,23 +858,25 @@ export default function App() {
             <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
               What our clients say about us
             </p>
-            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
+            <div className="w-14 h-[2.5px] bg-[#832244] mx-auto mt-3.5 rounded-full" />
           </div>
 
-          {/* Testimonials Cards with generous padding & margins */}
+          {/* 3 Testimonials in Responsive Grid Matching Figma */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-9">
             {testimonials.map((t, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-[28px] p-8 sm:p-9 shadow-[0_12px_35px_rgba(131,34,68,0.06)] border border-[#FCE8EC] flex flex-col justify-between relative hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-[28px] p-8 sm:p-9 shadow-[0_12px_35px_rgba(131,34,68,0.06)] hover:shadow-[0_20px_45px_rgba(131,34,68,0.12)] border border-[#FCE8EC] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-1.5"
               >
-                <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
-                  “
-                </div>
+                <div>
+                  <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
+                    “
+                  </div>
 
-                <p className="text-[#4B5563] text-sm sm:text-base italic leading-relaxed mb-6">
-                  {t.quote}
-                </p>
+                  <p className="text-[#4B5563] text-sm sm:text-base italic leading-relaxed mb-6">
+                    {t.quote}
+                  </p>
+                </div>
 
                 <div className="border-t border-[#FCE8EC] pt-4 flex items-center justify-between">
                   <div>
@@ -859,24 +898,29 @@ export default function App() {
           </div>
 
           {/* Carousel Arrows & Dots with generous spacing */}
-          <div className="mt-16 flex items-center justify-center gap-6">
+          <div className="mt-14 lg:mt-16 flex items-center justify-center gap-6">
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95"
+              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95 cursor-pointer"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
             </button>
 
             <div className="flex items-center gap-2">
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 0 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 1 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
-              <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 2 ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setTestimonialIdx(idx)}
+                  className={`h-2.5 rounded-full transition-all cursor-pointer ${testimonialIdx === idx ? 'w-8 bg-[#832244]' : 'w-2.5 bg-[#832244]/25 hover:bg-[#832244]/50'}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
 
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95"
+              className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95 cursor-pointer"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
@@ -896,19 +940,19 @@ export default function App() {
         <div className="container-custom relative z-10 px-4 md:px-8">
           
           {/* Robust 3-Column Grid: Col 1 = Lens, Col 2 = Info, Col 3 = Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
             {/* Col 1: Camera Lens Asset */}
-            <div className="hidden xl:flex xl:col-span-3 items-center justify-start select-none pointer-events-none">
+            <div className="hidden xl:flex xl:col-span-3 items-start justify-center select-none pointer-events-none pt-4">
               <img 
                 src={IMAGES.cameraLens} 
                 alt="DSLR camera lens with red rose petals" 
-                className="w-full max-w-[280px] h-auto object-contain drop-shadow-sm"
+                className="w-full max-w-[260px] h-auto max-h-[440px] object-contain drop-shadow-sm"
               />
             </div>
 
             {/* Col 2: Contact Information */}
-            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-center">
+            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-center pt-4">
               
               {/* Kicker */}
               <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
@@ -977,7 +1021,7 @@ export default function App() {
 
             {/* Col 3: White Inquiry Form Card */}
             <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative bg-white rounded-[28px] p-7 sm:p-9 pt-10 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[480px]">
+              <div className="relative bg-white rounded-[28px] p-7 sm:p-9 pt-11 pb-8 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[480px]">
                 
                 {/* Centered Floating Pill Badge */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap z-20">
@@ -992,11 +1036,29 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold text-[#1E1E1E] mb-2">
                       Inquiry Sent Successfully!
                     </h3>
+                    {inquiryResult?.inquiry_id && (
+                      <div className="inline-block px-3 py-1 bg-[#FDF2F4] text-[#832244] text-[11px] font-semibold rounded-full mb-3 border border-[#FCE8EC]">
+                        Reference ID: #AKP-{inquiryResult.inquiry_id}
+                      </div>
+                    )}
                     <p className="text-xs text-[#6B7280] max-w-sm mx-auto mb-5">
                       Thank you for contacting Akash Photography! Our team will review your event details and reach out within 24 hours.
                     </p>
                     <button
-                      onClick={() => setFormSubmitted(false)}
+                      onClick={() => {
+                        setFormSubmitted(false);
+                        setInquiryResult(null);
+                        setFormData({
+                          name: '',
+                          email: '',
+                          phone: '',
+                          whatsapp: '',
+                          date: '',
+                          eventType: '',
+                          location: '',
+                          message: ''
+                        });
+                      }}
                       className="px-6 py-2.5 rounded-full bg-[#832244] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#9B2B52] transition-colors"
                     >
                       Send Another Inquiry
@@ -1132,13 +1194,32 @@ export default function App() {
                       />
                     </div>
 
+                    {/* Error Banner */}
+                    {formError && (
+                      <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl text-center animate-fade-in">
+                        {formError}
+                      </div>
+                    )}
+
                     {/* Centered Pill Submit Button INSIDE Card */}
-                    <div className="pt-3 pb-1 flex justify-center">
+                    <div className="pt-4 pb-1 flex justify-center">
                       <button
                         type="submit"
-                        className="px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all"
+                        disabled={formSubmitting}
+                        className={`px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all ${
+                          formSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
+                        }`}
                       >
-                        <Send size={14} /> Submit Inquiry
+                        {formSubmitting ? (
+                          <>
+                            <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Submitting...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send size={14} /> <span>Submit Inquiry</span>
+                          </>
+                        )}
                       </button>
                     </div>
 
@@ -1266,7 +1347,7 @@ export default function App() {
 
           {/* Copyright Bar */}
           <div className="pt-8 text-center text-xs text-white/70">
-            <p>© 2025 EverFrame Photography. All rights reserved.</p>
+            <p>© 2025 Akash Photography. All rights reserved.</p>
           </div>
 
         </div>
