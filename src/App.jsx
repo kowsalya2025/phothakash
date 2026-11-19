@@ -42,8 +42,8 @@ const IMAGES = {
   // Close-up of camera on wooden surface
   aboutInset: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=85",
   
-  // Clean camera lens asset cropped from Figma design
-  cameraLens: "/camera-lens.png",
+  // Clean camera lens asset cropped directly from Figma design
+  cameraLens: "/figma-camera-lens.png",
 
   // 9 Photography Services matching Figma cards
   services: {
@@ -400,7 +400,6 @@ export default function App() {
         className="relative min-h-[620px] lg:min-h-[680px] flex items-center bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${IMAGES.hero})` }}
       >
-        {/* Soft dark gradient on left for high contrast */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
         <div className="absolute inset-0 bg-[#832244]/15 mix-blend-multiply" />
 
@@ -447,7 +446,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Decorative bottom curve divider */}
         <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent" />
       </section>
 
@@ -456,11 +454,9 @@ export default function App() {
       {/* ========================================================= */}
       <section id="about" className="py-20 lg:py-28 relative bg-[#FFF7F8] overflow-hidden">
         
-        {/* Subtle Organic Background Blobs */}
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         
-        {/* Camera lens watermark graphic */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none select-none">
           <Camera size={420} strokeWidth={1} />
         </div>
@@ -471,17 +467,14 @@ export default function App() {
             {/* Left Column: Overlapping tilted cards */}
             <div className="relative flex justify-center items-center py-6">
               
-              {/* Top-left decorative burst dashes */}
               <div className="absolute -top-4 left-6 z-20 flex gap-1 items-end select-none">
                 <span className="w-1 h-5 bg-[#832244] rounded-full transform -rotate-12"></span>
                 <span className="w-1 h-7 bg-[#832244] rounded-full"></span>
                 <span className="w-1 h-5 bg-[#832244] rounded-full transform rotate-12"></span>
               </div>
 
-              {/* Organic blush backdrop shape */}
               <div className="absolute w-80 h-80 rounded-full bg-[#FCE8EC] filter blur-xl" />
 
-              {/* Main Card */}
               <div className="relative z-10 w-64 sm:w-80 h-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutMain} 
@@ -490,7 +483,6 @@ export default function App() {
                 />
               </div>
 
-              {/* Tilted Foreground Inset Card */}
               <div className="absolute z-20 -bottom-4 -left-2 sm:left-4 w-44 sm:w-56 h-44 sm:h-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-6 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src={IMAGES.aboutInset} 
@@ -499,14 +491,12 @@ export default function App() {
                 />
               </div>
 
-              {/* Bottom decorative maroon swoosh */}
               <div className="absolute -bottom-6 right-10 z-20 w-44 h-2 bg-[#832244] rounded-full transform rotate-3 opacity-80" />
             </div>
 
             {/* Right Column: Text & CTA */}
             <div className="lg:pl-6">
               
-              {/* Section Eyebrow */}
               <div className="inline-flex items-center gap-2.5 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-3">
                 <div className="w-6 h-6 rounded-md border border-[#832244] flex items-center justify-center">
                   <Camera size={14} />
@@ -515,7 +505,6 @@ export default function App() {
                 <span className="w-16 h-[1.5px] bg-[#832244]/40 ml-1"></span>
               </div>
 
-              {/* Section Heading */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-4">
                 Capturing Your<br />
                 <span className="font-script text-[#832244] text-5xl sm:text-6xl font-normal block mt-1">
@@ -523,12 +512,10 @@ export default function App() {
                 </span>
               </h2>
 
-              {/* Body Copy */}
               <p className="text-[#595959] text-base sm:text-lg leading-relaxed mb-8">
                 “We believe every moment tells a story. With passion, creativity and a keen eye for detail, we turn your cherished moments into timeless memories.”
               </p>
 
-              {/* Discover More CTA */}
               <button
                 onClick={() => scrollTo('gallery')}
                 className="px-8 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md hover:shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
@@ -548,7 +535,6 @@ export default function App() {
       <section id="services" className="py-20 lg:py-28 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
-          {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
@@ -575,7 +561,6 @@ export default function App() {
                 onClick={() => setSelectedService(service)}
                 className="group bg-white rounded-3xl overflow-hidden shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] hover:shadow-[0_18px_35px_-5px_rgba(131,34,68,0.16)] transition-all duration-300 border border-[#FCE8EC] flex flex-col cursor-pointer transform hover:-translate-y-1.5"
               >
-                {/* Photo Top Container */}
                 <div className="relative h-60 overflow-hidden bg-gray-100">
                   <img 
                     src={service.image} 
@@ -589,14 +574,12 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Scallop Icon Badge Divider */}
                 <div className="relative flex justify-center -mt-6 z-10">
                   <div className="w-12 h-12 rounded-full bg-[#832244] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
                     {service.icon}
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="p-6 pt-3 text-center flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="font-serif text-xl font-bold text-[#1E1E1E] group-hover:text-[#832244] transition-colors">
@@ -607,7 +590,6 @@ export default function App() {
                     </p>
                   </div>
 
-                  {/* Circular Maroon Arrow Button */}
                   <div className="mt-5 flex justify-center">
                     <div className="w-8 h-8 rounded-full bg-[#832244] group-hover:bg-[#9B2B52] text-white flex items-center justify-center transition-all shadow-sm group-hover:scale-110">
                       <ArrowRight size={14} />
@@ -627,7 +609,6 @@ export default function App() {
       <section id="gallery" className="py-20 lg:py-28 bg-[#FFF7F8] relative">
         <div className="container-custom px-4 md:px-8">
           
-          {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
@@ -758,7 +739,6 @@ export default function App() {
       <section className="py-20 lg:py-24 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
-          {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
@@ -785,7 +765,6 @@ export default function App() {
                 className="group bg-white rounded-2xl p-6 border border-[#FCE8EC] shadow-[0_8px_20px_rgba(131,34,68,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-1.5"
               >
                 <div>
-                  {/* Circular Blush Badge */}
                   <div className="w-14 h-14 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] flex items-center justify-center mx-auto mb-5 transition-transform group-hover:scale-110 shadow-sm">
                     {item.icon}
                   </div>
@@ -799,7 +778,6 @@ export default function App() {
                   </p>
                 </div>
 
-                {/* Bottom Circular Maroon Button with Arrow */}
                 <div className="mt-5">
                   <div className="w-7 h-7 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm">
                     <ArrowRight size={13} />
@@ -817,13 +795,11 @@ export default function App() {
       {/* ========================================================= */}
       <section className="pt-24 pb-20 bg-[#FFF7F8] relative overflow-hidden">
         
-        {/* Soft Background Blur Circles */}
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-custom px-4 md:px-8 relative z-10">
           
-          {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
@@ -841,17 +817,14 @@ export default function App() {
                 key={idx}
                 className="bg-white rounded-3xl p-8 shadow-[0_10px_25px_-5px_rgba(131,34,68,0.06)] border border-[#FCE8EC] flex flex-col justify-between relative hover:shadow-xl transition-all duration-300"
               >
-                {/* Large Decorative Quote Glyph */}
                 <div className="font-serif text-[#832244] text-5xl leading-none mb-3 select-none">
                   “
                 </div>
 
-                {/* Quote Text */}
                 <p className="text-[#4B5563] text-sm sm:text-base italic leading-relaxed mb-6">
                   {t.quote}
                 </p>
 
-                {/* Client Info & Gold Stars */}
                 <div className="border-t border-[#FCE8EC] pt-4 flex items-center justify-between">
                   <div>
                     <h4 className="font-serif font-bold text-[#832244] text-base">
@@ -872,7 +845,7 @@ export default function App() {
           </div>
 
           {/* Carousel Arrows & Dots */}
-          <div className="mt-12 flex items-center justify-center gap-6">
+          <div className="mt-14 mb-4 flex items-center justify-center gap-6">
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
               className="w-10 h-10 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center shadow-md transition-transform hover:scale-105 active:scale-95"
@@ -881,7 +854,6 @@ export default function App() {
               <ChevronLeft size={20} />
             </button>
 
-            {/* Pagination Dots */}
             <div className="flex items-center gap-2">
               <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 0 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
               <span className={`h-2.5 rounded-full transition-all ${testimonialIdx === 1 ? 'w-7 bg-[#832244]' : 'w-2.5 bg-[#832244]/20'}`} />
@@ -907,50 +879,53 @@ export default function App() {
         id="contact" 
         className="py-24 relative overflow-hidden bg-gradient-to-r from-[#FCEBED] via-[#FFF5F7] to-[#FCEBED]"
       >
-        {/* Authentic DSLR Camera with Red Rose Petals on the left */}
-        <div className="hidden lg:block absolute left-0 bottom-0 top-12 w-64 pointer-events-none select-none z-0">
-          <img 
-            src={IMAGES.cameraLens} 
-            alt="DSLR camera lens with rose petals" 
-            className="w-full h-full object-cover object-right opacity-95"
-          />
-        </div>
-
         <div className="container-custom relative z-10 px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          {/* Exact Flex Layout: Camera Lens on left, Contact Info in center, Inquiry Form on right */}
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-8 lg:gap-10">
             
-            {/* Left Column: Contact Info (5 Cols) */}
-            <div className="lg:col-span-5 lg:pl-16">
+            {/* 1. Camera Lens Asset (Sitting on left on marble floor) */}
+            <div className="hidden xl:block w-[240px] shrink-0 select-none pointer-events-none">
+              <img 
+                src={IMAGES.cameraLens} 
+                alt="DSLR camera lens with red rose petals" 
+                className="w-full h-auto object-contain drop-shadow-md"
+              />
+            </div>
+
+            {/* 2. Contact Information Column */}
+            <div className="w-full xl:w-[360px] shrink-0">
               
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
-                <span className="w-7 h-[2px] bg-[#832244]"></span>
+              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-2.5">
+                <span className="w-6 h-[2px] bg-[#832244]"></span>
                 HAVE A PROJECT IN MIND?
               </div>
 
               {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1E1E] leading-[1.15] mb-3">
                 Book Your<br />
                 <span className="text-[#832244]">Photography Session</span>
               </h2>
 
-              <p className="text-[#595959] text-sm sm:text-base leading-relaxed mb-8 max-w-md">
+              {/* Subtitle */}
+              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-6">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
               {/* 3 Contact Pills Matching Figma Verbatim */}
-              <div className="space-y-3.5 max-w-md">
+              <div className="space-y-3 max-w-[340px]">
                 
                 {/* Call Us */}
                 <a 
                   href="tel:+911234567890" 
-                  className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white hover:shadow-md transition-all hover:translate-x-1"
+                  className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Phone size={18} />
+                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Phone size={17} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280]">Call Us</div>
+                    <div className="text-[11px] text-[#737373]">Call Us</div>
                     <div className="text-sm font-bold text-[#1E1E1E]">+91 1234567890</div>
                   </div>
                 </a>
@@ -958,25 +933,25 @@ export default function App() {
                 {/* Email Us */}
                 <a 
                   href="mailto:hello@akashphotography.com" 
-                  className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white hover:shadow-md transition-all hover:translate-x-1"
+                  className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Mail size={18} />
+                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Mail size={17} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280]">Email Us</div>
+                    <div className="text-[11px] text-[#737373]">Email Us</div>
                     <div className="text-sm font-bold text-[#1E1E1E]">hello@akashphotography.com</div>
                   </div>
                 </a>
 
                 {/* Visit Us */}
-                <div className="flex items-center gap-4 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-white">
-                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <MapPin size={18} />
+                <div className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100">
+                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <MapPin size={17} />
                   </div>
                   <div>
-                    <div className="text-xs text-[#6B7280]">Visit Us</div>
-                    <div className="text-sm font-bold text-[#1E1E1E] leading-snug">
+                    <div className="text-[11px] text-[#737373]">Visit Us</div>
+                    <div className="text-xs sm:text-sm font-bold text-[#1E1E1E] leading-snug">
                       123 Creative Street, Chennai, Tamil Nadu – 600001
                     </div>
                   </div>
@@ -986,26 +961,24 @@ export default function App() {
 
             </div>
 
-            {/* Right Column: Inquiry Form Card (7 Cols) */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-[32px] p-6 sm:p-10 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] relative">
+            {/* 3. White Inquiry Form Card */}
+            <div className="w-full xl:flex-1 max-w-[490px]">
+              <div className="relative bg-white rounded-[28px] p-6 sm:p-9 pt-9 sm:pt-10 shadow-[0_20px_45px_rgba(131,34,68,0.08)] border border-[#F5E6EA]">
                 
-                {/* Clean Top Badge */}
-                <div className="flex justify-end mb-6">
-                  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-sm">
-                    <Camera size={14} /> Photography Inquiry Form
-                  </div>
+                {/* Centered Floating Pill Badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap">
+                  <Camera size={14} /> Photography Inquiry Form
                 </div>
 
                 {formSubmitted ? (
-                  <div className="py-12 text-center animate-fade-in">
-                    <div className="w-16 h-16 rounded-full bg-[#832244]/10 text-[#832244] flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle size={36} />
+                  <div className="py-10 text-center animate-fade-in">
+                    <div className="w-14 h-14 rounded-full bg-[#832244]/10 text-[#832244] flex items-center justify-center mx-auto mb-3">
+                      <CheckCircle size={32} />
                     </div>
-                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] mb-2">
+                    <h3 className="font-serif text-xl font-bold text-[#1E1E1E] mb-2">
                       Inquiry Sent Successfully!
                     </h3>
-                    <p className="text-sm text-[#6B7280] max-w-md mx-auto mb-6">
+                    <p className="text-xs text-[#6B7280] max-w-sm mx-auto mb-5">
                       Thank you for contacting Akash Photography! Our team will review your event details and reach out within 24 hours.
                     </p>
                     <button
@@ -1016,12 +989,12 @@ export default function App() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <form onSubmit={handleFormSubmit} className="space-y-3.5">
                     
                     {/* Row 1: Name & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
                           type="text"
                           required
@@ -1034,7 +1007,7 @@ export default function App() {
                       </div>
 
                       <div className="relative">
-                        <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
                           type="email"
                           required
@@ -1048,9 +1021,9 @@ export default function App() {
                     </div>
 
                     {/* Row 2: Phone & WhatsApp */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
                           type="tel"
                           required
@@ -1063,7 +1036,7 @@ export default function App() {
                       </div>
 
                       <div className="relative">
-                        <MessageSquare size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <MessageSquare size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
                           type="tel"
                           name="whatsapp"
@@ -1076,9 +1049,9 @@ export default function App() {
                     </div>
 
                     {/* Row 3: Event Date & Event Type */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <Calendar size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <input
                           type="text"
                           onFocus={(e) => (e.target.type = "date")}
@@ -1088,18 +1061,18 @@ export default function App() {
                           value={formData.date}
                           onChange={handleFormChange}
                           placeholder="Event Date *"
-                          className="figma-pill-input"
+                          className="figma-pill-input pr-10"
                         />
                       </div>
 
                       <div className="relative">
-                        <Users size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Users size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                         <select
                           name="eventType"
                           value={formData.eventType}
                           onChange={handleFormChange}
                           required
-                          className="figma-pill-input appearance-none cursor-pointer"
+                          className="figma-pill-input appearance-none cursor-pointer pr-10"
                         >
                           <option value="" disabled>Event Type *</option>
                           <option value="Wedding">Wedding Photography</option>
@@ -1113,13 +1086,13 @@ export default function App() {
                           <option value="PoolParty">Cocktail & Pool Party</option>
                           <option value="Other">Other Event</option>
                         </select>
-                        <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <ChevronDown size={15} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                       </div>
                     </div>
 
                     {/* Row 4: Event Location */}
                     <div className="relative">
-                      <MapPin size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                      <MapPin size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
                       <input
                         type="text"
                         required
@@ -1131,9 +1104,9 @@ export default function App() {
                       />
                     </div>
 
-                    {/* Row 5: Tell us more about your event */}
+                    {/* Row 5: Special Requirements Textarea */}
                     <div className="relative">
-                      <Edit3 size={16} className="absolute left-4 top-4 text-[#832244] pointer-events-none" />
+                      <Edit3 size={15} className="absolute left-4 top-3.5 text-[#832244] pointer-events-none" />
                       <textarea
                         rows={3}
                         required
@@ -1149,9 +1122,9 @@ export default function App() {
                     <div className="pt-2 flex justify-center">
                       <button
                         type="submit"
-                        className="px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                        className="px-12 py-3 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all"
                       >
-                        <Send size={15} /> Submit Inquiry
+                        <Send size={14} /> Submit Inquiry
                       </button>
                     </div>
 
