@@ -54,7 +54,7 @@ const IMAGES = {
     preWedding: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85",
     engagement: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=85",
     haldi: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85",
-    mehendi: "https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=800&q=85",
+    mehendi: "/mehendi-ceremony.jpg",
     sangeet: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=85",
     portrait: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85",
     fashion: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=85",
@@ -93,7 +93,7 @@ const IMAGES = {
     },
     {
       id: 5,
-      url: "https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=900&q=85",
+      url: "/bridal-portrait.jpg",
       title: "Bride Seated in Ornate Red Bridal Attire",
       category: "Bridal Portrait",
       aspect: "landscape"
