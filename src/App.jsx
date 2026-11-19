@@ -575,8 +575,9 @@ export default function App() {
       <section id="services" className="py-24 lg:py-32 bg-white relative">
         <div className="container-custom px-4 md:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
+          {/* Centered Header with Accent Line */}
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
+            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
                 <Camera size={14} />
@@ -588,10 +589,10 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Capture every moment with our professional photography services
             </p>
-            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
+            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
           </div>
 
           {/* 3x3 Card Grid with generous padding & gaps */}
@@ -650,8 +651,9 @@ export default function App() {
       <section id="gallery" className="py-24 lg:py-32 bg-[#FFF7F8] relative">
         <div className="container-custom px-4 md:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
+          {/* Centered Header with Accent Line */}
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
+            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
                 <Camera size={14} />
@@ -663,10 +665,10 @@ export default function App() {
               Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Explore our beautiful moments captured with love
             </p>
-            <div className="w-12 h-[2px] bg-[#832244] mx-auto mt-3 rounded-full" />
+            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
           </div>
 
           {/* 4-Column Asymmetric Masonry Grid */}
@@ -782,8 +784,8 @@ export default function App() {
         <div className="container-custom px-4 md:px-8">
           
           {/* Centered Header with Accent Line */}
-          <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-            <div className="inline-flex items-center gap-3 text-[#832244] mb-3">
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
+            <div className="flex items-center justify-center gap-3 text-[#832244] mb-3">
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
               <div className="w-7 h-7 rounded border border-[#832244] flex items-center justify-center">
                 <Camera size={14} />
@@ -791,14 +793,14 @@ export default function App() {
               <span className="w-12 h-[1px] bg-[#832244]/40"></span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] text-center">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Why <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               Because your moments deserve the best
             </p>
-            <div className="w-14 h-[2.5px] bg-[#832244] mx-auto mt-3.5 rounded-full" />
+            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
           </div>
 
           {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
@@ -826,9 +828,9 @@ export default function App() {
                 </div>
 
                 {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
-                <div className="mt-6 pt-3 w-full flex flex-col items-center">
+                <div className="mt-5 pt-3 w-full flex flex-col items-center">
                   <div className="w-10 h-[1px] bg-[#FCE8EC] mb-3"></div>
-                  <div className="w-8 h-8 rounded-full bg-[#832244] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white flex items-center justify-center group-hover:scale-110 active:scale-95 transition-all shadow-xs cursor-pointer">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -850,15 +852,15 @@ export default function App() {
         <div className="container-custom px-4 md:px-8 relative z-10">
           
           {/* Centered Header with Accent Line */}
-          <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] text-center">
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16 lg:mb-20">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
               Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
 
-            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center">
+            <p className="text-[#6B7280] text-sm sm:text-base mt-2.5 text-center max-w-xl">
               What our clients say about us
             </p>
-            <div className="w-14 h-[2.5px] bg-[#832244] mx-auto mt-3.5 rounded-full" />
+            <div className="w-14 h-[2px] bg-[#832244] mt-3.5 rounded-full" />
           </div>
 
           {/* 3 Testimonials in Responsive Grid Matching Figma */}
