@@ -346,10 +346,10 @@ export default function App() {
     <div className="min-h-screen bg-white text-[#1E1E1E]">
 
       {/* ========================================================= */}
-      {/* 1. STICKY NAVIGATION BAR (Generous Padding & Elegance)     */}
+      {/* 1. STICKY NAVIGATION BAR (Generous Luxury Padding)         */}
       {/* ========================================================= */}
-      <header className="sticky top-0 z-50 bg-[#832244] shadow-lg transition-all duration-300">
-        <div className="container-custom flex items-center justify-between py-5 md:py-6 px-6 md:px-12">
+      <header className="site-header">
+        <div className="site-navbar">
           
           {/* Brand Logo */}
           <a 
@@ -1020,27 +1020,27 @@ export default function App() {
             </div>
 
             {/* Col 2: Contact Information */}
-            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-center pt-4">
+            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-start pt-6 sm:pt-8">
               
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
+              <div className="inline-flex items-center gap-2 text-[#832244] text-xs font-bold tracking-[0.2em] uppercase mb-3.5">
                 <span className="w-6 h-[2px] bg-[#832244]"></span>
                 HAVE A PROJECT IN MIND?
               </div>
 
               {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1E1E] leading-[1.18] mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-[1.18] mb-4">
                 Book Your<br />
                 <span className="text-[#832244]">Photography Session</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-6 max-w-sm">
+              <p className="text-[#595959] text-sm sm:text-base leading-relaxed mb-7 max-w-sm">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
               {/* 3 Contact Pills */}
-              <div className="space-y-4 w-full max-w-[380px]">
+              <div className="space-y-4 w-full max-w-[390px]">
                 
                 {/* Call Us */}
                 <a 
@@ -1300,12 +1300,12 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 9. FOOTER SECTION (Generous Luxury Padding & Spacing)      */}
+      {/* 9. FOOTER SECTION (Pure CSS - Luxury Alignment & Spacing) */}
       {/* ========================================================= */}
-      <footer className="bg-[#832244] text-white pt-24 lg:pt-28 pb-16 border-t border-[#621430]">
-        <div className="container-custom px-6 md:px-12">
+      <footer className="site-footer">
+        <div className="footer-container">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 pb-16 border-b border-white/20">
+          <div className="footer-grid">
             
             {/* Column 1: Monogram & Brand Bio */}
             <div>
@@ -1323,23 +1323,22 @@ export default function App() {
                 </div>
               </div>
 
-              <p className="text-white/80 text-sm sm:text-base leading-relaxed">
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed max-w-sm">
                 Capturing your special moments with love and creativity.
               </p>
             </div>
 
             {/* Column 2: Quick Links */}
             <div>
-              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
+              <h4 className="footer-col-title">
                 Quick Links
-                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
-              <ul className="space-y-3.5 text-sm sm:text-[15px] text-white/80">
+              <ul className="footer-links-list">
                 {['home', 'about', 'gallery', 'services', 'contact'].map((link) => (
                   <li key={link}>
                     <button
                       onClick={() => scrollTo(link)}
-                      className="capitalize hover:text-white hover:translate-x-1.5 transition-all inline-block"
+                      className="footer-link-btn"
                     >
                       {link}
                     </button>
@@ -1350,20 +1349,23 @@ export default function App() {
 
             {/* Column 3: Get In Touch */}
             <div>
-              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
+              <h4 className="footer-col-title">
                 Get In Touch
-                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
-              <ul className="space-y-4 text-sm sm:text-[15px] text-white/80">
-                <li className="flex items-center gap-3">
-                  <Phone size={17} className="text-white/90 shrink-0" />
-                  <a href="tel:+911234567890" className="hover:text-white transition-colors">
+              <ul className="footer-contact-list">
+                <li className="footer-contact-item">
+                  <div className="footer-contact-icon-box">
+                    <Phone size={16} />
+                  </div>
+                  <a href="tel:+911234567890">
                     +91 1234567890
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail size={17} className="text-white/90 shrink-0" />
-                  <a href="mailto:info@akashphotography.com" className="hover:text-white transition-colors">
+                <li className="footer-contact-item">
+                  <div className="footer-contact-icon-box">
+                    <Mail size={16} />
+                  </div>
+                  <a href="mailto:info@akashphotography.com">
                     info@akashphotography.com
                   </a>
                 </li>
@@ -1372,9 +1374,8 @@ export default function App() {
 
             {/* Column 4: Follow Us */}
             <div>
-              <h4 className="font-serif font-bold text-xl text-white mb-6 relative inline-block">
+              <h4 className="footer-col-title">
                 Follow Us
-                <span className="absolute -bottom-2 left-0 w-10 h-[2px] bg-white rounded-full"></span>
               </h4>
               
               {/* Social Icon Pills */}
@@ -1412,7 +1413,7 @@ export default function App() {
           </div>
 
           {/* Copyright Bar */}
-          <div className="pt-10 text-center text-sm text-white/75">
+          <div className="footer-copyright">
             <p>© 2025 Akash Photography. All rights reserved.</p>
           </div>
 
