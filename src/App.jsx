@@ -300,7 +300,7 @@ export default function App() {
       {/* 1. STICKY NAVIGATION BAR                                  */}
       {/* ========================================================= */}
       <header className="sticky top-0 z-50 bg-[#832244] shadow-md transition-all duration-300">
-        <div className="container-custom flex items-center justify-between py-3 px-4 md:px-8">
+        <div className="container-custom flex items-center justify-between py-3.5 px-4 md:px-8">
           
           {/* Brand Logo */}
           <a 
@@ -793,7 +793,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 7. TESTIMONIALS SECTION                                   */}
       {/* ========================================================= */}
-      <section className="pt-24 pb-20 bg-[#FFF7F8] relative overflow-hidden">
+      <section className="pt-24 pb-24 bg-[#FFF7F8] relative overflow-hidden">
         
         <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
@@ -877,52 +877,54 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="py-24 relative overflow-hidden bg-gradient-to-r from-[#FCEBED] via-[#FFF5F7] to-[#FCEBED]"
+        className="pt-20 pb-28 relative overflow-hidden bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
       >
-        <div className="container-custom relative z-10 px-4 md:px-8">
-          
-          {/* Exact Flex Layout: Camera Lens on left, Contact Info in center, Inquiry Form on right */}
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-8 lg:gap-10">
-            
-            {/* 1. Camera Lens Asset (Sitting on left on marble floor) */}
-            <div className="hidden xl:block w-[240px] shrink-0 select-none pointer-events-none">
-              <img 
-                src={IMAGES.cameraLens} 
-                alt="DSLR camera lens with red rose petals" 
-                className="w-full h-auto object-contain drop-shadow-md"
-              />
-            </div>
+        {/* Seamlessly blended Camera Lens with red rose petals on left */}
+        <div className="hidden lg:block absolute left-0 bottom-0 top-4 w-[280px] xl:w-[350px] pointer-events-none select-none z-0 overflow-hidden">
+          <img 
+            src={IMAGES.cameraLens} 
+            alt="DSLR camera lens with red rose petals" 
+            className="w-full h-full object-cover object-left-bottom"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%)',
+              maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%)'
+            }}
+          />
+        </div>
 
-            {/* 2. Contact Information Column */}
-            <div className="w-full xl:w-[360px] shrink-0">
+        <div className="container-custom relative z-10 px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Contact Information */}
+            <div className="lg:col-span-6 xl:col-span-5 lg:pl-12 xl:pl-28">
               
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-2.5">
+              <div className="inline-flex items-center gap-2 text-[#1E1E1E] text-xs font-bold tracking-[0.2em] uppercase mb-3">
                 <span className="w-6 h-[2px] bg-[#832244]"></span>
                 HAVE A PROJECT IN MIND?
               </div>
 
               {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1E1E] leading-[1.15] mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1E1E1E] leading-[1.15] mb-3">
                 Book Your<br />
                 <span className="text-[#832244]">Photography Session</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-6">
+              <p className="text-[#595959] text-xs sm:text-sm leading-relaxed mb-8 max-w-sm">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
-              {/* 3 Contact Pills Matching Figma Verbatim */}
-              <div className="space-y-3 max-w-[340px]">
+              {/* 3 Contact Pills */}
+              <div className="space-y-3.5 max-w-[340px]">
                 
                 {/* Call Us */}
                 <a 
                   href="tel:+911234567890" 
-                  className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
+                  className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Phone size={17} />
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Phone size={18} />
                   </div>
                   <div>
                     <div className="text-[11px] text-[#737373]">Call Us</div>
@@ -933,10 +935,10 @@ export default function App() {
                 {/* Email Us */}
                 <a 
                   href="mailto:hello@akashphotography.com" 
-                  className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
+                  className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <Mail size={17} />
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Mail size={18} />
                   </div>
                   <div>
                     <div className="text-[11px] text-[#737373]">Email Us</div>
@@ -945,9 +947,9 @@ export default function App() {
                 </a>
 
                 {/* Visit Us */}
-                <div className="flex items-center gap-3.5 p-3 px-4 rounded-2xl bg-white shadow-sm border border-pink-100">
-                  <div className="w-10 h-10 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <MapPin size={17} />
+                <div className="flex items-center gap-3.5 p-3.5 px-4 rounded-2xl bg-white shadow-sm border border-pink-100">
+                  <div className="w-11 h-11 rounded-xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <MapPin size={18} />
                   </div>
                   <div>
                     <div className="text-[11px] text-[#737373]">Visit Us</div>
@@ -961,12 +963,12 @@ export default function App() {
 
             </div>
 
-            {/* 3. White Inquiry Form Card */}
-            <div className="w-full xl:flex-1 max-w-[490px]">
-              <div className="relative bg-white rounded-[28px] p-6 sm:p-9 pt-9 sm:pt-10 shadow-[0_20px_45px_rgba(131,34,68,0.08)] border border-[#F5E6EA]">
+            {/* Right Column: White Inquiry Form Card */}
+            <div className="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end">
+              <div className="relative bg-white rounded-[32px] p-7 sm:p-10 pt-10 sm:pt-11 shadow-[0_20px_50px_rgba(131,34,68,0.08)] border border-[#F5E6EA] w-full max-w-[530px]">
                 
                 {/* Centered Floating Pill Badge */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-md inline-flex items-center gap-2 whitespace-nowrap z-20">
                   <Camera size={14} /> Photography Inquiry Form
                 </div>
 
@@ -1118,11 +1120,11 @@ export default function App() {
                       />
                     </div>
 
-                    {/* Centered Pill Submit Button */}
-                    <div className="pt-2 flex justify-center">
+                    {/* Centered Pill Submit Button INSIDE card */}
+                    <div className="pt-3 pb-1 flex justify-center">
                       <button
                         type="submit"
-                        className="px-12 py-3 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all"
+                        className="px-12 py-3.5 rounded-full bg-[#832244] hover:bg-[#9B2B52] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all"
                       >
                         <Send size={14} /> Submit Inquiry
                       </button>
@@ -1141,7 +1143,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 9. FOOTER SECTION                                         */}
       {/* ========================================================= */}
-      <footer className="bg-[#832244] text-white pt-16 pb-8 border-t border-[#621430]">
+      <footer className="bg-[#832244] text-white pt-16 pb-10 border-t border-[#621430]">
         <div className="container-custom px-4 md:px-8">
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/15">
