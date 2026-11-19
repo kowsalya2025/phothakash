@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+/* ==========================================================================
+   GOOGLE FONTS IMPORT
+   - Playfair Display (Serif headings)
+   - Great Vibes (Romantic script accents)
+   - Plus Jakarta Sans (Clean modern body & inputs)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-:root {
+/* ==========================================================================
+   TAILWIND V4 THEME TOKENS
+   ========================================================================== */
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   --color-maroon: #832244;
   --color-maroon-dark: #621430;
   --color-maroon-light: #9B2B52;
@@ -16,7 +29,32 @@
   --color-grey-light: #9CA3AF;
 }
 
-* {
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+  --brand-maroon: #832244;
+  --brand-maroon-dark: #621430;
+  --brand-maroon-light: #9B2B52;
+  --brand-gold: #E5A83B;
+  --brand-gold-warm: #D49A38;
+  --brand-blush: #FDF2F4;
+  --brand-blush-subtle: #FFF7F8;
+  --brand-blush-border: #FCE8EC;
+  --brand-dark: #1E1E1E;
+  --brand-grey: #6B7280;
+  --brand-grey-muted: #595959;
+  
+  --shadow-luxury-sm: 0 10px 25px -5px rgba(131, 34, 68, 0.05);
+  --shadow-luxury-md: 0 12px 36px rgba(131, 34, 68, 0.06);
+  --shadow-luxury-lg: 0 20px 48px rgba(131, 34, 68, 0.12);
+  --shadow-luxury-hover: 0 20px 45px rgba(131, 34, 68, 0.14);
+}
+
+/* ==========================================================================
+   GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,16 +63,27 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1E1E1E;
+  color: var(--brand-dark);
   background-color: #FFFFFF;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   overflow-x: hidden;
   line-height: 1.6;
+  background-color: #FFFFFF;
 }
 
-/* Typography Utility Classes */
+/* Scroll Offset for Fixed Sticky Navbar */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================== */
 .font-serif {
   font-family: 'Playfair Display', Georgia, serif;
 }
@@ -44,15 +93,12 @@ body {
 }
 
 .font-sans {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Scroll Offset for Fixed Navbar */
-section {
-  scroll-margin-top: 80px;
-}
-
-/* Container */
+/* ==========================================================================
+   LAYOUT & CONTAINER
+   ========================================================================== */
 .container-custom {
   max-width: 1240px;
   margin-left: auto;
@@ -61,24 +107,40 @@ section {
   padding-right: 24px;
 }
 
-/* Figma Pill Input Fields */
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* ==========================================================================
+   FORM CONTROLS (PILL INPUTS & TEXTAREA)
+   Exact match for Akash Photography Figma Prototype Form
+   ========================================================================== */
 .figma-pill-input {
   width: 100%;
-  height: 46px;
+  height: 48px;
   border-radius: 9999px;
   border: 1px solid #F0D5DC;
   background-color: #FFFFFF;
-  padding-left: 42px;
-  padding-right: 14px;
-  font-size: 13px;
+  padding-left: 44px;
+  padding-right: 16px;
+  font-size: 13.5px;
   color: #1E1E1E;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.figma-pill-input:hover {
+  border-color: #E2B6C2;
 }
 
 .figma-pill-input:focus {
   border-color: #832244;
-  box-shadow: 0 0 0 2px rgba(131, 34, 68, 0.12);
+  box-shadow: 0 0 0 3px rgba(131, 34, 68, 0.12);
+  background-color: #FFFFFF;
 }
 
 .figma-pill-input::placeholder {
@@ -89,25 +151,30 @@ section {
 
 .figma-textarea {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 22px;
   border: 1px solid #F0D5DC;
   background-color: #FFFFFF;
-  padding-left: 42px;
+  padding-left: 44px;
   padding-right: 16px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  font-size: 13px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 13.5px;
   color: #1E1E1E;
   outline: none;
   resize: none;
-  min-height: 80px;
-  transition: all 0.2s ease;
-  font-family: inherit;
+  min-height: 85px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.figma-textarea:hover {
+  border-color: #E2B6C2;
 }
 
 .figma-textarea:focus {
   border-color: #832244;
-  box-shadow: 0 0 0 2px rgba(131, 34, 68, 0.12);
+  box-shadow: 0 0 0 3px rgba(131, 34, 68, 0.12);
+  background-color: #FFFFFF;
 }
 
 .figma-textarea::placeholder {
@@ -116,27 +183,49 @@ section {
   font-weight: 400;
 }
 
-/* Custom Scrollbar */
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F8F4F5;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #832244;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #621430;
 }
 
-/* Keyframe Animations */
+/* ==========================================================================
+   ANIMATIONS & TRANSITIONS
+   ========================================================================== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Card Hover Elevation */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
 }
