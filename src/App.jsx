@@ -460,32 +460,34 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="home" 
-        className="relative min-h-[640px] lg:min-h-[720px] flex items-center bg-cover bg-center overflow-hidden"
+        className="relative min-h-[640px] lg:min-h-[740px] flex items-center bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url("${IMAGES.hero}")` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent pointer-events-none" />
 
-        <div className="container-custom relative z-10 py-20 px-4 md:px-8 text-white">
+        <div className="hero-content-wrapper py-20 text-white">
           <div className="max-w-2xl">
             
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-3 text-white/90 text-xs md:text-sm font-medium tracking-[0.2em] uppercase mb-5">
-              <span className="w-8 h-[1px] bg-white/60"></span>
-              <span className="flex items-center gap-1.5">
-                <Heart size={14} className="fill-white/80 text-white/80" />
-                WEDDING PHOTOGRAPHY · PACIFIC NORTHWEST & EVERYWHERE
-              </span>
-              <span className="w-8 h-[1px] bg-white/60"></span>
+            {/* Eyebrow - Single Line Uppercase matching Figma */}
+            <p className="text-white text-xs sm:text-[13px] font-semibold tracking-[0.2em] uppercase whitespace-nowrap mb-2 drop-shadow-sm select-none">
+              WEDDING PHOTOGRAPHY · PACIFIC NORTHWEST & EVERYWHERE
+            </p>
+
+            {/* Subtle Line & Heart Accent - Row 2 directly under kicker */}
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-8 h-[1px] bg-white/70"></span>
+              <Heart size={13} className="text-white/80" strokeWidth={1.75} />
+              <span className="w-8 h-[1px] bg-white/70"></span>
             </div>
 
-            {/* H1 Heading */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 tracking-tight drop-shadow-md">
+            {/* H1 Heading - Exact Figma Upright Gold Word */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.15] mb-4 tracking-tight drop-shadow-md">
               Capturing Moments,<br />
-              Creating <span className="text-[#FBBF24] italic">Memories.</span>
+              Creating <span className="text-[#FBBF24]">Memories.</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-white/90 font-light mb-8 max-w-lg leading-relaxed drop-shadow">
+            <p className="text-base sm:text-lg lg:text-[19px] text-white/90 font-light mb-8 max-w-lg leading-relaxed drop-shadow">
               Photography that tells your story, beautifully.
             </p>
 
