@@ -955,23 +955,23 @@ export default function App() {
             <div className="section-accent-line" />
           </div>
 
-          {/* Testimonials Carousel Matching Figma Screenshot 7 */}
-          <div className="flex items-center justify-center gap-3 sm:gap-6 max-w-7xl mx-auto px-4">
+          {/* Testimonials Carousel Matching Figma Screenshot */}
+          <div className="testimonials-carousel-wrapper">
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform shrink-0"
+              className="testimonials-arrow-left"
               aria-label="Previous Testimonial"
             >
-              <ChevronLeft size={22} />
+              <ChevronLeft size={24} />
             </button>
 
             {/* 3 Testimonials in Responsive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {testimonials.map((t, idx) => (
                 <div 
                   key={idx}
-                  className="bg-white rounded-3xl p-7 lg:p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[250px]"
+                  className="bg-white/95 rounded-[32px] p-7 lg:p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[260px]"
                 >
                   <div className="text-[#841937] font-serif text-4xl mb-2 select-none leading-none">
                     “
@@ -998,10 +998,10 @@ export default function App() {
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform shrink-0"
+              className="testimonials-arrow-right"
               aria-label="Next Testimonial"
             >
-              <ChevronRight size={22} />
+              <ChevronRight size={24} />
             </button>
           </div>
 
@@ -1025,31 +1025,26 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 8. BOOK YOUR SESSION (INQUIRY & CONTACT)                   */}
+      {/* 8. BOOK YOUR SESSION (Full-Width Background Banner - Figma) */}
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="section-luxury-spacing bg-gradient-to-r from-[#FECDD3] via-[#FFF3F6] to-[#FFF1F2]"
+        className="section-luxury-spacing relative bg-cover bg-left bg-no-repeat overflow-hidden"
+        style={{ 
+          backgroundImage: `url("${IMAGES.cameraLens}")`,
+          backgroundColor: '#FFF1F2'
+        }}
       >
-        <div className="container-custom relative z-10 px-4 md:px-8">
-          
-          {/* Robust 3-Column Grid: Col 1 = Lens, Col 2 = Info, Col 3 = Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
-            
-            {/* Col 1: Prominent Camera Lens Asset Matching Figma Screenshot 8 */}
-            <div className="hidden lg:flex lg:col-span-4 self-stretch items-center justify-center select-none pointer-events-none">
-              <div className="w-full h-full min-h-[480px] max-h-[600px] rounded-3xl overflow-hidden shadow-lg border-2 border-white/80 bg-white/40">
-                <img 
-                  src={IMAGES.cameraLens} 
-                  onError={onImgFallback}
-                  alt="DSLR camera lens with red rose petals" 
-                  className="w-full h-full object-cover object-left"
-                />
-              </div>
-            </div>
+        {/* Soft overlay so text and pills remain crisp over background petals */}
+        <div className="absolute inset-0 bg-white/10 pointer-events-none" />
 
-            {/* Col 2: Contact Information */}
-            <div className="lg:col-span-4 flex flex-col justify-start">
+        <div className="contact-section-container">
+          
+          {/* 2-Column Responsive Layout: Camera Lens on Left | Content in Center | Form on Right */}
+          <div className="contact-flex-layout">
+            
+            {/* Left/Center Column: Contact Information & Pills */}
+            <div className="contact-info-column">
               
               {/* Kicker */}
               <div className="inline-flex items-center gap-2 text-[#841937] text-xs font-bold tracking-[0.2em] uppercase mb-3.5">
@@ -1057,19 +1052,20 @@ export default function App() {
                 HAVE A PROJECT IN MIND?
               </div>
 
-              {/* Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-[1.18] mb-4">
+              {/* Heading: Exact Figma 3-Line Playfair Maroon */}
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#841937] leading-[1.15] mb-4">
                 Book Your<br />
-                <span className="text-[#841937]">Photography Session</span>
+                Photography<br />
+                Session
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#737373] text-sm sm:text-base leading-relaxed mb-7 max-w-sm">
+              <p className="text-[#4B5563] text-sm sm:text-base leading-relaxed mb-7 max-w-sm font-normal">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
-              {/* 3 Contact Pills */}
-              <div className="space-y-4 w-full max-w-[390px]">
+              {/* 3 Contact Pills (Frosted Glass Match) */}
+              <div className="space-y-4 w-full max-w-[400px]">
                 
                 {/* Call Us */}
                 <a 
@@ -1116,9 +1112,9 @@ export default function App() {
 
             </div>
 
-            {/* Col 3: White Inquiry Form Card Matching Figma Screenshot 8 */}
-            <div className="lg:col-span-4 xl:col-span-4 flex justify-center w-full pt-4 sm:pt-6">
-              <div className="luxury-form-card">
+            {/* Right Column: White Inquiry Form Card */}
+            <div className="w-full flex-1 flex justify-center lg:justify-end pt-4 sm:pt-6">
+              <div className="luxury-form-card w-full max-w-[540px]">
                 
                 {/* Centered Floating Pill Badge */}
                 <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 px-7 py-2.5 rounded-full bg-[#841937] text-white text-xs font-semibold shadow-lg inline-flex items-center gap-2 whitespace-nowrap z-20 tracking-wide border border-white/20">
