@@ -956,22 +956,22 @@ export default function App() {
           </div>
 
           {/* Testimonials Carousel Matching Figma Screenshot 7 */}
-          <div className="relative max-w-6xl mx-auto px-6 sm:px-16 lg:px-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-6 max-w-7xl mx-auto px-4">
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="absolute left-0 lg:left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform shrink-0"
               aria-label="Previous Testimonial"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={22} />
             </button>
 
             {/* 3 Testimonials in Responsive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 flex-1">
               {testimonials.map((t, idx) => (
                 <div 
                   key={idx}
-                  className="bg-white rounded-3xl p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[250px]"
+                  className="bg-white rounded-3xl p-7 lg:p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[250px]"
                 >
                   <div className="text-[#841937] font-serif text-4xl mb-2 select-none leading-none">
                     “
@@ -998,10 +998,10 @@ export default function App() {
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="absolute right-0 lg:right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform shrink-0"
               aria-label="Next Testimonial"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={22} />
             </button>
           </div>
 
