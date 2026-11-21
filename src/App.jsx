@@ -956,11 +956,11 @@ export default function App() {
           </div>
 
           {/* Testimonials Carousel Matching Figma Screenshot 7 */}
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-14">
+          <div className="relative max-w-6xl mx-auto px-6 sm:px-16 lg:px-20">
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
+              className="absolute left-0 lg:left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
@@ -998,7 +998,7 @@ export default function App() {
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
+              className="absolute right-0 lg:right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
@@ -1043,7 +1043,7 @@ export default function App() {
                   src={IMAGES.cameraLens} 
                   onError={onImgFallback}
                   alt="DSLR camera lens with red rose petals" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-left"
                 />
               </div>
             </div>
