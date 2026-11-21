@@ -960,32 +960,32 @@ export default function App() {
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="testimonials-arrow-left"
+              className="testimonials-arrow-btn left"
               aria-label="Previous Testimonial"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={22} />
             </button>
 
             {/* 3 Testimonials in Responsive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 w-full">
               {testimonials.map((t, idx) => (
                 <div 
                   key={idx}
-                  className="bg-white/95 rounded-[32px] p-7 lg:p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[260px]"
+                  className="luxury-testimonial-card"
                 >
-                  <div className="text-[#841937] font-serif text-4xl mb-2 select-none leading-none">
+                  <div className="testimonial-quote-mark">
                     “
                   </div>
 
-                  <p className="text-[#1E1E1E] text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                    {t.quote}
+                  <p className="testimonial-quote-text">
+                    "{t.quote}"
                   </p>
 
-                  <div className="pt-2">
-                    <h4 className="font-serif font-bold text-[#841937] text-base mb-1.5">
+                  <div className="flex flex-col items-center">
+                    <h4 className="testimonial-client-name">
                       {t.name}
                     </h4>
-                    <div className="flex justify-center text-[#FBBF24] text-xs gap-1">
+                    <div className="flex justify-center text-[#FBBF24] text-xs gap-1 mt-1">
                       {[...Array(t.rating)].map((_, i) => (
                         <Star key={i} size={15} className="fill-[#FBBF24]" />
                       ))}
@@ -998,10 +998,10 @@ export default function App() {
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="testimonials-arrow-right"
+              className="testimonials-arrow-btn right"
               aria-label="Next Testimonial"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={22} />
             </button>
           </div>
 
