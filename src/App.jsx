@@ -37,22 +37,22 @@ const FALLBACK_PHOTO = "https://images.unsplash.com/photo-1519741497674-61148186
 // Exact high-resolution photography assets matching Figma prototype themes
 const IMAGES = {
   // Forehead-to-forehead Indian wedding portrait in golden bokeh (Hero background - Screenshot 1)
-  hero: "/Forehead-to-Forehead Indian Wedding Portrait.png",
+  hero: "/hero-wedding-portrait.png",
   
   // Brand logo (White badge with A monogram and AKASH text - Screenshots 1 & 9)
-  logo: "/logo (2).png",
+  logo: "/akash-logo.png",
 
   // About section images (Screenshot 2)
-  aboutMain: "/Generated image 1 (70).png", // Photographer in black shirt aiming DSLR outdoors
-  aboutInset: "/Generated image 1 (71).png", // DSLR camera resting on rustic wooden table
-  cameraWatermark: "/Minimalist Camera Lens Watermark Banner.png", // Subtle camera lens watermark
+  aboutMain: "/about-photographer.png", // Photographer in black shirt aiming DSLR outdoors
+  aboutInset: "/about-camera.png", // DSLR camera resting on rustic wooden table
+  cameraWatermark: "/about-watermark.png", // Subtle camera lens watermark
   
   // Camera with rose petals for Contact section (Screenshot 8)
-  cameraLens: "/Romantic Camera and Rose Petals (1).png",
+  cameraLens: "/contact-camera-petals.png",
 
   // 9 Photography Services matching Figma cards (Screenshots 3 & 4)
   services: {
-    wedding: "/Elegant Wedding Celebration Collage.png", // Bride & groom hands holding with red bangles
+    wedding: "/service-wedding-hands.png", // Bride & groom hands holding with red bangles
     preWedding: "/ak3.png", // Pre-wedding couple in nature, groom kissing bride's forehead
     engagement: "/ak4.png", // Diamond engagement ring in maroon velvet box
     haldi: "/ak5.png", // Joyous Haldi ceremony celebration with bright yellow turmeric
@@ -132,7 +132,7 @@ export default function App() {
     phone: '',
     whatsapp: '',
     date: '',
-    eventType: '',
+    eventType: 'Wedding Photography',
     location: '',
     message: ''
   });
@@ -460,11 +460,10 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="home" 
-        className="relative min-h-[640px] lg:min-h-[700px] flex items-center bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: `url(${IMAGES.hero})` }}
+        className="relative min-h-[640px] lg:min-h-[720px] flex items-center bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url("${IMAGES.hero}")` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
-        <div className="absolute inset-0 bg-[#841937]/15 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
 
         <div className="container-custom relative z-10 py-20 px-4 md:px-8 text-white">
           <div className="max-w-2xl">
@@ -957,11 +956,11 @@ export default function App() {
           </div>
 
           {/* Testimonials Carousel Matching Figma Screenshot 7 */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-14">
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="hidden lg:flex w-11 h-11 rounded-full bg-[#841937] text-white items-center justify-center shadow-md hover:scale-110 transition-transform shrink-0 -ml-5 mr-3 z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
@@ -972,9 +971,9 @@ export default function App() {
               {testimonials.map((t, idx) => (
                 <div 
                   key={idx}
-                  className="bg-white rounded-3xl p-7 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center relative"
+                  className="bg-white rounded-3xl p-8 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center min-h-[250px]"
                 >
-                  <div className="text-[#841937] font-serif text-4xl mb-2 select-none">
+                  <div className="text-[#841937] font-serif text-4xl mb-2 select-none leading-none">
                     “
                   </div>
 
@@ -988,7 +987,7 @@ export default function App() {
                     </h4>
                     <div className="flex justify-center text-[#FBBF24] text-xs gap-1">
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#FBBF24]" />
+                        <Star key={i} size={15} className="fill-[#FBBF24]" />
                       ))}
                     </div>
                   </div>
@@ -999,7 +998,7 @@ export default function App() {
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="hidden lg:flex w-11 h-11 rounded-full bg-[#841937] text-white items-center justify-center shadow-md hover:scale-110 transition-transform shrink-0 -mr-5 ml-3 z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-[#841937] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-10"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
@@ -1035,20 +1034,22 @@ export default function App() {
         <div className="container-custom relative z-10 px-4 md:px-8">
           
           {/* Robust 3-Column Grid: Col 1 = Lens, Col 2 = Info, Col 3 = Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
-            {/* Col 1: Camera Lens Asset */}
-            <div className="hidden xl:flex xl:col-span-3 items-start justify-center select-none pointer-events-none pt-4">
-              <img 
-                src={IMAGES.cameraLens} 
-                onError={onImgFallback}
-                alt="DSLR camera lens with red rose petals" 
-                className="w-full max-w-[260px] h-auto max-h-[440px] object-contain drop-shadow-sm"
-              />
+            {/* Col 1: Prominent Camera Lens Asset Matching Figma Screenshot 8 */}
+            <div className="hidden lg:flex lg:col-span-4 self-stretch items-center justify-center select-none pointer-events-none">
+              <div className="w-full h-full min-h-[480px] max-h-[600px] rounded-3xl overflow-hidden shadow-lg border-2 border-white/80 bg-white/40">
+                <img 
+                  src={IMAGES.cameraLens} 
+                  onError={onImgFallback}
+                  alt="DSLR camera lens with red rose petals" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             {/* Col 2: Contact Information */}
-            <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-start pt-6 sm:pt-8">
+            <div className="lg:col-span-4 flex flex-col justify-start">
               
               {/* Kicker */}
               <div className="inline-flex items-center gap-2 text-[#841937] text-xs font-bold tracking-[0.2em] uppercase mb-3.5">
@@ -1115,8 +1116,8 @@ export default function App() {
 
             </div>
 
-            {/* Col 3: White Inquiry Form Card with Generous Luxury Internal Padding */}
-            <div className="lg:col-span-6 xl:col-span-5 flex justify-center lg:justify-end pt-4 sm:pt-6">
+            {/* Col 3: White Inquiry Form Card Matching Figma Screenshot 8 */}
+            <div className="lg:col-span-4 xl:col-span-4 flex justify-center w-full pt-4 sm:pt-6">
               <div className="luxury-form-card">
                 
                 {/* Centered Floating Pill Badge */}
