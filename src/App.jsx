@@ -36,75 +36,75 @@ const FALLBACK_PHOTO = "https://images.unsplash.com/photo-1519741497674-61148186
 
 // Exact high-resolution photography assets matching Figma prototype themes
 const IMAGES = {
-  // Forehead-to-forehead Indian wedding portrait (Hero background)
+  // Forehead-to-forehead Indian wedding portrait in golden bokeh (Hero background - Screenshot 1)
   hero: "/Forehead-to-Forehead Indian Wedding Portrait.png",
   
-  // Brand logo
+  // Brand logo (White badge with A monogram and AKASH text - Screenshots 1 & 9)
   logo: "/logo (2).png",
 
-  // About section images
-  aboutMain: "/Glamorous Indian Wedding Celebration Collage.png",
-  aboutInset: "/Elegant Wedding Celebration Collage.png",
-  cameraWatermark: "/Minimalist Camera Lens Watermark Banner.png",
+  // About section images (Screenshot 2)
+  aboutMain: "/Generated image 1 (70).png", // Photographer in black shirt aiming DSLR outdoors
+  aboutInset: "/Generated image 1 (71).png", // DSLR camera resting on rustic wooden table
+  cameraWatermark: "/Minimalist Camera Lens Watermark Banner.png", // Subtle camera lens watermark
   
-  // Camera with rose petals for Contact section
+  // Camera with rose petals for Contact section (Screenshot 8)
   cameraLens: "/Romantic Camera and Rose Petals (1).png",
 
-  // 9 Photography Services matching Figma cards
+  // 9 Photography Services matching Figma cards (Screenshots 3 & 4)
   services: {
-    wedding: "/akk3.png",
-    preWedding: "/ak3.png",
-    engagement: "/ak4.png",
-    haldi: "/ak5.png",
-    mehendi: "/ak2.png",
-    sangeet: "/ak6.png",
-    portrait: "/ak7.png",
-    fashion: "/ak8.png",
-    poolParty: "/ak9.png",
+    wedding: "/Elegant Wedding Celebration Collage.png", // Bride & groom hands holding with red bangles
+    preWedding: "/ak3.png", // Pre-wedding couple in nature, groom kissing bride's forehead
+    engagement: "/ak4.png", // Diamond engagement ring in maroon velvet box
+    haldi: "/ak5.png", // Joyous Haldi ceremony celebration with bright yellow turmeric
+    mehendi: "/ak2.png", // Bride holding delicate hands with intricate circular henna
+    sangeet: "/ak6.png", // Vibrant Sangeet & Reception dance under disco ball & stage lights
+    portrait: "/ak7.png", // Elegant close-up bridal portrait looking into camera
+    fashion: "/ak8.png", // High-fashion male model photography with sunglasses
+    poolParty: "/ak9.png", // Cocktail & festive pool celebration with refreshing drinks
   },
 
-  // 4-Column Asymmetric Gallery
+  // 4-Column Asymmetric Gallery (Screenshot 5)
   gallery: [
     {
       id: 1,
       url: "/akk1.png",
-      title: "Royal Bride in Traditional Saree",
+      title: "Royal Bride in Traditional Red Lehenga",
       category: "Wedding Elegance",
       aspect: "portrait-tall"
     },
     {
       id: 2,
       url: "/akk2.png",
-      title: "Sacred Rings & Ceremonial Details",
+      title: "Sacred Vows & Ceremonial Blessings",
       category: "Ceremony Moments",
       aspect: "landscape"
     },
     {
       id: 3,
       url: "/akk3.png",
-      title: "Joyful Petal Confetti Celebration",
-      category: "Wedding Celebrations",
+      title: "Friends Poolside Celebration & Cheers",
+      category: "Cocktail Party",
       aspect: "landscape"
     },
     {
       id: 4,
       url: "/akk4.png",
-      title: "Vibrant Haldi Moments & Laughter",
+      title: "Joyous Haldi Splashes & Laughter",
       category: "Haldi Festivities",
       aspect: "portrait-tall"
     },
     {
       id: 5,
       url: "/akk5.png",
-      title: "Romantic Sunset Forehead Kiss",
-      category: "Pre-Wedding Romance",
+      title: "Bride Seated in Ornate Red Bridal Attire",
+      category: "Bridal Portrait",
       aspect: "landscape"
     },
     {
       id: 6,
       url: "/akk6.png",
-      title: "Bride in Ornate Red Bridal Lehenga",
-      category: "Bridal Portrait",
+      title: "Graceful Twilight Reception Gown",
+      category: "Reception Glamour",
       aspect: "landscape"
     }
   ]
@@ -629,47 +629,47 @@ export default function App() {
             <div className="section-accent-line" />
           </div>
 
-          {/* 3x3 Card Grid with generous padding & gaps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-9">
+          {/* 3x3 Card Grid Matching Figma Screenshots 3 & 4 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
             {services.map((service) => (
               <div 
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="luxury-service-card group cursor-pointer"
+                className="bg-white rounded-3xl border border-[#FECDD3] shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1.5"
               >
-                <div className="relative h-64 overflow-hidden bg-gray-100">
+                <div className="relative h-56 overflow-hidden bg-gray-100">
                   <img 
                     src={service.image} 
                     onError={onImgFallback}
                     alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-5 py-2 rounded-full bg-white/95 text-[#841937] text-xs font-semibold shadow-md backdrop-blur-sm">
-                      Click to View Details
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="px-4 py-1.5 rounded-full bg-white/95 text-[#841937] text-xs font-semibold shadow-md backdrop-blur-sm">
+                      View Details
                     </span>
                   </div>
                 </div>
 
-                <div className="relative flex justify-center -mt-7 z-10">
-                  <div className="w-14 h-14 rounded-full bg-[#841937] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
+                <div className="relative flex justify-center -mt-6 z-10">
+                  <div className="w-13 h-13 rounded-full bg-[#841937] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
                     {service.icon}
                   </div>
                 </div>
 
-                <div className="p-8 pt-5 pb-8 text-center flex-1 flex flex-col justify-between">
+                <div className="p-6 pt-2 pb-6 text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] text-center group-hover:text-[#841937] transition-colors leading-snug">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1E1E1E] text-center group-hover:text-[#841937] transition-colors leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-[#737373] text-center mt-3.5 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#737373] text-center mt-2 leading-relaxed">
                       {service.subtitle}
                     </p>
                   </div>
 
-                  <div className="mt-8 flex justify-center">
-                    <div className="btn-circle-arrow-service">
-                      <ArrowRight size={15} />
+                  <div className="mt-5 flex justify-center">
+                    <div className="w-8 h-8 rounded-full bg-[#841937] text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                      <ArrowRight size={14} />
                     </div>
                   </div>
                 </div>
@@ -887,38 +887,48 @@ export default function App() {
           </div>
 
           {/* 5 Cards Row - Tall, spacious cards with centered subtitles & margins */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-8">
-            {features.map((item) => (
-              <div 
-                key={item.id}
-                className="luxury-why-card hover-lift group"
-              >
-                <div className="w-full flex flex-col items-center">
-                  {/* Large Circular Blush Badge */}
-                  <div className="w-18 h-18 rounded-full bg-[#FFF1F2] group-hover:bg-[#FECDD3] border border-[#FADCE2] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-105 shadow-xs text-[#841937]">
-                    {item.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6">
+            {features.map((item) => {
+              const isHighlight = item.id === 4;
+              return (
+                <div 
+                  key={item.id}
+                  className={`luxury-why-card hover-lift group ${
+                    isHighlight ? 'border-2 border-[#841937] shadow-xl -translate-y-2' : ''
+                  }`}
+                >
+                  <div className="w-full flex flex-col items-center">
+                    {/* Circular Icon Badge */}
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-105 shadow-xs ${
+                      isHighlight ? 'bg-[#841937] text-white' : 'bg-[#FFF1F2] border border-[#FECDD3] text-[#841937]'
+                    }`}>
+                      {React.cloneElement(item.icon, {
+                        className: isHighlight ? 'text-white' : 'text-[#841937]',
+                        size: 22
+                      })}
+                    </div>
+
+                    {/* Centered Bold Card Title */}
+                    <h3 className="font-serif font-bold text-lg text-[#1E1E1E] mb-2 text-center leading-snug">
+                      {item.title}
+                    </h3>
+
+                    {/* Centered Descriptive Subtitle */}
+                    <p className="text-xs text-[#737373] text-center leading-relaxed max-w-[180px] mx-auto">
+                      {item.desc}
+                    </p>
                   </div>
 
-                  {/* Centered Bold Card Title */}
-                  <h3 className="font-serif font-bold text-xl text-[#1E1E1E] mb-3.5 text-center leading-snug">
-                    {item.title}
-                  </h3>
-
-                  {/* Centered Descriptive Subtitle */}
-                  <p className="text-sm text-[#737373] text-center leading-relaxed max-w-[190px] mx-auto">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
-                <div className="mt-7 pt-4 w-full flex flex-col items-center">
-                  <div className="w-12 h-[1px] bg-[#FECDD3] mb-3.5"></div>
-                  <div className="btn-circle-arrow-why">
-                    <ArrowRight size={14} />
+                  {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
+                  <div className="mt-4 pt-2 w-full flex flex-col items-center">
+                    <div className="w-12 h-[1px] bg-[#FECDD3] mb-2.5"></div>
+                    <div className="btn-circle-arrow-why">
+                      <ArrowRight size={13} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -946,75 +956,70 @@ export default function App() {
             <div className="section-accent-line" />
           </div>
 
-          {/* 3 Testimonials in Responsive Grid Matching Figma */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-            {testimonials.map((t, idx) => (
-              <div 
-                key={idx}
-                className="luxury-testimonial-card hover-lift"
-              >
-                <div>
-                  <div className="font-serif text-[#841937] text-6xl leading-none mb-4 select-none">
-                    “
-                  </div>
-
-                  <p className="text-[#4B5563] text-base sm:text-lg italic leading-relaxed mb-8">
-                    {t.quote}
-                  </p>
-                </div>
-
-                <div className="border-t border-[#FECDD3] pt-5 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-serif font-bold text-[#841937] text-lg">
-                      {t.name}
-                    </h4>
-                    <div className="flex text-[#FBBF24] text-xs mt-1.5 gap-0.5">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} size={15} className="fill-[#FBBF24]" />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#841937]/20 shadow-sm">
-                    <img 
-                      src={t.avatar} 
-                      onError={onImgFallback}
-                      alt={t.name} 
-                      className="w-full h-full object-cover" 
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Carousel Arrows & Dots with generous spacing */}
-          <div className="mt-18 lg:mt-22 flex items-center justify-center gap-7">
+          {/* Testimonials Carousel Matching Figma Screenshot 7 */}
+          <div className="relative flex items-center justify-center">
+            {/* Left Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : testimonials.length - 1))}
-              className="btn-carousel-arrow"
+              className="hidden lg:flex w-11 h-11 rounded-full bg-[#841937] text-white items-center justify-center shadow-md hover:scale-110 transition-transform shrink-0 -ml-5 mr-3 z-10"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
             </button>
 
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, idx) => (
-                <button
+            {/* 3 Testimonials in Responsive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              {testimonials.map((t, idx) => (
+                <div 
                   key={idx}
-                  onClick={() => setTestimonialIdx(idx)}
-                  className={`carousel-dot ${testimonialIdx === idx ? 'carousel-dot-active' : ''}`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
+                  className="bg-white rounded-3xl p-7 border border-[#FECDD3] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between text-center relative"
+                >
+                  <div className="text-[#841937] font-serif text-4xl mb-2 select-none">
+                    “
+                  </div>
+
+                  <p className="text-[#1E1E1E] text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                    {t.quote}
+                  </p>
+
+                  <div className="pt-2">
+                    <h4 className="font-serif font-bold text-[#841937] text-base mb-1.5">
+                      {t.name}
+                    </h4>
+                    <div className="flex justify-center text-[#FBBF24] text-xs gap-1">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} size={14} className="fill-[#FBBF24]" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
 
+            {/* Right Carousel Arrow Button */}
             <button 
               onClick={() => setTestimonialIdx((prev) => (prev < testimonials.length - 1 ? prev + 1 : 0))}
-              className="btn-carousel-arrow"
+              className="hidden lg:flex w-11 h-11 rounded-full bg-[#841937] text-white items-center justify-center shadow-md hover:scale-110 transition-transform shrink-0 -mr-5 ml-3 z-10"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
             </button>
+          </div>
+
+          {/* Centered Pagination Dots */}
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setTestimonialIdx(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  testimonialIdx === idx 
+                    ? 'w-7 h-2.5 bg-[#841937]' 
+                    : 'w-2.5 h-2.5 bg-[#FECDD3] hover:bg-[#841937]/50'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
 
         </div>
