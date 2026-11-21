@@ -16,39 +16,39 @@
   --font-script: 'Great Vibes', cursive;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --color-maroon: #832244;
-  --color-maroon-dark: #621430;
-  --color-maroon-light: #9B2B52;
-  --color-gold: #E5A83B;
-  --color-gold-warm: #D49A38;
-  --color-blush: #FDF2F4;
-  --color-blush-subtle: #FFF7F8;
-  --color-blush-border: #FCE8EC;
+  --color-maroon: #841937;
+  --color-maroon-dark: #611126;
+  --color-maroon-light: #9B2144;
+  --color-gold: #FBBF24;
+  --color-gold-warm: #F59E0B;
+  --color-blush: #FFF1F2;
+  --color-blush-subtle: #FFF5F7;
+  --color-blush-border: #FECDD3;
   --color-dark: #1E1E1E;
-  --color-grey: #6B7280;
-  --color-grey-light: #9CA3AF;
+  --color-grey: #737373;
+  --color-grey-light: #A3A3A3;
 }
 
 /* ==========================================================================
    CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ========================================================================== */
 :root {
-  --brand-maroon: #832244;
-  --brand-maroon-dark: #621430;
-  --brand-maroon-light: #9B2B52;
-  --brand-gold: #E5A83B;
-  --brand-gold-warm: #D49A38;
-  --brand-blush: #FDF2F4;
-  --brand-blush-subtle: #FFF7F8;
-  --brand-blush-border: #FCE8EC;
+  --brand-maroon: #841937;
+  --brand-maroon-dark: #611126;
+  --brand-maroon-light: #9B2144;
+  --brand-gold: #FBBF24;
+  --brand-gold-warm: #F59E0B;
+  --brand-blush: #FFF1F2;
+  --brand-blush-subtle: #FFF5F7;
+  --brand-blush-border: #FECDD3;
   --brand-dark: #1E1E1E;
-  --brand-grey: #6B7280;
-  --brand-grey-muted: #595959;
+  --brand-grey: #737373;
+  --brand-grey-muted: #737373;
   
-  --shadow-luxury-sm: 0 10px 25px -5px rgba(131, 34, 68, 0.05);
-  --shadow-luxury-md: 0 12px 36px rgba(131, 34, 68, 0.06);
-  --shadow-luxury-lg: 0 20px 48px rgba(131, 34, 68, 0.12);
-  --shadow-luxury-hover: 0 20px 45px rgba(131, 34, 68, 0.14);
+  --shadow-luxury-sm: 0 10px 25px -5px rgba(132, 25, 55, 0.05);
+  --shadow-luxury-md: 0 12px 36px rgba(132, 25, 55, 0.06);
+  --shadow-luxury-lg: 0 20px 48px rgba(132, 25, 55, 0.12);
+  --shadow-luxury-hover: 0 20px 45px rgba(132, 25, 55, 0.14);
 }
 
 /* ==========================================================================
@@ -88,7 +88,7 @@ section {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: #832244;
+  background-color: #841937;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   width: 100%;
   transition: all 0.3s ease;
@@ -121,7 +121,7 @@ section {
    FOOTER (PURE CSS - PERFECT ALIGNMENT & LUXURY SPACING)
    ========================================================================== */
 .site-footer {
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   padding-top: 90px;
   padding-bottom: 50px;
@@ -185,7 +185,7 @@ section {
   left: 0;
   width: 36px;
   height: 2px;
-  background-color: #E5A83B;
+  background-color: #FBBF24;
   border-radius: 9999px;
 }
 
@@ -319,7 +319,7 @@ section {
 }
 
 .figma-pill-input:focus {
-  border-color: #832244;
+  border-color: #841937;
   box-shadow: 0 0 0 3px rgba(131, 34, 68, 0.12);
   background-color: #FFFFFF;
 }
@@ -353,7 +353,7 @@ section {
 }
 
 .figma-textarea:focus {
-  border-color: #832244;
+  border-color: #841937;
   box-shadow: 0 0 0 3px rgba(131, 34, 68, 0.12);
   background-color: #FFFFFF;
 }
@@ -402,7 +402,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  color: #832244;
+  color: #841937;
   margin-bottom: 18px;
 }
 
@@ -417,7 +417,7 @@ section {
   width: 30px;
   height: 30px;
   border-radius: 6px;
-  border: 1px solid #832244;
+  border: 1px solid #841937;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,7 +427,7 @@ section {
 .section-accent-line {
   width: 64px;
   height: 3px;
-  background-color: #832244;
+  background-color: #841937;
   margin-top: 22px;
   margin-left: auto;
   margin-right: auto;
@@ -461,7 +461,7 @@ section {
 .luxury-why-card {
   background-color: #FFFFFF;
   border-radius: 28px;
-  border: 1.5px solid #FCE8EC;
+  border: 1.5px solid #FECDD3;
   box-shadow: 0 10px 30px rgba(131, 34, 68, 0.05);
   padding: 44px 28px 36px 28px;
   display: flex;
@@ -482,7 +482,7 @@ section {
 .luxury-testimonial-card {
   background-color: #FFFFFF;
   border-radius: 32px;
-  border: 1.5px solid #FCE8EC;
+  border: 1.5px solid #FECDD3;
   box-shadow: 0 12px 35px rgba(131, 34, 68, 0.06);
   padding: 48px 38px 38px 38px;
   display: flex;
@@ -502,7 +502,7 @@ section {
 .luxury-service-card {
   background-color: #FFFFFF;
   border-radius: 32px;
-  border: 1.5px solid #FCE8EC;
+  border: 1.5px solid #FECDD3;
   box-shadow: 0 12px 35px rgba(131, 34, 68, 0.06);
   overflow: hidden;
   display: flex;
@@ -546,7 +546,7 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #832244;
+  background: #841937;
   border-radius: 4px;
 }
 
@@ -594,7 +594,7 @@ section {
   padding: 12px 28px;
   border-radius: 9999px;
   background-color: #FFFFFF;
-  color: #832244;
+  color: #841937;
   font-weight: 700;
   font-size: 14.5px;
   letter-spacing: 0.02em;
@@ -605,7 +605,7 @@ section {
   text-decoration: none;
 }
 .btn-nav-book:hover {
-  background-color: #FDF2F4;
+  background-color: #FFF1F2;
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
 }
@@ -620,7 +620,7 @@ section {
   justify-content: center;
   padding: 14px 32px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 14px;
@@ -671,7 +671,7 @@ section {
   gap: 8px;
   padding: 14px 32px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 14px;
@@ -694,7 +694,7 @@ section {
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -715,7 +715,7 @@ section {
   width: 32px;
   height: 32px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -741,7 +741,7 @@ section {
   width: 40px;
   height: 40px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -775,7 +775,7 @@ section {
 }
 .carousel-dot-active {
   width: 32px;
-  background-color: #832244;
+  background-color: #841937;
 }
 
 /* 9. Inquiry Form Submit Button */
@@ -786,7 +786,7 @@ section {
   gap: 8px;
   padding: 14px 48px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 14px;
@@ -814,7 +814,7 @@ section {
   justify-content: center;
   padding: 12px 32px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 12px;
@@ -835,7 +835,7 @@ section {
   height: 40px;
   border-radius: 9999px;
   background-color: #FFFFFF;
-  color: #832244;
+  color: #841937;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -846,7 +846,7 @@ section {
   text-decoration: none;
 }
 .btn-social-icon:hover {
-  background-color: #FDF2F4;
+  background-color: #FFF1F2;
   transform: scale(1.1);
 }
 
@@ -875,7 +875,7 @@ section {
 .btn-modal-book {
   padding: 10px 24px;
   border-radius: 9999px;
-  background-color: #832244;
+  background-color: #841937;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 12px;

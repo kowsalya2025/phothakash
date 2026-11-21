@@ -36,73 +36,75 @@ const FALLBACK_PHOTO = "https://images.unsplash.com/photo-1519741497674-61148186
 
 // Exact high-resolution photography assets matching Figma prototype themes
 const IMAGES = {
-  // Indian wedding couple with golden bokeh fairy lights
-  hero: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1920&q=85",
+  // Forehead-to-forehead Indian wedding portrait (Hero background)
+  hero: "/Forehead-to-Forehead Indian Wedding Portrait.png",
   
-  // Photographer in black shirt aiming DSLR outdoors
-  aboutMain: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=900&q=85",
+  // Brand logo
+  logo: "/logo (2).png",
+
+  // About section images
+  aboutMain: "/Glamorous Indian Wedding Celebration Collage.png",
+  aboutInset: "/Elegant Wedding Celebration Collage.png",
+  cameraWatermark: "/Minimalist Camera Lens Watermark Banner.png",
   
-  // Close-up of camera on wooden surface
-  aboutInset: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=85",
-  
-  // Clean camera lens asset cropped directly from Figma design
-  cameraLens: "/figma-camera-lens.png",
+  // Camera with rose petals for Contact section
+  cameraLens: "/Romantic Camera and Rose Petals (1).png",
 
   // 9 Photography Services matching Figma cards
   services: {
-    wedding: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85",
-    preWedding: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85",
-    engagement: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=85",
-    haldi: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85",
-    mehendi: "/mehendi-ceremony.jpg",
-    sangeet: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=85",
-    portrait: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85",
-    fashion: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=85",
-    poolParty: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=85",
+    wedding: "/akk3.png",
+    preWedding: "/ak3.png",
+    engagement: "/ak4.png",
+    haldi: "/ak5.png",
+    mehendi: "/ak2.png",
+    sangeet: "/ak6.png",
+    portrait: "/ak7.png",
+    fashion: "/ak8.png",
+    poolParty: "/ak9.png",
   },
 
   // 4-Column Asymmetric Gallery
   gallery: [
     {
       id: 1,
-      url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=85",
-      title: "Royal Bride in Traditional Red Lehenga",
+      url: "/akk1.png",
+      title: "Royal Bride in Traditional Saree",
       category: "Wedding Elegance",
       aspect: "portrait-tall"
     },
     {
       id: 2,
-      url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85",
-      title: "Sacred Vows & Ceremonial Blessings",
+      url: "/akk2.png",
+      title: "Sacred Rings & Ceremonial Details",
       category: "Ceremony Moments",
       aspect: "landscape"
     },
     {
       id: 3,
-      url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=85",
-      title: "Friends Poolside Celebration & Cheers",
-      category: "Cocktail Party",
+      url: "/akk3.png",
+      title: "Joyful Petal Confetti Celebration",
+      category: "Wedding Celebrations",
       aspect: "landscape"
     },
     {
       id: 4,
-      url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=85",
-      title: "Joyous Haldi Splashes & Laughter",
+      url: "/akk4.png",
+      title: "Vibrant Haldi Moments & Laughter",
       category: "Haldi Festivities",
       aspect: "portrait-tall"
     },
     {
       id: 5,
-      url: "/bridal-portrait.jpg",
-      title: "Bride Seated in Ornate Red Bridal Attire",
-      category: "Bridal Portrait",
+      url: "/akk5.png",
+      title: "Romantic Sunset Forehead Kiss",
+      category: "Pre-Wedding Romance",
       aspect: "landscape"
     },
     {
       id: 6,
-      url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
-      title: "Graceful Twilight Reception Gown",
-      category: "Reception Glamour",
+      url: "/akk6.png",
+      title: "Bride in Ornate Red Bridal Lehenga",
+      category: "Bridal Portrait",
       aspect: "landscape"
     }
   ]
@@ -326,31 +328,31 @@ export default function App() {
       id: 1,
       title: "Professional Experience",
       desc: "Years of expertise in capturing perfect moments.",
-      icon: <Camera size={24} className="text-[#832244]" />
+      icon: <Camera size={24} className="text-[#841937]" />
     },
     {
       id: 2,
       title: "Creative Photography",
       desc: "Unique and creative shots, every time.",
-      icon: <Gem size={24} className="text-[#832244]" />
+      icon: <Gem size={24} className="text-[#841937]" />
     },
     {
       id: 3,
       title: "On-Time Delivery",
       desc: "Your memories, delivered on time.",
-      icon: <Truck size={24} className="text-[#832244]" />
+      icon: <Truck size={24} className="text-[#841937]" />
     },
     {
       id: 4,
       title: "Friendly Support",
       desc: "A dedicated team always here for you.",
-      icon: <Headphones size={24} className="text-[#832244]" />
+      icon: <Headphones size={24} className="text-[#841937]" />
     },
     {
       id: 5,
       title: "Memories That Last",
       desc: "Timeless photos for a lifetime.",
-      icon: <Heart size={24} className="text-[#832244]" />
+      icon: <Heart size={24} className="text-[#841937]" />
     }
   ];
 
@@ -369,16 +371,16 @@ export default function App() {
             onClick={(e) => { e.preventDefault(); scrollTo('home'); }}
             className="flex items-center gap-3.5 group text-decoration-none"
           >
-            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md p-1.5 transition-transform group-hover:scale-105">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <path d="M50 18 L68 76 L57 76 L53 62 L41 62 L37 76 L26 76 Z M47 34 L43 53 L51 53 Z" fill="#832244"/>
-                <path d="M42 45 C48 40 56 46 64 42 C67 40 70 36 71 34" stroke="#D49A38" strokeWidth="4" strokeLinecap="round" fill="none"/>
-                <circle cx="72" cy="33" r="3.5" fill="#D49A38" />
-              </svg>
+            <div className="h-12 w-12 rounded-xl bg-white/10 p-1 flex items-center justify-center backdrop-blur-sm transition-transform group-hover:scale-105 border border-white/20">
+              <img 
+                src={IMAGES.logo} 
+                alt="Akash Photography Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-white font-bold text-2xl leading-none tracking-wider">AKASH</span>
-              <span className="text-white text-[10px] tracking-[0.28em] font-medium opacity-90 mt-0.5">PHOTOGRAPHY</span>
+              <span className="text-[#FECDD3] text-[10px] tracking-[0.28em] font-medium opacity-95 mt-0.5">PHOTOGRAPHY</span>
             </div>
           </a>
 
@@ -462,7 +464,7 @@ export default function App() {
         style={{ backgroundImage: `url(${IMAGES.hero})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
-        <div className="absolute inset-0 bg-[#832244]/15 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#841937]/15 mix-blend-multiply" />
 
         <div className="container-custom relative z-10 py-20 px-4 md:px-8 text-white">
           <div className="max-w-2xl">
@@ -480,7 +482,7 @@ export default function App() {
             {/* H1 Heading */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 tracking-tight drop-shadow-md">
               Capturing Moments,<br />
-              Creating <span className="text-[#E5A83B] italic">Memories.</span>
+              Creating <span className="text-[#FBBF24] italic">Memories.</span>
             </h1>
 
             {/* Subheadline */}
@@ -514,12 +516,12 @@ export default function App() {
       <section id="about" className="section-luxury-spacing bg-white relative overflow-hidden">
         
         {/* Soft Decorative Ambient Blurs */}
-        <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#FFF1F2] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#FECDD3] rounded-full blur-3xl pointer-events-none" />
         
         {/* Realistic DSLR Lens Watermark matching Figma design exactly */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[460px] h-[460px] opacity-[0.14] pointer-events-none select-none">
-          <img src="/camera-lens.png" alt="" className="w-full h-full object-contain" />
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[520px] h-[360px] opacity-[0.16] pointer-events-none select-none">
+          <img src={IMAGES.cameraWatermark} alt="" className="w-full h-full object-contain" />
         </div>
 
         <div className="container-custom relative z-10">
@@ -529,13 +531,13 @@ export default function App() {
             <div className="relative flex justify-center items-center py-8">
               
               {/* Organic Blush Backdrop Oval */}
-              <div className="absolute w-[320px] sm:w-[380px] h-[380px] sm:h-[440px] rounded-[50px] bg-[#FDF2F4] border border-[#FADCE2] transform -rotate-6 pointer-events-none" />
+              <div className="absolute w-[320px] sm:w-[380px] h-[380px] sm:h-[440px] rounded-[50px] bg-[#FFF1F2] border border-[#FADCE2] transform -rotate-6 pointer-events-none" />
 
               {/* 3 Radiating Maroon Burst Rays */}
               <div className="absolute -top-2 left-8 sm:left-14 z-20 flex gap-1 items-end select-none pointer-events-none">
-                <span className="w-1.5 h-6 bg-[#832244] rounded-full transform -rotate-15"></span>
-                <span className="w-1.5 h-8 bg-[#832244] rounded-full"></span>
-                <span className="w-1.5 h-6 bg-[#832244] rounded-full transform rotate-15"></span>
+                <span className="w-1.5 h-6 bg-[#841937] rounded-full transform -rotate-15"></span>
+                <span className="w-1.5 h-8 bg-[#841937] rounded-full"></span>
+                <span className="w-1.5 h-6 bg-[#841937] rounded-full transform rotate-15"></span>
               </div>
 
               {/* Main Tilted Photo Card */}
@@ -561,7 +563,7 @@ export default function App() {
               {/* Elegant Curved Maroon Swoosh Underline */}
               <div className="absolute -bottom-6 right-6 z-20 pointer-events-none select-none">
                 <svg width="190" height="24" viewBox="0 0 190 24" fill="none">
-                  <path d="M6 18 C60 4, 130 4, 184 18" stroke="#832244" strokeWidth="4" strokeLinecap="round" />
+                  <path d="M6 18 C60 4, 130 4, 184 18" stroke="#841937" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </div>
             </div>
@@ -569,22 +571,22 @@ export default function App() {
             {/* Right Column: Text & CTA */}
             <div className="lg:pl-8">
               
-              <div className="inline-flex items-center gap-2.5 text-[#832244] font-semibold text-sm tracking-wider uppercase mb-4 w-full">
-                <div className="w-6 h-6 rounded-md border border-[#832244] flex items-center justify-center">
+              <div className="inline-flex items-center gap-2.5 text-[#841937] font-semibold text-sm tracking-wider uppercase mb-4 w-full">
+                <div className="w-6 h-6 rounded-md border border-[#841937] flex items-center justify-center">
                   <Camera size={14} />
                 </div>
                 <span>About Us</span>
-                <span className="flex-1 max-w-xs h-[1.5px] bg-gradient-to-r from-[#832244]/40 to-transparent ml-2"></span>
+                <span className="flex-1 max-w-xs h-[1.5px] bg-gradient-to-r from-[#841937]/40 to-transparent ml-2"></span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-tight mb-5">
                 Capturing Your<br />
-                <span className="font-script text-[#832244] text-5xl sm:text-6xl font-normal block mt-1.5">
+                <span className="font-script text-[#841937] text-5xl sm:text-6xl font-normal block mt-1.5">
                   Special Moments
                 </span>
               </h2>
 
-              <p className="text-[#595959] text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
+              <p className="text-[#737373] text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
                 “We believe every moment tells a story. With passion, creativity and a keen eye for detail, we turn your cherished moments into timeless memories.”
               </p>
 
@@ -618,10 +620,10 @@ export default function App() {
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
-              Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
+              Our <span className="font-script text-[#841937] text-4xl sm:text-5xl lg:text-6xl font-normal">Services</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
+            <p className="text-[#737373] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Capture every moment with our professional photography services
             </p>
             <div className="section-accent-line" />
@@ -643,24 +645,24 @@ export default function App() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-5 py-2 rounded-full bg-white/95 text-[#832244] text-xs font-semibold shadow-md backdrop-blur-sm">
+                    <span className="px-5 py-2 rounded-full bg-white/95 text-[#841937] text-xs font-semibold shadow-md backdrop-blur-sm">
                       Click to View Details
                     </span>
                   </div>
                 </div>
 
                 <div className="relative flex justify-center -mt-7 z-10">
-                  <div className="w-14 h-14 rounded-full bg-[#832244] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
+                  <div className="w-14 h-14 rounded-full bg-[#841937] flex items-center justify-center shadow-md border-4 border-white transition-transform group-hover:scale-110">
                     {service.icon}
                   </div>
                 </div>
 
                 <div className="p-8 pt-5 pb-8 text-center flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] text-center group-hover:text-[#832244] transition-colors leading-snug">
+                    <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] text-center group-hover:text-[#841937] transition-colors leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-[#6B7280] text-center mt-3.5 leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#737373] text-center mt-3.5 leading-relaxed">
                       {service.subtitle}
                     </p>
                   </div>
@@ -695,10 +697,10 @@ export default function App() {
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
-              Our <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
+              Our <span className="font-script text-[#841937] text-4xl sm:text-5xl lg:text-6xl font-normal">Gallery</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
+            <p className="text-[#737373] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Explore our beautiful moments captured with love
             </p>
             <div className="section-accent-line" />
@@ -725,7 +727,7 @@ export default function App() {
                   </span>
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold block mb-1">{IMAGES.gallery[0].category}</span>
+                  <span className="text-xs uppercase tracking-wider text-[#FBBF24] font-semibold block mb-1">{IMAGES.gallery[0].category}</span>
                   <h4 className="font-serif text-lg font-bold leading-snug">{IMAGES.gallery[0].title}</h4>
                 </div>
               </div>
@@ -750,7 +752,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[1].category}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FBBF24] font-semibold block mb-0.5">{IMAGES.gallery[1].category}</span>
                     <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[1].title}</h4>
                   </div>
                 </div>
@@ -773,7 +775,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[2].category}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FBBF24] font-semibold block mb-0.5">{IMAGES.gallery[2].category}</span>
                     <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[2].title}</h4>
                   </div>
                 </div>
@@ -798,7 +800,7 @@ export default function App() {
                   </span>
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#E5A83B] font-semibold block mb-1">{IMAGES.gallery[3].category}</span>
+                  <span className="text-xs uppercase tracking-wider text-[#FBBF24] font-semibold block mb-1">{IMAGES.gallery[3].category}</span>
                   <h4 className="font-serif text-lg font-bold leading-snug">{IMAGES.gallery[3].title}</h4>
                 </div>
               </div>
@@ -823,7 +825,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[4].category}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FBBF24] font-semibold block mb-0.5">{IMAGES.gallery[4].category}</span>
                     <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[4].title}</h4>
                   </div>
                 </div>
@@ -846,7 +848,7 @@ export default function App() {
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-[#E5A83B] font-semibold block mb-0.5">{IMAGES.gallery[5].category}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-[#FBBF24] font-semibold block mb-0.5">{IMAGES.gallery[5].category}</span>
                     <h4 className="font-serif text-sm font-bold leading-snug">{IMAGES.gallery[5].title}</h4>
                   </div>
                 </div>
@@ -875,10 +877,10 @@ export default function App() {
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
-              Why <span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
+              Why <span className="font-script text-[#841937] text-4xl sm:text-5xl lg:text-6xl font-normal">Choose Us</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
+            <p className="text-[#737373] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               Because your moments deserve the best
             </p>
             <div className="section-accent-line" />
@@ -893,7 +895,7 @@ export default function App() {
               >
                 <div className="w-full flex flex-col items-center">
                   {/* Large Circular Blush Badge */}
-                  <div className="w-18 h-18 rounded-full bg-[#FDF2F4] group-hover:bg-[#FCE8EC] border border-[#FADCE2] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-105 shadow-xs text-[#832244]">
+                  <div className="w-18 h-18 rounded-full bg-[#FFF1F2] group-hover:bg-[#FECDD3] border border-[#FADCE2] flex items-center justify-center mx-auto mb-6 transition-transform group-hover:scale-105 shadow-xs text-[#841937]">
                     {item.icon}
                   </div>
 
@@ -903,14 +905,14 @@ export default function App() {
                   </h3>
 
                   {/* Centered Descriptive Subtitle */}
-                  <p className="text-sm text-[#6B7280] text-center leading-relaxed max-w-[190px] mx-auto">
+                  <p className="text-sm text-[#737373] text-center leading-relaxed max-w-[190px] mx-auto">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Bottom Circular Maroon Button with Arrow & Subtle Divider */}
                 <div className="mt-7 pt-4 w-full flex flex-col items-center">
-                  <div className="w-12 h-[1px] bg-[#FCE8EC] mb-3.5"></div>
+                  <div className="w-12 h-[1px] bg-[#FECDD3] mb-3.5"></div>
                   <div className="btn-circle-arrow-why">
                     <ArrowRight size={14} />
                   </div>
@@ -927,18 +929,18 @@ export default function App() {
       {/* ========================================================= */}
       <section id="testimonials" className="section-luxury-spacing bg-[#FFF7F8] overflow-hidden">
         
-        <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FCE8EC] rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FDF2F4] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-10 w-72 h-72 bg-[#FECDD3] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#FFF1F2] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-custom relative z-10">
           
           {/* Centered Header with Accent Line */}
           <div className="section-header-block">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E]">
-              Testi<span className="font-script text-[#832244] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
+              Testi<span className="font-script text-[#841937] text-4xl sm:text-5xl lg:text-6xl font-normal">monials</span>
             </h2>
 
-            <p className="text-[#6B7280] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
+            <p className="text-[#737373] text-base sm:text-lg mt-5 text-center max-w-2xl leading-relaxed">
               What our clients say about us
             </p>
             <div className="section-accent-line" />
@@ -952,7 +954,7 @@ export default function App() {
                 className="luxury-testimonial-card hover-lift"
               >
                 <div>
-                  <div className="font-serif text-[#832244] text-6xl leading-none mb-4 select-none">
+                  <div className="font-serif text-[#841937] text-6xl leading-none mb-4 select-none">
                     “
                   </div>
 
@@ -961,18 +963,18 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="border-t border-[#FCE8EC] pt-5 flex items-center justify-between">
+                <div className="border-t border-[#FECDD3] pt-5 flex items-center justify-between">
                   <div>
-                    <h4 className="font-serif font-bold text-[#832244] text-lg">
+                    <h4 className="font-serif font-bold text-[#841937] text-lg">
                       {t.name}
                     </h4>
-                    <div className="flex text-[#E5A83B] text-xs mt-1.5 gap-0.5">
+                    <div className="flex text-[#FBBF24] text-xs mt-1.5 gap-0.5">
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} size={15} className="fill-[#E5A83B]" />
+                        <Star key={i} size={15} className="fill-[#FBBF24]" />
                       ))}
                     </div>
                   </div>
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#832244]/20 shadow-sm">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-[#841937]/20 shadow-sm">
                     <img 
                       src={t.avatar} 
                       onError={onImgFallback}
@@ -1023,7 +1025,7 @@ export default function App() {
       {/* ========================================================= */}
       <section 
         id="contact" 
-        className="section-luxury-spacing bg-gradient-to-r from-[#FCE4EC] via-[#FFF3F6] to-[#FCEBED]"
+        className="section-luxury-spacing bg-gradient-to-r from-[#FECDD3] via-[#FFF3F6] to-[#FFF1F2]"
       >
         <div className="container-custom relative z-10 px-4 md:px-8">
           
@@ -1044,19 +1046,19 @@ export default function App() {
             <div className="lg:col-span-6 xl:col-span-4 flex flex-col justify-start pt-6 sm:pt-8">
               
               {/* Kicker */}
-              <div className="inline-flex items-center gap-2 text-[#832244] text-xs font-bold tracking-[0.2em] uppercase mb-3.5">
-                <span className="w-6 h-[2px] bg-[#832244]"></span>
+              <div className="inline-flex items-center gap-2 text-[#841937] text-xs font-bold tracking-[0.2em] uppercase mb-3.5">
+                <span className="w-6 h-[2px] bg-[#841937]"></span>
                 HAVE A PROJECT IN MIND?
               </div>
 
               {/* Heading */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1E1E] leading-[1.18] mb-4">
                 Book Your<br />
-                <span className="text-[#832244]">Photography Session</span>
+                <span className="text-[#841937]">Photography Session</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#595959] text-sm sm:text-base leading-relaxed mb-7 max-w-sm">
+              <p className="text-[#737373] text-sm sm:text-base leading-relaxed mb-7 max-w-sm">
                 Tell us about your event and get a custom quote. We'd love to be a part of your special moments!
               </p>
 
@@ -1068,7 +1070,7 @@ export default function App() {
                   href="tel:+911234567890" 
                   className="luxury-contact-pill"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#841937] flex items-center justify-center text-white shrink-0 shadow-sm">
                     <Phone size={19} />
                   </div>
                   <div>
@@ -1082,7 +1084,7 @@ export default function App() {
                   href="mailto:hello@akashphotography.com" 
                   className="luxury-contact-pill"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#841937] flex items-center justify-center text-white shrink-0 shadow-sm">
                     <Mail size={19} />
                   </div>
                   <div>
@@ -1093,7 +1095,7 @@ export default function App() {
 
                 {/* Visit Us */}
                 <div className="luxury-contact-pill">
-                  <div className="w-12 h-12 rounded-2xl bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#841937] flex items-center justify-center text-white shrink-0 shadow-sm">
                     <MapPin size={19} />
                   </div>
                   <div>
@@ -1113,24 +1115,24 @@ export default function App() {
               <div className="luxury-form-card">
                 
                 {/* Centered Floating Pill Badge */}
-                <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 px-7 py-2.5 rounded-full bg-[#832244] text-white text-xs font-semibold shadow-lg inline-flex items-center gap-2 whitespace-nowrap z-20 tracking-wide border border-white/20">
+                <div className="absolute -top-4.5 left-1/2 -translate-x-1/2 px-7 py-2.5 rounded-full bg-[#841937] text-white text-xs font-semibold shadow-lg inline-flex items-center gap-2 whitespace-nowrap z-20 tracking-wide border border-white/20">
                   <Camera size={14} /> Photography Inquiry Form
                 </div>
 
                 {formSubmitted ? (
                   <div className="py-10 text-center animate-fade-in">
-                    <div className="w-16 h-16 rounded-full bg-[#832244]/10 text-[#832244] flex items-center justify-center mx-auto mb-4 shadow-xs">
+                    <div className="w-16 h-16 rounded-full bg-[#841937]/10 text-[#841937] flex items-center justify-center mx-auto mb-4 shadow-xs">
                       <CheckCircle size={36} />
                     </div>
                     <h3 className="font-serif text-2xl font-bold text-[#1E1E1E] mb-2.5">
                       Inquiry Sent Successfully!
                     </h3>
                     {(inquiryResult?.reference_id || inquiryResult?.inquiry_id) && (
-                      <div className="inline-block px-4 py-1.5 bg-[#FDF2F4] text-[#832244] text-xs font-bold rounded-full mb-3 border border-[#FCE8EC]">
+                      <div className="inline-block px-4 py-1.5 bg-[#FFF1F2] text-[#841937] text-xs font-bold rounded-full mb-3 border border-[#FECDD3]">
                         Reference ID: #{inquiryResult.reference_id || `AKP-${inquiryResult.inquiry_id}`}
                       </div>
                     )}
-                    <p className="text-sm text-[#6B7280] max-w-sm mx-auto mb-6 leading-relaxed">
+                    <p className="text-sm text-[#737373] max-w-sm mx-auto mb-6 leading-relaxed">
                       Thank you for contacting Akash Photography! Our team will review your event details and reach out within 24 hours.
                     </p>
                     <button
@@ -1159,7 +1161,7 @@ export default function App() {
                     {/* Row 1: Name & Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <User size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <input
                           type="text"
                           required
@@ -1172,7 +1174,7 @@ export default function App() {
                       </div>
 
                       <div className="relative">
-                        <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <input
                           type="email"
                           required
@@ -1188,7 +1190,7 @@ export default function App() {
                     {/* Row 2: Phone & WhatsApp */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Phone size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <input
                           type="tel"
                           required
@@ -1201,7 +1203,7 @@ export default function App() {
                       </div>
 
                       <div className="relative">
-                        <MessageSquare size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <MessageSquare size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <input
                           type="tel"
                           name="whatsapp"
@@ -1216,7 +1218,7 @@ export default function App() {
                     {/* Row 3: Event Date & Event Type */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       <div className="relative">
-                        <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Calendar size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <input
                           type="text"
                           onFocus={(e) => (e.target.type = "date")}
@@ -1231,7 +1233,7 @@ export default function App() {
                       </div>
 
                       <div className="relative">
-                        <Users size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                        <Users size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                         <select
                           name="eventType"
                           value={formData.eventType}
@@ -1257,7 +1259,7 @@ export default function App() {
 
                     {/* Row 4: Event Location */}
                     <div className="relative">
-                      <MapPin size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#832244] pointer-events-none" />
+                      <MapPin size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#841937] pointer-events-none" />
                       <input
                         type="text"
                         required
@@ -1271,7 +1273,7 @@ export default function App() {
 
                     {/* Row 5: Special Requirements Textarea */}
                     <div className="relative">
-                      <Edit3 size={15} className="absolute left-4 top-4 text-[#832244] pointer-events-none" />
+                      <Edit3 size={15} className="absolute left-4 top-4 text-[#841937] pointer-events-none" />
                       <textarea
                         rows={3}
                         required
@@ -1331,16 +1333,16 @@ export default function App() {
             {/* Column 1: Monogram & Brand Bio */}
             <div>
               <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <path d="M50 18 L68 76 L57 76 L53 62 L41 62 L37 76 L26 76 Z M47 34 L43 53 L51 53 Z" fill="#832244"/>
-                    <path d="M42 45 C48 40 56 46 64 42 C67 40 70 36 71 34" stroke="#D49A38" strokeWidth="4" strokeLinecap="round" fill="none"/>
-                    <circle cx="72" cy="33" r="3.5" fill="#D49A38" />
-                  </svg>
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center p-1 border border-white/20">
+                  <img 
+                    src={IMAGES.logo} 
+                    alt="Akash Photography" 
+                    className="w-full h-full object-contain" 
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="font-serif text-white font-bold text-xl leading-none tracking-wider">AKASH</span>
-                  <span className="text-white text-[10px] tracking-[0.28em] font-medium opacity-90 mt-0.5">PHOTOGRAPHY</span>
+                  <span className="text-[#FECDD3] text-[10px] tracking-[0.28em] font-medium opacity-90 mt-0.5">PHOTOGRAPHY</span>
                 </div>
               </div>
 
@@ -1470,7 +1472,7 @@ export default function App() {
             </div>
             <div className="p-4 sm:p-5 bg-[#18181B] border-t border-white/10 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <span className="text-xs text-[#E5A83B] uppercase tracking-wider font-semibold block mb-0.5">{selectedImage.category}</span>
+                <span className="text-xs text-[#FBBF24] uppercase tracking-wider font-semibold block mb-0.5">{selectedImage.category}</span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold">{selectedImage.title}</h3>
               </div>
               <button
@@ -1494,7 +1496,7 @@ export default function App() {
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-lg w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#FCE8EC]"
+            className="relative max-w-lg w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#FECDD3]"
           >
             <button
               onClick={() => setSelectedService(null)}
@@ -1513,18 +1515,18 @@ export default function App() {
             </div>
             <div className="p-6 sm:p-8">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-11 h-11 rounded-full bg-[#832244] flex items-center justify-center text-white shrink-0 shadow-md">
+                <div className="w-11 h-11 rounded-full bg-[#841937] flex items-center justify-center text-white shrink-0 shadow-md">
                   {selectedService.icon}
                 </div>
                 <div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1E1E1E]">{selectedService.title}</h3>
-                  <p className="text-xs text-[#832244] font-semibold tracking-wide uppercase">{selectedService.subtitle}</p>
+                  <p className="text-xs text-[#841937] font-semibold tracking-wide uppercase">{selectedService.subtitle}</p>
                 </div>
               </div>
-              <p className="text-sm sm:text-base text-[#595959] mt-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-[#737373] mt-4 leading-relaxed">
                 {selectedService.desc}
               </p>
-              <div className="mt-7 pt-4 border-t border-[#FCE8EC] flex justify-end gap-3 items-center">
+              <div className="mt-7 pt-4 border-t border-[#FECDD3] flex justify-end gap-3 items-center">
                 <button
                   onClick={() => setSelectedService(null)}
                   className="px-5 py-2 rounded-full border border-gray-300 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
